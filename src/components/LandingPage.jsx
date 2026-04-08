@@ -138,12 +138,25 @@ export default function LandingPage({ onLoadTrace, onBrowse }) {
 
           {/* Capture instructions */}
           <div style={{ background: "rgba(0,20,5,0.7)", border: "1px solid rgba(0,255,65,0.12)", borderRadius: 6,
-            padding: "10px 14px", textAlign: "left", fontSize: 11, lineHeight: 1.8 }}>
-            <div style={{ color: "#bbf7d0", fontFamily: "monospace", fontSize: 11, fontWeight: 700, marginBottom: 2 }}>Capture with:</div>
-            <code style={{ color: "#4ade80", fontFamily: "monospace", fontSize: 10.5 }}>
-              log stream --process usbsmartcardreaderd \<br />
-              &nbsp;&nbsp;--predicate 'eventMessage contains "APDU"'
-            </code>
+            padding: "10px 14px", textAlign: "left", fontSize: 11 }}>
+            <div style={{ color: "#bbf7d0", fontFamily: "monospace", fontSize: 11, fontWeight: 700, marginBottom: 6 }}>Capture APDU traces on macOS:</div>
+            {[
+              { label: "1. Enable APDU logging", cmd: "sudo defaults write /Library/Preferences/com.apple.security.smartcard Logging -bool true" },
+              { label: "2. Export recent traces", cmd: "log show --predicate 'eventMessage CONTAINS[c] \"APDU\"' --last 5m > trace.txt" },
+              { label: "3. Disable when done", cmd: "sudo defaults delete /Library/Preferences/com.apple.security.smartcard Logging" },
+            ].map((step, i) => (
+              <div key={i} style={{ marginBottom: i < 2 ? 6 : 0 }}>
+                <div style={{ fontSize: 9, color: "#3a7a48", marginBottom: 2, fontFamily: "monospace" }}>{step.label}</div>
+                <div style={{ display: "flex", borderRadius: 4, border: "1px solid rgba(0,255,65,0.1)", overflow: "hidden" }}>
+                  <pre style={{ flex: 1, margin: 0, padding: "5px 8px", fontSize: 10, color: "#4ade80", fontFamily: "'SF Mono',Menlo,Monaco,monospace",
+                    background: "rgba(0,0,0,0.4)", whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.5 }}>{step.cmd}</pre>
+                  <button onClick={(e) => { navigator.clipboard?.writeText(step.cmd); const b = e.currentTarget; b.textContent = "✓"; setTimeout(() => b.textContent = "⎘", 1500); }}
+                    style={{ padding: "0 10px", background: "rgba(0,20,5,0.8)", border: "none", borderLeft: "1px solid rgba(0,255,65,0.1)",
+                      color: "#3a7a48", cursor: "pointer", fontSize: 13, flexShrink: 0 }}
+                    title="Copy to clipboard">⎘</button>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div style={{ marginTop: 12 }}>
