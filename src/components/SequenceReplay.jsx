@@ -35,7 +35,7 @@ const styles = {
   }),
 };
 
-function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCache }) {
+function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCache, selectedExchange }) {
   const [idx, setIdx]         = useState(0);
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed]     = useState(1);
@@ -44,6 +44,7 @@ function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCach
   const [hasStarted, setHasStarted] = useState(false);
   const [waitingForAI, setWaitingForAI] = useState(false);
   const timerRef = useRef(null);
+  const internalNav = useRef(false); // tracks whether navigation originated from this component
 
   const CMD_MS = Math.round(650 / speed);
   const RSP_MS = Math.round(500 / speed);
@@ -107,7 +108,21 @@ function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCach
     return () => clearTimeout(timerRef.current);
   }, [playing, idx, ANIM_MS, exchanges.length]);
 
-  useEffect(() => { if (hasStarted) onSelect?.(exchanges[idx] ?? null); }, [idx, hasStarted]);
+  useEffect(() => { if (hasStarted) { internalNav.current = true; onSelect?.(exchanges[idx] ?? null); } }, [idx, hasStarted]);
+
+  // Sync idx when exchange is selected externally (e.g. clicking the list)
+  useEffect(() => {
+    if (internalNav.current) { internalNav.current = false; return; }
+    if (!selectedExchange) return;
+    const newIdx = exchanges.findIndex(e => e.id === selectedExchange.id);
+    if (newIdx >= 0 && newIdx !== idx) {
+      clearTimeout(timerRef.current);
+      setIdx(newIdx);
+      setAnimKey(k => k + 1);
+      setHasStarted(true);
+      // If playing, playback effect will re-fire from new idx automatically
+    }
+  }, [selectedExchange]);
 
   const goTo = useCallback((i) => {
     clearTimeout(timerRef.current);

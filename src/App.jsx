@@ -471,7 +471,7 @@ export default function APDUViewer() {
             <SequenceReplay
               key={cacheKey ?? "empty"}
               exchanges={exchanges} sessions={sessions} sessionAnalysis={aiSessions}
-              onSelect={handleSelect} aiCache={aiCache} />
+              onSelect={handleSelect} aiCache={aiCache} selectedExchange={selected} />
 
             <FilterBar filters={filters} onFilters={setFilters} />
 
