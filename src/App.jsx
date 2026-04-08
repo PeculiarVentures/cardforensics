@@ -12,6 +12,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { storage, isSandbox } from "./storage.js";
 import { getApiConfig } from "./components/ApiConfig.jsx";
+import LandingPage from "./components/LandingPage.jsx";
 import { traceHash, parseEntries, buildExchanges, decodeCmd, decodeRsp, h, hexStr, INS_MAP, extractATR } from "./decode.js";
 import { groupSessions, buildProtocolStates } from "./protocol.js";
 import {
@@ -351,50 +352,7 @@ export default function APDUViewer() {
 
       {/* Empty state */}
       {!trace ? (
-        <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:20, padding:"40px 20px", textAlign:"center" }}>
-          <div style={{ fontSize:48, opacity:0.15 }}>📡</div>
-          <div style={{ fontSize:18, color:C.text, fontWeight:700, fontFamily:"monospace" }}>Drop a CryptoTokenKit log file to analyze</div>
-          <div style={{ fontSize:12, color:C.dim, lineHeight:1.6, maxWidth:440 }}>
-            Enable APDU logging on macOS, perform your smart card operation, then export the log.
-          </div>
-          <div style={{ width:"100%", maxWidth:620, textAlign:"left", display:"flex", flexDirection:"column", gap:10 }}>
-            {[
-              { label: "1. Enable APDU logging", cmd: "sudo defaults write /Library/Preferences/com.apple.security.smartcard Logging -bool true" },
-              { label: "2. Export recent traces to file", cmd: "log show --predicate 'eventMessage CONTAINS[c] \"APDU\"' --last 5m > trace.txt" },
-              { label: "3. Disable logging when done", cmd: "sudo defaults delete /Library/Preferences/com.apple.security.smartcard Logging" },
-            ].map((step, i) => (
-              <div key={i}>
-                <div style={{ fontSize:10, color:C.muted, marginBottom:3, fontFamily:"monospace", paddingLeft:2 }}>{step.label}</div>
-                <div style={{ display:"flex", background:"#0d1117", borderRadius:5, border:`1px solid ${C.border}` }}>
-                  <pre style={{ flex:1, margin:0, padding:"8px 12px", fontSize:11, color:C.teal, fontFamily:"'SF Mono',Menlo,Monaco,monospace", overflowX:"hidden", whiteSpace:"pre-wrap", wordBreak:"break-word", lineHeight:1.5 }}>{step.cmd}</pre>
-                  <button onClick={(e) => { navigator.clipboard?.writeText(step.cmd); const b=e.currentTarget; b.textContent="✓"; setTimeout(()=>b.textContent="⎘",1500); }}
-                    style={{ padding:"0 12px", background:C.surface, border:"none", borderLeft:`1px solid ${C.border}`, color:C.muted, cursor:"pointer", fontSize:14, flexShrink:0, borderRadius:"0 4px 4px 0" }}
-                    title="Copy to clipboard">⎘</button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <ApiConfig />
-          <button onClick={() => fileInputRef.current?.click()} style={{ ...BTN, fontSize:13, padding:"10px 24px", color:C.teal, border:`1px solid ${C.teal}66`, marginTop:8 }}>Browse for log file</button>
-          <div style={{ marginTop:16, fontSize:12, color:C.dim }}>— or try an example trace —</div>
-          <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", marginTop:4 }}>
-            {[
-              { file: "yubico_piv.log", label: "YubiKey PIV", desc: "5 sessions, provisioning + verification" },
-              { file: "safenet_etoken.log", label: "SafeNet eToken 5110", desc: "PIV enumeration, vendor commands" },
-              { file: "safenet_fusion.log", label: "SafeNet Fusion NFC", desc: "Card initialization, GP key sets" },
-            ].map(ex => (
-              <button key={ex.file} onClick={() => {
-                fetch(`./traces/${ex.file}`).then(r => r.text()).then(text => {
-                  if (text.includes("APDU")) setTrace({ name: ex.file, log: text });
-                  else alert("Could not load example trace.");
-                }).catch(() => alert("Examples are available on the hosted version at peculiarventures.github.io/cardforensics"));
-              }} style={{ ...BTN, padding:"8px 16px", fontSize:11, color:C.purple, border:`1px solid ${C.purple}44`, textAlign:"left", minWidth:180 }}>
-                <div style={{ fontWeight:700, marginBottom:2 }}>{ex.label}</div>
-                <div style={{ fontSize:10, color:C.dim, fontWeight:400 }}>{ex.desc}</div>
-              </button>
-            ))}
-          </div>
-        </div>
+        <LandingPage onLoadTrace={setTrace} onBrowse={() => fileInputRef.current?.click()} />
 
       ) : !viewResults && !batchComplete ? (
         /* Analysis loading screen */
