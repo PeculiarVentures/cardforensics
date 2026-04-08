@@ -376,6 +376,24 @@ export default function APDUViewer() {
           </div>
           <ApiConfig />
           <button onClick={() => fileInputRef.current?.click()} style={{ ...BTN, fontSize:13, padding:"10px 24px", color:C.teal, border:`1px solid ${C.teal}66`, marginTop:8 }}>Browse for log file</button>
+          <div style={{ marginTop:16, fontSize:12, color:C.dim }}>— or try an example trace —</div>
+          <div style={{ display:"flex", gap:10, flexWrap:"wrap", justifyContent:"center", marginTop:4 }}>
+            {[
+              { file: "yubico_piv.log", label: "YubiKey PIV", desc: "5 sessions, provisioning + verification" },
+              { file: "safenet_etoken.log", label: "SafeNet eToken 5110", desc: "PIV enumeration, vendor commands" },
+              { file: "safenet_fusion.log", label: "SafeNet Fusion NFC", desc: "Card initialization, GP key sets" },
+            ].map(ex => (
+              <button key={ex.file} onClick={() => {
+                fetch(`./traces/${ex.file}`).then(r => r.text()).then(text => {
+                  if (text.includes("APDU")) setTrace({ name: ex.file, log: text });
+                  else alert("Could not load example trace.");
+                }).catch(() => alert("Examples are available on the hosted version at peculiarventures.github.io/cardforensics"));
+              }} style={{ ...BTN, padding:"8px 16px", fontSize:11, color:C.purple, border:`1px solid ${C.purple}44`, textAlign:"left", minWidth:180 }}>
+                <div style={{ fontWeight:700, marginBottom:2 }}>{ex.label}</div>
+                <div style={{ fontSize:10, color:C.dim, fontWeight:400 }}>{ex.desc}</div>
+              </button>
+            ))}
+          </div>
         </div>
 
       ) : !viewResults && !batchComplete ? (

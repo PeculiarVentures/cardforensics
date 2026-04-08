@@ -1,0 +1,689 @@
+Timestamp                       Thread     Type        Activity             PID    TTL  
+2026-04-08 20:30:20.321202+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 07 62 76 01 ff 00 00 00
+2026-04-08 20:30:20.321755+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.322275+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 06 a0 00 00 00 01 01
+2026-04-08 20:30:20.322800+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.323005+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 0b e8 2b 06 01 04 01 81 c3 1f 02 01 00
+2026-04-08 20:30:20.323501+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.323678+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 ca df 30 05
+2026-04-08 20:30:20.323922+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6d 00
+2026-04-08 20:30:20.324156+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 03 5c 01 7e 00
+2026-04-08 20:30:20.324510+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6d 00
+2026-04-08 20:30:20.324657+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 09 a0 00 00 03 08 00 00 10 00 00
+2026-04-08 20:30:20.325976+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:30:20.326107+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 fd 00 00 03
+2026-04-08 20:30:20.326543+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 05 04 03 90 00
+2026-04-08 20:30:20.326642+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 03 5c 01 7e 00
+2026-04-08 20:30:20.327199+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7e 12 4f 0b a0 00 00 03 08 00 00 10 00 01 00 5f 2f 02 40 00 90 00
+2026-04-08 20:30:20.327391+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 0c 00
+2026-04-08 20:30:20.327927+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.328212+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 03 5c 01 7e 00
+2026-04-08 20:30:20.328716+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7e 12 4f 0b a0 00 00 03 08 00 00 10 00 01 00 5f 2f 02 40 00 90 00
+2026-04-08 20:30:20.329468+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 02 00
+2026-04-08 20:30:20.330144+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 3b 30 19 78 ee 9e fc 44 a9 38 99 8d 60 ea 5e 5c d3 76 ab 66 e3 3b 05 50 61 65 d2 e2 34 10 1b b6 a0 8c 01 f4 fe c4 4b 50 49 3e 56 4f 92 1c 35 08 32 30 33 30 30 31 30 31 3e 00 fe 00 90 00
+2026-04-08 20:30:20.330715+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 05 00
+2026-04-08 20:30:20.332181+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 82 01 2a 70 82 01 21 30 82 01 1d 30 81 c4 a0 03 02 01 02 02 14 04 85 ca 71 0a 03 54 e6 85 9a 20 f9 ec 70 ee 91 92 5e 5e 4e 30 0a 06 08 2a 86 48 ce 3d 04 03 02 30 0f 31 0d 30 0b 06 03 55 04 03 0c 04 54 65 73 74 30 1e 17 0d 32 36 30 34 30 33 30 30 30 30 30 30 5a 17 0d 32 37 30 34 30 33 30 30 30 30 30 30 5a 30 0f 31 0d 30 0b 06 03 55 04 03 0c 04 54 65 73 74 30 59 30 13 06 07 2a 86 48 ce 3d 02 01 06 08 2a 86 48 ce 3d 03 01 07 03 42 00 04 66 d4 73 2e f0 d4 25 c9 b9 3f c9 86 d7 d5 25 88 a7 3c 78 0e 8d 3a 5f 22 ba b8 87 1d 6b 91 3b fe d7 7f 25 b0 75 fb 6a 1d f9 5f a0 3c 21 fe 1f 5b 83 8d 98 d0 0c 6a a2 f0 e4 ec ce 25 fd 64 0b b2 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 48 00 30 45 02 21 00 80 81 30 6f ea 85 b4 f4 e8 54 cf c1 32 08 07 03 37 5a 8a 21 42 fd 45 be 82 61 2e
+2026-04-08 20:30:20.332353+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 c0 00 00 2e
+2026-04-08 20:30:20.332700+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 02 64 1c b1 fc c2 20 02 20 17 c2 c2 c7 9f 73 bc b8 78 4c f4 97 88 aa 1a 1b 4f 83 36 d0 f6 87 20 d5 a8 2d fb 1b 37 47 b8 d4 71 01 00 fe 00 90 00
+2026-04-08 20:30:20.333552+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 0a 00
+2026-04-08 20:30:20.334054+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.334180+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 0b 00
+2026-04-08 20:30:20.334682+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.334832+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 01 00
+2026-04-08 20:30:20.335413+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.335556+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 05 5c 03 5f c1 22 00
+2026-04-08 20:30:20.336017+0200 0x15a7a3b  Default     0x865053             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.342940+0200 0x15a7a3b  Default     0x863ff5             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 0b a0 00 00 03 08 00 00 10 00 01 00
+2026-04-08 20:30:20.343991+0200 0x15a7a3b  Default     0x863ff5             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:30:20.382984+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 0b a0 00 00 03 08 00 00 10 00 01 00
+2026-04-08 20:30:20.384091+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:30:20.384274+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02 00 00
+2026-04-08 20:30:20.385095+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 3b 30 19 78 ee 9e fc 44 a9 38 99 8d 60 ea 5e 5c d3 76 ab 66 e3 3b 05 50 61 65 d2 e2 34 10 1b b6 a0 8c 01 f4 fe c4 4b 50 49 3e 56 4f 92 1c 35 08 32 30 33 30 30 31 30 31 3e 00 fe 00 90 00
+2026-04-08 20:30:20.385342+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0c 00 00
+2026-04-08 20:30:20.385878+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.386680+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05 00 00
+2026-04-08 20:30:20.388151+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 82 01 2a 70 82 01 21 30 82 01 1d 30 81 c4 a0 03 02 01 02 02 14 04 85 ca 71 0a 03 54 e6 85 9a 20 f9 ec 70 ee 91 92 5e 5e 4e 30 0a 06 08 2a 86 48 ce 3d 04 03 02 30 0f 31 0d 30 0b 06 03 55 04 03 0c 04 54 65 73 74 30 1e 17 0d 32 36 30 34 30 33 30 30 30 30 30 30 5a 17 0d 32 37 30 34 30 33 30 30 30 30 30 30 5a 30 0f 31 0d 30 0b 06 03 55 04 03 0c 04 54 65 73 74 30 59 30 13 06 07 2a 86 48 ce 3d 02 01 06 08 2a 86 48 ce 3d 03 01 07 03 42 00 04 66 d4 73 2e f0 d4 25 c9 b9 3f c9 86 d7 d5 25 88 a7 3c 78 0e 8d 3a 5f 22 ba b8 87 1d 6b 91 3b fe d7 7f 25 b0 75 fb 6a 1d f9 5f a0 3c 21 fe 1f 5b 83 8d 98 d0 0c 6a a2 f0 e4 ec ce 25 fd 64 0b b2 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 48 00 30 45 02 21 00 80 81 30 6f ea 85 b4 f4 e8 54 cf c1 32 08 07 03 37 5a 8a 21 42 fd 45 be 82 02 64 1c b1 fc c2 20 02 20 17 c2 c2 c7 9f 73 bc b8 78 4c f4 97 88 aa 1a 1b 4f 83 36 d0 f6 87 20 d5 a8 2d fb 1b 37 47 b8 d4 71 01 00 fe 00 90 00
+2026-04-08 20:30:20.388505+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01 00 00
+2026-04-08 20:30:20.389035+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.389212+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a 00 00
+2026-04-08 20:30:20.389725+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:20.389898+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b 00 00
+2026-04-08 20:30:20.390403+0200 0x15a7a3b  Default     0x8650b3             21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:25.332436+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 08 a0 00 00 05 27 47 11 17
+2026-04-08 20:30:25.333006+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 56 69 72 74 75 61 6c 20 6d 67 72 20 2d 20 46 57 20 76 65 72 73 69 6f 6e 20 35 2e 34 2e 33 90 00
+2026-04-08 20:30:25.344080+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 1d 00 00
+2026-04-08 20:30:25.344788+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 2e 01 02 03 3f 03 02 03 3f 02 04 01 98 24 66 04 01 03 05 03 05 04 03 06 02 00 00 07 01 0f 08 01 00 0d 02 03 3f 0e 02 03 3f 0a 01 00 0f 01 00 90 00
+2026-04-08 20:30:25.437649+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 08 a0 00 00 05 27 47 11 17
+2026-04-08 20:30:25.438319+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 56 69 72 74 75 61 6c 20 6d 67 72 20 2d 20 46 57 20 76 65 72 73 69 6f 6e 20 35 2e 34 2e 33 90 00
+2026-04-08 20:30:25.442715+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 1d 00 00
+2026-04-08 20:30:25.443541+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 2e 01 02 03 3f 03 02 03 3f 02 04 01 98 24 66 04 01 03 05 03 05 04 03 06 02 00 00 07 01 0f 08 01 00 0d 02 03 3f 0e 02 03 3f 0a 01 00 0f 01 00 90 00
+2026-04-08 20:30:25.819755+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 07 a0 00 00 05 27 21 01
+2026-04-08 20:30:25.821036+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 79 03 05 04 03 71 08 bd c2 7d 26 92 fd f1 28 90 00
+2026-04-08 20:30:25.913891+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 00 01 00 00 0a 74 08 00 00 00 00 03 87 27 6c
+2026-04-08 20:30:25.915558+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 71 11 54 65 73 74 53 65 72 76 69 63 65 3a 55 73 65 72 31 76 05 06 00 06 c4 27 90 00
+2026-04-08 20:30:25.918861+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 00 01 00 00 0a 74 08 00 00 00 00 03 87 27 6c
+2026-04-08 20:30:25.920575+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 71 11 54 65 73 74 53 65 72 76 69 63 65 3a 55 73 65 72 31 76 05 06 00 06 c4 27 90 00
+2026-04-08 20:30:29.989667+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 00 01 00 00 0a 74 08 00 00 00 00 03 87 27 6d
+2026-04-08 20:30:29.991488+0200 0x15a4ec7  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 71 11 54 65 73 74 53 65 72 76 69 63 65 3a 55 73 65 72 31 76 05 06 00 09 02 4e 90 00
+2026-04-08 20:30:33.932498+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 05 a0 00 00 03 08
+2026-04-08 20:30:33.933811+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:30:33.934822+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 fd 00 00 00
+2026-04-08 20:30:33.935335+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 05 04 03 90 00
+2026-04-08 20:30:33.935744+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:33.936285+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:33.940428+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f ff 00
+2026-04-08 20:30:33.940960+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:33.947280+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:30:33.947821+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:33.948278+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:30:33.948881+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:33.949267+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:33.949790+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:33.952379+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:30:33.952895+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:33.954748+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02
+2026-04-08 20:30:33.955597+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 3b 30 19 78 ee 9e fc 44 a9 38 99 8d 60 ea 5e 5c d3 76 ab 66 e3 3b 05 50 61 65 d2 e2 34 10 1b b6 a0 8c 01 f4 fe c4 4b 50 49 3e 56 4f 92 1c 35 08 32 30 33 30 30 31 30 31 3e 00 fe 00 90 00
+2026-04-08 20:30:33.955985+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 07
+2026-04-08 20:30:33.956525+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:33.960542+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:30:33.960970+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:33.961914+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:30:33.962445+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:33.962849+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 20 00 80 00 00 08 ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.967939+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 63 c2
+2026-04-08 20:30:33.968950+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 20 00 80 00 00 08 ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.974090+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 63 c1
+2026-04-08 20:30:33.974720+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 20 00 80 00 00 08 ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.980032+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 69 83
+2026-04-08 20:30:33.980825+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:30:33.981456+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:33.982146+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 2c 00 80 00 00 10 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.987381+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 63 c2
+2026-04-08 20:30:33.988233+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 2c 00 80 00 00 10 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.993393+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 63 c1
+2026-04-08 20:30:33.994154+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 2c 00 80 00 00 10 ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+2026-04-08 20:30:33.999296+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 69 83
+2026-04-08 20:30:34.000532+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 fb 00 00
+2026-04-08 20:30:34.608125+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 90 00
+2026-04-08 20:30:34.609272+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:34.609945+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:34.618058+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f ff 00
+2026-04-08 20:30:34.618738+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:34.619828+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 08 a0 00 00 05 27 47 11 17
+2026-04-08 20:30:34.620546+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 56 69 72 74 75 61 6c 20 6d 67 72 20 2d 20 46 57 20 76 65 72 73 69 6f 6e 20 35 2e 34 2e 33 90 00
+2026-04-08 20:30:34.621110+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 1d 00 00
+2026-04-08 20:30:34.621744+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 2e 01 02 03 3f 03 02 03 3f 02 04 01 98 24 66 04 01 03 05 03 05 04 03 06 02 00 00 07 01 0f 08 01 00 0d 02 03 3f 0e 02 03 3f 0a 01 00 0f 01 00 90 00
+2026-04-08 20:30:39.693703+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 05 a0 00 00 03 08
+2026-04-08 20:30:39.695258+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:30:39.695765+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 fd 00 00 00
+2026-04-08 20:30:39.696319+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 05 04 03 90 00
+2026-04-08 20:30:39.696788+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:39.697435+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:39.697883+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f ff 00
+2026-04-08 20:30:39.698419+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.698960+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:30:39.699533+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:39.699934+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:30:39.700525+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:39.700866+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:39.701430+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:39.701781+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:30:39.702263+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.702583+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02
+2026-04-08 20:30:39.703161+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.703581+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 07
+2026-04-08 20:30:39.704120+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.769249+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 82
+2026-04-08 20:30:39.769783+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.770908+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0d
+2026-04-08 20:30:39.771467+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.771888+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 83
+2026-04-08 20:30:39.772429+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.772868+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0e
+2026-04-08 20:30:39.773450+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.773794+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 84
+2026-04-08 20:30:39.774252+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.774600+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0f
+2026-04-08 20:30:39.775173+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.775474+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 85
+2026-04-08 20:30:39.775977+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.776333+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 10
+2026-04-08 20:30:39.776856+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.777146+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 86
+2026-04-08 20:30:39.777538+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.777841+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 11
+2026-04-08 20:30:39.778422+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.778667+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 87
+2026-04-08 20:30:39.779243+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.779489+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 12
+2026-04-08 20:30:39.780074+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.780293+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 88
+2026-04-08 20:30:39.780819+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.781059+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 13
+2026-04-08 20:30:39.781549+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.782242+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 89
+2026-04-08 20:30:39.782692+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.782953+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 14
+2026-04-08 20:30:39.783430+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.783647+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8a
+2026-04-08 20:30:39.784142+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.784435+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 15
+2026-04-08 20:30:39.784856+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.785119+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8b
+2026-04-08 20:30:39.785612+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.785884+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 16
+2026-04-08 20:30:39.786420+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.786650+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8c
+2026-04-08 20:30:39.787159+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.787393+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 17
+2026-04-08 20:30:39.787952+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.788153+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8d
+2026-04-08 20:30:39.788592+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.788800+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 18
+2026-04-08 20:30:39.789278+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.789505+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8e
+2026-04-08 20:30:39.789971+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.790276+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 19
+2026-04-08 20:30:39.790838+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.791105+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8f
+2026-04-08 20:30:39.791630+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.791898+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1a
+2026-04-08 20:30:39.792455+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.792749+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 90
+2026-04-08 20:30:39.793240+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.793499+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1b
+2026-04-08 20:30:39.794010+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.794230+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 91
+2026-04-08 20:30:39.794674+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.794911+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1c
+2026-04-08 20:30:39.795509+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.795713+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 92
+2026-04-08 20:30:39.796160+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.796419+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1d
+2026-04-08 20:30:39.796885+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.797113+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 93
+2026-04-08 20:30:39.797580+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.797793+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1e
+2026-04-08 20:30:39.798399+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.798610+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 94
+2026-04-08 20:30:39.799081+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.799310+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1f
+2026-04-08 20:30:39.799755+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.799971+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 95
+2026-04-08 20:30:39.800391+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.800641+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 20
+2026-04-08 20:30:39.801119+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.801380+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9a
+2026-04-08 20:30:39.801746+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.802025+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05
+2026-04-08 20:30:39.802560+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.802837+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9c
+2026-04-08 20:30:39.803297+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.803576+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a
+2026-04-08 20:30:39.804051+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.804288+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9d
+2026-04-08 20:30:39.804774+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.805010+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b
+2026-04-08 20:30:39.805526+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:39.805724+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9e
+2026-04-08 20:30:39.806110+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:39.806379+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01
+2026-04-08 20:30:39.806826+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.633671+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 20 00 80 00 00 08 31 32 33 34 35 36 ff ff
+2026-04-08 20:30:45.642927+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 90 00
+2026-04-08 20:30:45.645185+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:30:45.645944+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:45.646519+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:30:45.647134+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:30:45.647623+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:30:45.648219+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:30:45.648750+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:30:45.649246+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.649710+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02
+2026-04-08 20:30:45.650222+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.650611+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 07
+2026-04-08 20:30:45.651173+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.672070+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 82
+2026-04-08 20:30:45.672587+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.673024+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0d
+2026-04-08 20:30:45.673576+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.673980+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 83
+2026-04-08 20:30:45.674511+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.674971+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0e
+2026-04-08 20:30:45.675477+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.675843+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 84
+2026-04-08 20:30:45.676317+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.676690+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0f
+2026-04-08 20:30:45.677234+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.677562+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 85
+2026-04-08 20:30:45.678057+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.678376+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 10
+2026-04-08 20:30:45.678915+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.679238+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 86
+2026-04-08 20:30:45.679684+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.680007+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 11
+2026-04-08 20:30:45.680563+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.680866+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 87
+2026-04-08 20:30:45.681337+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.681644+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 12
+2026-04-08 20:30:45.682220+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.682495+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 88
+2026-04-08 20:30:45.682959+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.683266+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 13
+2026-04-08 20:30:45.683769+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.684082+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 89
+2026-04-08 20:30:45.684458+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.684768+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 14
+2026-04-08 20:30:45.685404+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.685674+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8a
+2026-04-08 20:30:45.686195+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.686480+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 15
+2026-04-08 20:30:45.687051+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.687309+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8b
+2026-04-08 20:30:45.687807+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.688098+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 16
+2026-04-08 20:30:45.688780+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.689103+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8c
+2026-04-08 20:30:45.689534+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.689880+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 17
+2026-04-08 20:30:45.690439+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.690752+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8d
+2026-04-08 20:30:45.691302+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.691642+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 18
+2026-04-08 20:30:45.692175+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.692499+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8e
+2026-04-08 20:30:45.693001+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.693303+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 19
+2026-04-08 20:30:45.693891+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.694171+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8f
+2026-04-08 20:30:45.694632+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.694915+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1a
+2026-04-08 20:30:45.695433+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.695690+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 90
+2026-04-08 20:30:45.696149+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.696396+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1b
+2026-04-08 20:30:45.696911+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.697134+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 91
+2026-04-08 20:30:45.697561+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.697796+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1c
+2026-04-08 20:30:45.698274+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.698486+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 92
+2026-04-08 20:30:45.698947+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.699261+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1d
+2026-04-08 20:30:45.699739+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.699998+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 93
+2026-04-08 20:30:45.700405+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.700643+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1e
+2026-04-08 20:30:45.701164+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.701378+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 94
+2026-04-08 20:30:45.701821+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.702104+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1f
+2026-04-08 20:30:45.702576+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.702822+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 95
+2026-04-08 20:30:45.703298+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.703567+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 20
+2026-04-08 20:30:45.704047+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.704323+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9a
+2026-04-08 20:30:45.704879+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.705188+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05
+2026-04-08 20:30:45.705609+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.705857+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9c
+2026-04-08 20:30:45.706402+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.706692+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a
+2026-04-08 20:30:45.707267+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.707551+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9d
+2026-04-08 20:30:45.708036+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.708328+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b
+2026-04-08 20:30:45.708838+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:30:45.709099+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9e
+2026-04-08 20:30:45.709494+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:30:45.709761+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01
+2026-04-08 20:30:45.710277+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.251521+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 47 00 9c 00 00 05 ac 03 80 01 11
+2026-04-08 20:31:00.252139+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 69 82
+2026-04-08 20:31:00.254479+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:31:00.255040+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:31:00.256945+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 87 03 9b 00 00 04 7c 02 80 00
+2026-04-08 20:31:00.257680+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7c 0a 80 08 ed 03 42 86 02 2f df 7a 90 00
+2026-04-08 20:31:00.284370+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 87 03 9b 00 00 16 7c 14 80 08 b6 a5 e5 d0 32 6f b3 5b 81 08 48 6c bd 02 4d 20 ec 3f
+2026-04-08 20:31:00.285268+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7c 0a 82 08 8e 51 51 77 c7 83 e1 47 90 00
+2026-04-08 20:31:00.287372+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:31:00.287934+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:31:00.288341+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:31:00.288834+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:31:00.289145+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:31:00.289662+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:31:00.289956+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:31:00.290402+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.290688+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02
+2026-04-08 20:31:00.291170+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.291434+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 07
+2026-04-08 20:31:00.291865+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.293094+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 82
+2026-04-08 20:31:00.293502+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.294091+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0d
+2026-04-08 20:31:00.294684+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.294973+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 83
+2026-04-08 20:31:00.295423+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.295682+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0e
+2026-04-08 20:31:00.296249+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.296515+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 84
+2026-04-08 20:31:00.297059+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.297396+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0f
+2026-04-08 20:31:00.297892+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.298153+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 85
+2026-04-08 20:31:00.298621+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.298918+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 10
+2026-04-08 20:31:00.299406+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.299686+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 86
+2026-04-08 20:31:00.300188+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.300450+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 11
+2026-04-08 20:31:00.300958+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.301211+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 87
+2026-04-08 20:31:00.301692+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.301952+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 12
+2026-04-08 20:31:00.302463+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.302734+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 88
+2026-04-08 20:31:00.303274+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.303555+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 13
+2026-04-08 20:31:00.304080+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.304390+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 89
+2026-04-08 20:31:00.304786+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.305075+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 14
+2026-04-08 20:31:00.305652+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.305914+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8a
+2026-04-08 20:31:00.306400+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.306715+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 15
+2026-04-08 20:31:00.307235+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.307592+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8b
+2026-04-08 20:31:00.308017+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.308306+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 16
+2026-04-08 20:31:00.308808+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.309138+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8c
+2026-04-08 20:31:00.309628+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.309942+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 17
+2026-04-08 20:31:00.310557+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.310839+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8d
+2026-04-08 20:31:00.311412+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.311671+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 18
+2026-04-08 20:31:00.312218+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.312439+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8e
+2026-04-08 20:31:00.312890+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.313108+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 19
+2026-04-08 20:31:00.313600+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.313955+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8f
+2026-04-08 20:31:00.314444+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.314855+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1a
+2026-04-08 20:31:00.315349+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.315651+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 90
+2026-04-08 20:31:00.316153+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.316454+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1b
+2026-04-08 20:31:00.316931+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.317157+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 91
+2026-04-08 20:31:00.317566+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.317804+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1c
+2026-04-08 20:31:00.318314+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.318552+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 92
+2026-04-08 20:31:00.318964+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.319210+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1d
+2026-04-08 20:31:00.319742+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.319996+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 93
+2026-04-08 20:31:00.320449+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.320718+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1e
+2026-04-08 20:31:00.321286+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.321537+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 94
+2026-04-08 20:31:00.321989+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.322246+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1f
+2026-04-08 20:31:00.322745+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.322993+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 95
+2026-04-08 20:31:00.323446+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.323674+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 20
+2026-04-08 20:31:00.324218+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.324467+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9a
+2026-04-08 20:31:00.324857+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.325110+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05
+2026-04-08 20:31:00.325631+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.325864+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9c
+2026-04-08 20:31:00.326319+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.326628+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a
+2026-04-08 20:31:00.327247+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.327631+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9d
+2026-04-08 20:31:00.328094+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.328350+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b
+2026-04-08 20:31:00.328872+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.329079+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9e
+2026-04-08 20:31:00.329498+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.329726+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01
+2026-04-08 20:31:00.330194+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.330605+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 47 00 9c 00 00 05 ac 03 80 01 11
+2026-04-08 20:31:00.665974+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7f 49 43 86 41 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 90 00
+2026-04-08 20:31:00.688667+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 20 00 80 00 00 08 31 32 33 34 35 36 ff ff
+2026-04-08 20:31:00.697887+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 90 00
+2026-04-08 20:31:00.756845+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 87 11 9c 00 00 26 7c 24 82 00 81 20 15 a0 a1 f6 9c 64 ae c3 99 89 af 64 78 23 81 2f fa 90 e2 71 3d 9b 74 dd e7 93 3e 06 dc ec fb f7
+2026-04-08 20:31:00.827313+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 7c 49 82 47 30 45 02 21 00 e5 6a b3 4f c7 13 71 70 c1 0f a9 ce f8 5f 57 57 9b 4b 55 8e 87 6a d1 b4 fc fd 08 0c de 18 a3 37 02 20 3c c7 11 31 fb 4c 88 59 98 51 0f 35 4d 63 a6 54 db 53 44 78 84 c7 13 8f b8 4a ff 63 b4 fb cb 5f 90 00
+2026-04-08 20:31:00.833052+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 db 3f ff 00 01 43 5c 03 5f c1 0a 53 82 01 3a 70 82 01 31 30 82 01 2d 30 81 d4 a0 03 02 01 02 02 14 05 8d 8e 4b 24 3a 52 4b c4 55 26 b6 75 68 ae d8 c2 45 55 fe 30 0a 06 08 2a 86 48 ce 3d 04 03 02 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 1e 17 0d 32 36 30 34 30 38 30 30 30 30 30 30 5a 17 0d 32 37 30 34 30 38 30 30 30 30 30 30 5a 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 59 30 13 06 07 2a 86 48 ce 3d 02 01 06 08 2a 86 48 ce 3d 03 01 07 03 42 00 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 48 00 30 45 02 21 00 e5 6a b3 4f c7 13 71 70 c1 0f a9 ce f8 5f 57 57 9b 4b 55 8e 87 6a d1 b4 fc fd 08 0c de 18 a3 37 02 20 3c c7 11 31 fb 4c 88 59 98 51 0f 35 4d 63 a6 54 db 53 44 78 84 c7 13 8f b8 4a ff 63 b4 fb cb 5f 71 01 00 fe 00
+2026-04-08 20:31:00.851185+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 90 00
+2026-04-08 20:31:00.860808+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 db 3f ff 00 00 42 5c 03 5f c1 02 53 3b 30 19 d4 e7 39 da 73 9c ed 39 ce 73 9d 83 68 58 21 08 42 10 84 21 c8 42 10 c3 eb 34 10 84 5b c9 64 85 74 4b 3a 8f fd 80 ec fa 1a 31 26 35 08 32 30 33 30 30 31 30 31 3e 00 fe 00
+2026-04-08 20:31:00.873881+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 90 00
+2026-04-08 20:31:00.874678+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 82
+2026-04-08 20:31:00.875311+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.875977+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0d
+2026-04-08 20:31:00.876680+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.877232+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 83
+2026-04-08 20:31:00.877844+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.878652+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0e
+2026-04-08 20:31:00.879276+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.879747+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 84
+2026-04-08 20:31:00.880221+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.880650+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0f
+2026-04-08 20:31:00.881251+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.881650+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 85
+2026-04-08 20:31:00.882126+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.882525+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 10
+2026-04-08 20:31:00.883105+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.883527+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 86
+2026-04-08 20:31:00.883953+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.884343+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 11
+2026-04-08 20:31:00.884970+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.885373+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 87
+2026-04-08 20:31:00.885846+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.886193+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 12
+2026-04-08 20:31:00.886862+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.887156+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 88
+2026-04-08 20:31:00.887613+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.887896+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 13
+2026-04-08 20:31:00.888432+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.888723+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 89
+2026-04-08 20:31:00.889317+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.889645+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 14
+2026-04-08 20:31:00.890167+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.890427+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8a
+2026-04-08 20:31:00.890875+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.891135+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 15
+2026-04-08 20:31:00.891660+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.891915+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8b
+2026-04-08 20:31:00.892423+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.892821+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 16
+2026-04-08 20:31:00.893458+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.893773+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8c
+2026-04-08 20:31:00.894344+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.895093+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 17
+2026-04-08 20:31:00.895665+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.895957+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8d
+2026-04-08 20:31:00.896409+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.896691+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 18
+2026-04-08 20:31:00.897215+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.897483+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8e
+2026-04-08 20:31:00.897966+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.898255+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 19
+2026-04-08 20:31:00.898826+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.899139+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8f
+2026-04-08 20:31:00.899637+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.899944+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1a
+2026-04-08 20:31:00.900499+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.900796+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 90
+2026-04-08 20:31:00.901292+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.901613+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1b
+2026-04-08 20:31:00.902122+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.902412+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 91
+2026-04-08 20:31:00.902897+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.903230+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1c
+2026-04-08 20:31:00.903719+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.903965+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 92
+2026-04-08 20:31:00.904418+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.904660+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1d
+2026-04-08 20:31:00.905169+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.905457+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 93
+2026-04-08 20:31:00.905928+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.906169+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1e
+2026-04-08 20:31:00.906651+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.906928+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 94
+2026-04-08 20:31:00.907416+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.907712+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1f
+2026-04-08 20:31:00.908257+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.908511+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 95
+2026-04-08 20:31:00.908983+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.909281+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 20
+2026-04-08 20:31:00.909798+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.910150+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9a
+2026-04-08 20:31:00.910660+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.911014+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05
+2026-04-08 20:31:00.911580+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.911827+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9c
+2026-04-08 20:31:00.913170+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 11 02 02 03 01 03 01 01 04 43 86 41 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 90 00
+2026-04-08 20:31:00.913495+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a
+2026-04-08 20:31:00.915147+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 82 01 3a 70 82 01 31 30 82 01 2d 30 81 d4 a0 03 02 01 02 02 14 05 8d 8e 4b 24 3a 52 4b c4 55 26 b6 75 68 ae d8 c2 45 55 fe 30 0a 06 08 2a 86 48 ce 3d 04 03 02 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 1e 17 0d 32 36 30 34 30 38 30 30 30 30 30 30 5a 17 0d 32 37 30 34 30 38 30 30 30 30 30 30 5a 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 59 30 13 06 07 2a 86 48 ce 3d 02 01 06 08 2a 86 48 ce 3d 03 01 07 03 42 00 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 48 00 30 45 02 21 00 e5 6a b3 4f c7 13 71 70 c1 0f a9 ce f8 5f 57 57 9b 4b 55 8e 87 6a d1 b4 fc fd 08 0c de 18 a3 37 02 20 3c c7 11 31 fb 4c 88 59 98 51 0f 35 4d 63 a6 54 db 53 44 78 84 c7 13 8f b8 4a ff 63 b4 fb cb 5f 71 01 00 fe 00 90 00
+2026-04-08 20:31:00.915545+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9d
+2026-04-08 20:31:00.916025+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.916362+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b
+2026-04-08 20:31:00.916964+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.917239+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9e
+2026-04-08 20:31:00.917825+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.918154+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01
+2026-04-08 20:31:00.918662+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.919971+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 08 a0 00 00 05 27 47 11 17
+2026-04-08 20:31:00.920476+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 56 69 72 74 75 61 6c 20 6d 67 72 20 2d 20 46 57 20 76 65 72 73 69 6f 6e 20 35 2e 34 2e 33 90 00
+2026-04-08 20:31:00.920810+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 1d 00 00
+2026-04-08 20:31:00.921456+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 2e 01 02 03 3f 03 02 03 3f 02 04 01 98 24 66 04 01 03 05 03 05 04 03 06 02 00 00 07 01 0f 08 01 00 0d 02 03 3f 0e 02 03 3f 0a 01 00 0f 01 00 90 00
+2026-04-08 20:31:00.922998+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 05 a0 00 00 03 08
+2026-04-08 20:31:00.924310+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 61 11 4f 06 00 00 10 00 01 00 79 07 4f 05 a0 00 00 03 08 90 00
+2026-04-08 20:31:00.924660+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 fd 00 00 00
+2026-04-08 20:31:00.925139+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 05 04 03 90 00
+2026-04-08 20:31:00.925470+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:31:00.926047+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:31:00.926438+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f ff 00
+2026-04-08 20:31:00.926984+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.927640+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 80
+2026-04-08 20:31:00.928131+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:31:00.928400+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 81
+2026-04-08 20:31:00.928938+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 ff 05 01 01 06 02 03 03 90 00
+2026-04-08 20:31:00.929177+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9b
+2026-04-08 20:31:00.929715+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 03 02 02 00 01 05 01 01 90 00
+2026-04-08 20:31:00.929976+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 96
+2026-04-08 20:31:00.930447+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.930802+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 02
+2026-04-08 20:31:00.931571+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 3b 30 19 d4 e7 39 da 73 9c ed 39 ce 73 9d 83 68 58 21 08 42 10 84 21 c8 42 10 c3 eb 34 10 84 5b c9 64 85 74 4b 3a 8f fd 80 ec fa 1a 31 26 35 08 32 30 33 30 30 31 30 31 3e 00 fe 00 90 00
+2026-04-08 20:31:00.931897+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 07
+2026-04-08 20:31:00.932433+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.933414+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 82
+2026-04-08 20:31:00.933912+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.934255+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0d
+2026-04-08 20:31:00.934751+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.935037+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 83
+2026-04-08 20:31:00.935544+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.935842+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0e
+2026-04-08 20:31:00.936411+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.936719+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 84
+2026-04-08 20:31:00.937151+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.937419+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0f
+2026-04-08 20:31:00.937914+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.938157+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 85
+2026-04-08 20:31:00.938666+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.938967+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 10
+2026-04-08 20:31:00.939471+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.939761+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 86
+2026-04-08 20:31:00.940264+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.940548+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 11
+2026-04-08 20:31:00.941045+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.941282+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 87
+2026-04-08 20:31:00.941780+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.942046+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 12
+2026-04-08 20:31:00.942575+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.942888+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 88
+2026-04-08 20:31:00.943410+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.943691+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 13
+2026-04-08 20:31:00.944207+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.944478+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 89
+2026-04-08 20:31:00.944951+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.945212+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 14
+2026-04-08 20:31:00.945714+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.945973+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8a
+2026-04-08 20:31:00.946457+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.946891+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 15
+2026-04-08 20:31:00.947506+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.947778+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8b
+2026-04-08 20:31:00.948288+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.948545+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 16
+2026-04-08 20:31:00.949052+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.949293+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8c
+2026-04-08 20:31:00.949751+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.950021+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 17
+2026-04-08 20:31:00.950503+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.950768+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8d
+2026-04-08 20:31:00.951181+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.951435+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 18
+2026-04-08 20:31:00.951958+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.952239+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8e
+2026-04-08 20:31:00.952684+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.952956+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 19
+2026-04-08 20:31:00.953464+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.953728+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 8f
+2026-04-08 20:31:00.954161+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.954421+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1a
+2026-04-08 20:31:00.954941+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.955173+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 90
+2026-04-08 20:31:00.955652+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.955907+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1b
+2026-04-08 20:31:00.956442+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.956696+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 91
+2026-04-08 20:31:00.957063+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.957299+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1c
+2026-04-08 20:31:00.957788+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.957991+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 92
+2026-04-08 20:31:00.958594+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.958816+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1d
+2026-04-08 20:31:00.959317+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.959601+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 93
+2026-04-08 20:31:00.960150+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.960415+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1e
+2026-04-08 20:31:00.960877+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.961178+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 94
+2026-04-08 20:31:00.961614+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.962015+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 1f
+2026-04-08 20:31:00.962555+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.962773+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 95
+2026-04-08 20:31:00.963268+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.963484+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 20
+2026-04-08 20:31:00.963993+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.964200+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9a
+2026-04-08 20:31:00.964660+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.964949+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 05
+2026-04-08 20:31:00.965513+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.965776+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9c
+2026-04-08 20:31:00.967150+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 01 01 11 02 02 03 01 03 01 01 04 43 86 41 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 90 00
+2026-04-08 20:31:00.967454+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0a
+2026-04-08 20:31:00.968995+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 53 82 01 3a 70 82 01 31 30 82 01 2d 30 81 d4 a0 03 02 01 02 02 14 05 8d 8e 4b 24 3a 52 4b c4 55 26 b6 75 68 ae d8 c2 45 55 fe 30 0a 06 08 2a 86 48 ce 3d 04 03 02 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 1e 17 0d 32 36 30 34 30 38 30 30 30 30 30 30 5a 17 0d 32 37 30 34 30 38 30 30 30 30 30 30 5a 30 17 31 15 30 13 06 03 55 04 03 0c 0c 54 65 73 74 20 53 69 67 6e 69 6e 67 30 59 30 13 06 07 2a 86 48 ce 3d 02 01 06 08 2a 86 48 ce 3d 03 01 07 03 42 00 04 a5 db 9f 64 dc f9 df 45 21 ad ae 4b 5f 07 8d b2 42 3e bd 25 bb d5 b4 be 0a b8 30 97 b2 c5 d3 06 ef 6a e7 31 45 59 1d 47 d0 91 e6 41 6c 50 7c 7c 3b 59 fb 92 51 0c 0c 1a 5e 0d 73 c7 65 17 f1 a4 30 0a 06 08 2a 86 48 ce 3d 04 03 02 03 48 00 30 45 02 21 00 e5 6a b3 4f c7 13 71 70 c1 0f a9 ce f8 5f 57 57 9b 4b 55 8e 87 6a d1 b4 fc fd 08 0c de 18 a3 37 02 20 3c c7 11 31 fb 4c 88 59 98 51 0f 35 4d 63 a6 54 db 53 44 78 84 c7 13 8f b8 4a ff 63 b4 fb cb 5f 71 01 00 fe 00 90 00
+2026-04-08 20:31:00.970289+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9d
+2026-04-08 20:31:00.970791+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.971074+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 0b
+2026-04-08 20:31:00.971703+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:00.971918+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 f7 00 9e
+2026-04-08 20:31:00.972392+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 88
+2026-04-08 20:31:00.972634+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 cb 3f ff 00 00 05 5c 03 5f c1 01
+2026-04-08 20:31:00.973123+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 6a 82
+2026-04-08 20:31:08.982260+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 04 00 07 a0 00 00 05 27 21 01
+2026-04-08 20:31:08.983534+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 79 03 05 04 03 71 08 bd c2 7d 26 92 fd f1 28 90 00
+2026-04-08 20:31:08.984207+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 00 01 00 00 0a 74 08 00 00 00 00 03 87 27 6e
+2026-04-08 20:31:08.986013+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 71 11 54 65 73 74 53 65 72 76 69 63 65 3a 55 73 65 72 31 76 05 06 00 06 0f 26 90 00
+2026-04-08 20:31:08.986629+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU -> 00 a4 00 01 00 00 0a 74 08 00 00 00 00 03 87 27 6e
+2026-04-08 20:31:08.988305+0200 0x15a7a32  Default     0x0                  21374  0    usbsmartcardreaderd: (CryptoTokenKit) [com.apple.CryptoTokenKit:APDULog] APDU <- 71 11 54 65 73 74 53 65 72 76 69 63 65 3a 55 73 65 72 31 76 05 06 00 06 0f 26 90 00
