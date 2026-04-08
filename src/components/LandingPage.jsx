@@ -104,7 +104,7 @@ export default function LandingPage({ onLoadTrace, onBrowse }) {
       {/* Center card */}
       <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2,
         background: "radial-gradient(ellipse 50% 55% at center, rgba(0,0,0,0.5), rgba(0,0,0,0.85))" }}>
-        <div style={{ textAlign: "center", maxWidth: 460, padding: "28px 32px", background: "rgba(0,0,0,0.75)",
+        <div style={{ textAlign: "center", maxWidth: 580, padding: "28px 32px", background: "rgba(0,0,0,0.75)",
           borderRadius: 10, border: "1px solid rgba(0,255,65,0.12)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}>
 
           <div style={{ fontSize: 40, marginBottom: 10 }}>💳</div>
