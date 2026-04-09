@@ -1664,11 +1664,16 @@
     "full": false
   },
   "score": {
-    "score": 95,
+    "score": 90,
     "label": "Low Findings",
     "labelNote": "Trace appears to capture provisioning. Cert slot and auth findings reflect setup state, not deployment risk.",
     "color": "#22c55e",
     "deductions": [
+      {
+        "reason": "Incomplete provisioning — key templates written but certificate slots empty",
+        "points": 5,
+        "severity": "warn"
+      },
       {
         "reason": "Certificate slots empty (expected during provisioning): 9A (PIV Authentication), 9C (Digital Signature), 9D (Key Management), 9E (Card Authentication)",
         "points": 0,

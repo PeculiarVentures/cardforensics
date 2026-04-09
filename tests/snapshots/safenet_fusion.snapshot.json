@@ -3176,11 +3176,26 @@
     "full": false
   },
   "score": {
-    "score": 85,
-    "label": "Low Findings",
+    "score": 45,
+    "label": "High Findings",
     "labelNote": "Trace appears to capture provisioning. Cert slot and auth findings reflect setup state, not deployment risk.",
-    "color": "#22c55e",
+    "color": "#ef4444",
     "deductions": [
+      {
+        "reason": "Default PUK PIN — factory credentials used",
+        "points": 30,
+        "severity": "critical"
+      },
+      {
+        "reason": "Bulk container erasure — 24 zero-length PUT DATA operations",
+        "points": 5,
+        "severity": "warn"
+      },
+      {
+        "reason": "Incomplete provisioning — key templates written but certificate slots empty",
+        "points": 5,
+        "severity": "warn"
+      },
       {
         "reason": "Certificate slots empty (expected during provisioning): 9A (PIV Authentication), 9C (Digital Signature), 9D (Key Management), 9E (Card Authentication)",
         "points": 0,

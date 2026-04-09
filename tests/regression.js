@@ -159,7 +159,7 @@ function analyzeTrace(exchanges, atr) {
   try {
     const errorProfile = { errors: [], errorRate: 0 };
     try { Object.assign(errorProfile, classifyErrors(exchanges)); } catch {}
-    snap.score = computeSecurityScore(null, snap.integrity, errorProfile, snap.certProvisioning, exchanges, protoStates);
+    snap.score = computeSecurityScore(null, snap.integrity, errorProfile, snap.certProvisioning, exchanges, protoStates, snap.threats);
   } catch { snap.score = null; }
 
   try {

@@ -3057,11 +3057,21 @@
     "full": false
   },
   "score": {
-    "score": 90,
-    "label": "Low Findings",
+    "score": 55,
+    "label": "High Findings",
     "labelNote": "Trace appears to capture provisioning. Cert slot and auth findings reflect setup state, not deployment risk.",
-    "color": "#22c55e",
+    "color": "#ef4444",
     "deductions": [
+      {
+        "reason": "Default PIN accepted by card — card is using factory credentials",
+        "points": 30,
+        "severity": "critical"
+      },
+      {
+        "reason": "Identity data read from slot 5FC105 (trace does not confirm channel protection)",
+        "points": 5,
+        "severity": "warn"
+      },
       {
         "reason": "Partial cert population (provisioning in progress, empty: 9D, 9E)",
         "points": 0,
