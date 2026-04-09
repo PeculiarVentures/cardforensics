@@ -2125,7 +2125,10 @@
         "ok": 1,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 10,
+      "lastEx": 291,
+      "firstExId": 10,
+      "app": "PIV",
       "size": 61,
       "mutated": true,
       "classification": "mutated"
@@ -2145,7 +2148,10 @@
         "ok": 1,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 13,
+      "lastEx": 336,
+      "firstExId": 13,
+      "app": "PIV",
       "size": 318,
       "mutated": true,
       "classification": "mutated"
@@ -2165,7 +2171,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 4,
+      "lastEx": 9,
+      "firstExId": 4,
+      "app": "PIV",
       "size": 20,
       "mutated": false,
       "classification": "present"
@@ -2186,7 +2195,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 11,
+      "lastEx": 334,
+      "firstExId": 11,
+      "app": "PIV",
       "size": 302,
       "mutated": false,
       "classification": "present"
@@ -2206,6 +2218,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 3,
+      "lastEx": 3,
+      "firstExId": 3,
       "app": null,
       "size": null,
       "mutated": false,
@@ -2226,7 +2241,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 8,
+      "lastEx": 20,
+      "firstExId": 8,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2246,7 +2264,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 14,
+      "lastEx": 338,
+      "firstExId": 14,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2266,7 +2287,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 15,
+      "lastEx": 340,
+      "firstExId": 15,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2286,7 +2310,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 16,
+      "lastEx": 16,
+      "firstExId": 16,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2306,7 +2333,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 36,
+      "lastEx": 286,
+      "firstExId": 36,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2326,7 +2356,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 42,
+      "lastEx": 292,
+      "firstExId": 42,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2346,7 +2379,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 68,
+      "lastEx": 294,
+      "firstExId": 68,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2366,7 +2402,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 70,
+      "lastEx": 296,
+      "firstExId": 70,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2386,7 +2425,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 72,
+      "lastEx": 298,
+      "firstExId": 72,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2406,7 +2448,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 74,
+      "lastEx": 300,
+      "firstExId": 74,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2426,7 +2471,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 76,
+      "lastEx": 302,
+      "firstExId": 76,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2446,7 +2494,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 78,
+      "lastEx": 304,
+      "firstExId": 78,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2466,7 +2517,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 80,
+      "lastEx": 306,
+      "firstExId": 80,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2486,7 +2540,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 82,
+      "lastEx": 308,
+      "firstExId": 82,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2506,7 +2563,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 84,
+      "lastEx": 310,
+      "firstExId": 84,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2526,7 +2586,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 86,
+      "lastEx": 312,
+      "firstExId": 86,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2546,7 +2609,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 88,
+      "lastEx": 314,
+      "firstExId": 88,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2566,7 +2632,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 90,
+      "lastEx": 316,
+      "firstExId": 90,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2586,7 +2655,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 92,
+      "lastEx": 318,
+      "firstExId": 92,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2606,7 +2678,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 94,
+      "lastEx": 320,
+      "firstExId": 94,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2626,7 +2701,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 96,
+      "lastEx": 322,
+      "firstExId": 96,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2646,7 +2724,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 98,
+      "lastEx": 324,
+      "firstExId": 98,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2666,7 +2747,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 100,
+      "lastEx": 326,
+      "firstExId": 100,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2686,7 +2770,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 102,
+      "lastEx": 328,
+      "firstExId": 102,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2706,7 +2793,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 104,
+      "lastEx": 330,
+      "firstExId": 104,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2726,7 +2816,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 106,
+      "lastEx": 332,
+      "firstExId": 106,
+      "app": "ISD",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -2744,6 +2837,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 0,
+      "lastEx": 0,
+      "firstExId": 0,
       "app": null,
       "size": null,
       "mutated": false,
@@ -2762,6 +2858,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 1,
+      "lastEx": 1,
+      "firstExId": 1,
       "app": null,
       "size": null,
       "mutated": false,
@@ -2780,6 +2879,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 2,
+      "lastEx": 2,
+      "firstExId": 2,
       "app": null,
       "size": null,
       "mutated": false,
@@ -2798,6 +2900,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 5,
+      "lastEx": 5,
+      "firstExId": 5,
       "app": null,
       "size": null,
       "mutated": false,
@@ -2816,7 +2921,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 17,
+      "lastEx": 18,
+      "firstExId": 17,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2834,7 +2942,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 25,
+      "lastEx": 281,
+      "firstExId": 25,
+      "app": "ISD v1",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2852,7 +2963,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 29,
+      "lastEx": 341,
+      "firstExId": 29,
+      "app": "A0 00 00 05 27…",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2870,7 +2984,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 30,
+      "lastEx": 31,
+      "firstExId": 30,
+      "app": "A0 00 00 05 27…",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2888,7 +3005,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 32,
+      "lastEx": 32,
+      "firstExId": 32,
+      "app": "74 08 00 00 00…",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2906,7 +3026,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 33,
+      "lastEx": 283,
+      "firstExId": 33,
+      "app": "74 08 00 00 00…",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2924,7 +3047,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 342,
+      "lastEx": 343,
+      "firstExId": 342,
+      "app": "A0 00 00 05 27…",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -2932,19 +3058,21 @@
   ],
   "threats": [
     {
-      "id": "reset-undefined",
+      "id": "reset-49",
       "type": "INTENTIONAL_RESET",
       "severity": "info",
       "title": "Intentional credential exhaustion followed by factory reset (INS FB)",
-      "detail": "3 consecutive auth failures followed by successful factory reset (INS FB) at exchange #undefined. Consistent with reset or re-provisioning workflow."
+      "detail": "3 consecutive auth failures followed by successful factory reset (INS FB) at exchange #52. Consistent with reset or re-provisioning workflow.",
+      "exchangeId": 52
     },
     {
-      "id": "cred-undefined",
+      "id": "cred-115",
       "type": "CLEARTEXT_CREDENTIAL",
       "severity": "critical",
       "title": "Default PIN accepted by card — card is using factory credentials",
-      "detail": "VERIFY at exchange #undefined — \"123456\" matches known default",
-      "cred": "123456"
+      "detail": "VERIFY at exchange #115 — \"123456\" matches known default",
+      "cred": "123456",
+      "exchangeId": 115
     },
     {
       "id": "timing-crypto",
@@ -2952,10 +3080,11 @@
       "icon": "⏱",
       "severity": "pass",
       "title": "Fast GEN AUTH (~24ms) — consistent with ECC or modern hardware",
-      "detail": "Average card crypto execution: 24ms."
+      "detail": "Average card crypto execution: 24ms.",
+      "exchangeId": 172
     },
     {
-      "id": "pii-undefined",
+      "id": "pii-21",
       "type": "PII_EXPOSURE",
       "severity": "warn",
       "title": "Identity data read from slot 5FC105 (trace does not confirm channel protection)",
@@ -2967,25 +3096,59 @@
         "keySize": 256,
         "sigAlg": "ECDSA (SHA-256)",
         "notAfter": "2027-04-03T00:00:00.000Z"
-      }
+      },
+      "exchangeId": 21
     },
     {
-      "id": "piv-reset-undefined",
+      "id": "pii-276",
+      "type": "PII_EXPOSURE",
+      "severity": "warn",
+      "title": "Identity data read from slot 5FC10A (trace does not confirm channel protection)",
+      "detail": "Subject: CN=Test Signing; Issuer: CN=Test Signing; Serial: 058d8e4b243a524bc45526b67568aed8c24555fe",
+      "certInfo": {
+        "subject": "CN=Test Signing",
+        "serial": "058d8e4b243a524bc45526b67568aed8c24555fe",
+        "keyAlg": "EC P-256",
+        "keySize": 256,
+        "sigAlg": "ECDSA (SHA-256)",
+        "notAfter": "2027-04-08T00:00:00.000Z"
+      },
+      "exchangeId": 276
+    },
+    {
+      "id": "pii-336",
+      "type": "PII_EXPOSURE",
+      "severity": "warn",
+      "title": "Identity data read from slot 5FC10A (trace does not confirm channel protection)",
+      "detail": "Subject: CN=Test Signing; Issuer: CN=Test Signing; Serial: 058d8e4b243a524bc45526b67568aed8c24555fe",
+      "certInfo": {
+        "subject": "CN=Test Signing",
+        "serial": "058d8e4b243a524bc45526b67568aed8c24555fe",
+        "keyAlg": "EC P-256",
+        "keySize": 256,
+        "sigAlg": "ECDSA (SHA-256)",
+        "notAfter": "2027-04-08T00:00:00.000Z"
+      },
+      "exchangeId": 336
+    },
+    {
+      "id": "piv-reset-52",
       "type": "PIV_RESET",
       "severity": "info",
       "title": "PIV applet reset — all keys, certs, PIN/PUK restored to factory defaults",
-      "detail": "Exchange #undefined: successful PIV RESET (INS FB). All prior lockout state is cleared. Subsequent provisioning activity operates on a clean card."
+      "detail": "Exchange #52: successful PIV RESET (INS FB). All prior lockout state is cleared. Subsequent provisioning activity operates on a clean card.",
+      "exchangeId": 52
     }
   ],
   "threatSummary": [
     {
-      "id": "reset-undefined",
+      "id": "reset-49",
       "severity": "info",
       "type": "INTENTIONAL_RESET",
       "title": "Intentional credential exhaustion followed by factory reset (INS FB)"
     },
     {
-      "id": "cred-undefined",
+      "id": "cred-115",
       "severity": "critical",
       "type": "CLEARTEXT_CREDENTIAL",
       "title": "Default PIN accepted by card — card is using factory credentials"
@@ -2997,13 +3160,25 @@
       "title": "Fast GEN AUTH (~24ms) — consistent with ECC or modern hardware"
     },
     {
-      "id": "pii-undefined",
+      "id": "pii-21",
       "severity": "warn",
       "type": "PII_EXPOSURE",
       "title": "Identity data read from slot 5FC105 (trace does not confirm channel protection)"
     },
     {
-      "id": "piv-reset-undefined",
+      "id": "pii-276",
+      "severity": "warn",
+      "type": "PII_EXPOSURE",
+      "title": "Identity data read from slot 5FC10A (trace does not confirm channel protection)"
+    },
+    {
+      "id": "pii-336",
+      "severity": "warn",
+      "type": "PII_EXPOSURE",
+      "title": "Identity data read from slot 5FC10A (trace does not confirm channel protection)"
+    },
+    {
+      "id": "piv-reset-52",
       "severity": "info",
       "type": "PIV_RESET",
       "title": "PIV applet reset — all keys, certs, PIN/PUK restored to factory defaults"
@@ -3029,25 +3204,31 @@
         "probed": true,
         "populated": true,
         "size": 302,
-        "lastSW": 27266
+        "lastSW": 27266,
+        "exchangeId": 334,
+        "populatedExId": 21
       },
       "5FC10A": {
         "probed": true,
         "populated": true,
         "size": 318,
-        "lastSW": 36864
+        "lastSW": 36864,
+        "exchangeId": 336,
+        "populatedExId": 336
       },
       "5FC10B": {
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27266
+        "lastSW": 27266,
+        "exchangeId": 338
       },
       "5FC101": {
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27266
+        "lastSW": 27266,
+        "exchangeId": 340
       }
     },
     "allEmpty": false,

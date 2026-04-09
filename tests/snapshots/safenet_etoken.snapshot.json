@@ -1087,7 +1087,10 @@
         "ok": 1,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 27,
+      "lastEx": 134,
+      "firstExId": 27,
+      "app": "ISD v1",
       "size": 77,
       "mutated": true,
       "classification": "mutated"
@@ -1107,7 +1110,10 @@
         "ok": 1,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 29,
+      "lastEx": 162,
+      "firstExId": 29,
+      "app": "ISD v1",
       "size": 77,
       "mutated": true,
       "classification": "mutated"
@@ -1125,7 +1131,10 @@
         "ok": 6,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 125,
+      "lastEx": 130,
+      "firstExId": 125,
+      "app": "ISD v1",
       "size": null,
       "mutated": true,
       "classification": "mutated"
@@ -1143,7 +1152,10 @@
         "ok": 6,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 153,
+      "lastEx": 158,
+      "firstExId": 153,
+      "app": "ISD v1",
       "size": null,
       "mutated": true,
       "classification": "mutated"
@@ -1161,7 +1173,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 7,
+      "lastEx": 143,
+      "firstExId": 7,
+      "app": "PIV",
       "size": 20,
       "mutated": false,
       "classification": "present"
@@ -1179,7 +1194,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 10,
+      "lastEx": 18,
+      "firstExId": 10,
+      "app": "PIV",
       "size": 61,
       "mutated": false,
       "classification": "present"
@@ -1197,7 +1215,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 25,
+      "lastEx": 115,
+      "firstExId": 25,
+      "app": "ISD v1",
       "size": 61,
       "mutated": false,
       "classification": "present"
@@ -1215,6 +1236,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 41,
+      "lastEx": 41,
+      "firstExId": 41,
       "app": null,
       "size": 11,
       "mutated": false,
@@ -1235,6 +1259,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 4,
+      "lastEx": 4,
+      "firstExId": 4,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1255,7 +1282,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 6,
+      "lastEx": 6,
+      "firstExId": 6,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1275,7 +1305,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 8,
+      "lastEx": 19,
+      "firstExId": 8,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1295,7 +1328,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 11,
+      "lastEx": 20,
+      "firstExId": 11,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1315,7 +1351,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 12,
+      "lastEx": 22,
+      "firstExId": 12,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1335,7 +1374,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 13,
+      "lastEx": 23,
+      "firstExId": 13,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1355,7 +1397,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 14,
+      "lastEx": 21,
+      "firstExId": 14,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1375,7 +1420,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 15,
+      "lastEx": 15,
+      "firstExId": 15,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1395,7 +1443,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 28,
+      "lastEx": 28,
+      "firstExId": 28,
+      "app": "ISD v1",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1415,7 +1466,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 30,
+      "lastEx": 30,
+      "firstExId": 30,
+      "app": "ISD v1",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1435,7 +1489,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 31,
+      "lastEx": 31,
+      "firstExId": 31,
+      "app": "ISD v1",
       "size": null,
       "mutated": false,
       "classification": "expected-absent"
@@ -1453,6 +1510,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 0,
+      "lastEx": 0,
+      "firstExId": 0,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1471,6 +1531,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 1,
+      "lastEx": 1,
+      "firstExId": 1,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1489,6 +1552,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 2,
+      "lastEx": 2,
+      "firstExId": 2,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1507,6 +1573,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 3,
+      "lastEx": 3,
+      "firstExId": 3,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1525,6 +1594,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 5,
+      "lastEx": 5,
+      "firstExId": 5,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1543,7 +1615,10 @@
         "ok": 0,
         "fail": 0
       },
-      "app": null,
+      "firstEx": 16,
+      "lastEx": 17,
+      "firstExId": 16,
+      "app": "PIV",
       "size": null,
       "mutated": false,
       "classification": "probed"
@@ -1561,6 +1636,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 33,
+      "lastEx": 33,
+      "firstExId": 33,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1579,6 +1657,9 @@
         "ok": 0,
         "fail": 0
       },
+      "firstEx": 40,
+      "lastEx": 40,
+      "firstExId": 40,
       "app": null,
       "size": null,
       "mutated": false,
@@ -1592,7 +1673,8 @@
       "icon": "⏱",
       "severity": "pass",
       "title": "Fast GEN AUTH (~50ms) — consistent with ECC or modern hardware",
-      "detail": "Average card crypto execution: 50ms."
+      "detail": "Average card crypto execution: 50ms.",
+      "exchangeId": 120
     },
     {
       "id": "orphaned-keys",
@@ -1636,25 +1718,29 @@
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27264
+        "lastSW": 27264,
+        "exchangeId": 20
       },
       "5FC10A": {
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27264
+        "lastSW": 27264,
+        "exchangeId": 22
       },
       "5FC10B": {
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27264
+        "lastSW": 27264,
+        "exchangeId": 23
       },
       "5FC101": {
         "probed": true,
         "populated": false,
         "size": 0,
-        "lastSW": 27264
+        "lastSW": 27264,
+        "exchangeId": 21
       }
     },
     "allEmpty": true,

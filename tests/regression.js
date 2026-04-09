@@ -50,7 +50,7 @@ function parseLog(text) {
     const ts = tsm ? tsm[1] : null;
     if (dir === "->") {
       if (pending) exchanges.push(pending);
-      pending = { cmd: { bytes, ts }, rsp: null, idx: exchanges.length };
+      pending = { cmd: { bytes, ts }, rsp: null, id: exchanges.length, idx: exchanges.length };
     } else if (dir === "<-" && pending) {
       pending.rsp = { bytes, ts };
       exchanges.push(pending);

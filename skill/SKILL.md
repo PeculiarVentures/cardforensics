@@ -148,9 +148,13 @@ Common threat IDs:
 
 ### `key_check`
 
-SCP03 management key brute-force against known default keys:
+Management key brute-force against 10 known default keys via two protocols:
+- **PIV GEN AUTH** — AES-ECB encrypt/decrypt of card challenge nonce (tags 0x80 witness and 0x81 challenge)
+- **GP SCP03** — session key derivation via NIST SP 800-108 KDF and card cryptogram verification
+
+Fields:
 - `keys_tested` — number of known key patterns tested
-- `pairs_tested` — INITIALIZE UPDATE / EXTERNAL AUTHENTICATE pairs found
+- `pairs_tested` — PIV GEN AUTH or SCP03 INITIALIZE UPDATE pairs found
 - `matches` — **critical if non-empty** — card accepts a known default key
 
 ### `cert_provisioning`
