@@ -18,7 +18,7 @@
  *
  * Deduplicates by threat type, keeping the most severe instance.
  */
-import { h, hexStr, decodeCmd, decodeRsp, INS_MAP, execDeltaMs } from "../decode.js";
+import { h, hexStr, decodeCmd, decodeRsp, INS_MAP, execDeltaMs, timeToSec } from "../decode.js";
 import { lintTLV } from "../tlv.js";
 import { unwrapPIVCert, analyzeCertificate, parseKeyTemplate } from "./x509.js";
 
@@ -49,7 +49,7 @@ export function extractCleartextCredential(dataBytes) {
 export function analyzeThreats(exchanges, protocolStates, integrity) {
   const threats = [];
   const isFragment = integrity?.isFragment ?? true;
-  let seqFailures = 0;
+  let seqFailureExchanges = [];
   const seenNonces = new Map();
 
   for (const ex of exchanges) {
@@ -103,14 +103,11 @@ export function analyzeThreats(exchanges, protocolStates, integrity) {
 
     // ── Sequential auth failures ──
     if (rsp && (rsp.sw & 0xFFF0) === 0x63C0) {
-      seqFailures++;
+      seqFailureExchanges.push(ex);
+      const seqCount = seqFailureExchanges.length;
       const retriesLeft = rsp.sw & 0x0F;
-      if (seqFailures >= 3) {
-        // Look ahead for reset or re-provisioning activity:
-        // - YubiKey RESET (INS 0xFB)
-        // - PUT DATA (INS 0xDB) — writing new objects
-        // - GENERATE KEY PAIR (INS 0x47) — generating new keys
-        // - CHANGE REFERENCE DATA (INS 0x24) — setting new PIN
+      if (seqCount >= 3) {
+        // Look ahead for reset or re-provisioning activity
         const laterExchanges = exchanges.slice(exchanges.indexOf(ex) + 1, exchanges.indexOf(ex) + 10);
         const adminFollowup = laterExchanges.find(e2 => {
           const c2 = decodeCmd(e2.cmd.bytes), r2 = e2.rsp ? decodeRsp(e2.rsp.bytes) : null;
@@ -126,21 +123,31 @@ export function analyzeThreats(exchanges, protocolStates, integrity) {
             id: `reset-${ex.id}`, type: "INTENTIONAL_RESET",
             severity: "info",
             title: `Intentional credential exhaustion followed by ${action}`,
-            detail: `${seqFailures} consecutive auth failures followed by successful ${action} at exchange #${adminFollowup.id}. Consistent with reset or re-provisioning workflow.`,
+            detail: `${seqCount} consecutive auth failures followed by successful ${action} at exchange #${adminFollowup.id}. Consistent with reset or re-provisioning workflow.`,
             exchangeId: adminFollowup.id,
           });
         } else {
+          // Timing analysis: check if failures are too fast for human input
+          const firstTs = timeToSec(seqFailureExchanges[0].cmd.ts);
+          const lastTs = timeToSec(ex.cmd.ts);
+          const deltaMs = Math.round((lastTs - firstTs) * 1000);
+          const isAutomated = deltaMs > 0 && deltaMs < 500;
+
           threats.push({
             id: `authfail-${ex.id}`, type: "AUTH_FAILURE_SEQUENCE",
-            severity: retriesLeft === 0 ? "critical" : "warn",
-            title: `${seqFailures} consecutive authentication retries — ${retriesLeft} retries remain`,
-            detail: `Credential retry counter decremented ${seqFailures} times ending at exchange #${ex.id}. Could indicate failed provisioning, operator error, or unauthorized access attempt.`,
+            severity: isAutomated ? "critical" : retriesLeft === 0 ? "critical" : "warn",
+            title: isAutomated
+              ? `Automated credential attack — ${seqCount} failures in ${deltaMs}ms`
+              : `${seqCount} consecutive authentication retries — ${retriesLeft} retries remain`,
+            detail: isAutomated
+              ? `${seqCount} PIN attempts completed in ${deltaMs}ms (exchanges #${seqFailureExchanges[0].id}–#${ex.id}). Sub-second pacing indicates automated tooling, not manual entry.`
+              : `Credential retry counter decremented ${seqCount} times ending at exchange #${ex.id}. Could indicate failed provisioning, operator error, or unauthorized access attempt.`,
             exchangeId: ex.id,
           });
         }
       }
     } else if (rsp?.sw === 0x9000 && (cmd.ins === 0x20 || cmd.ins === 0x87)) {
-      seqFailures = 0;
+      seqFailureExchanges = [];
     }
 
     // ── Blocked authentication (only flag if NOT part of reset/re-provisioning) ──
