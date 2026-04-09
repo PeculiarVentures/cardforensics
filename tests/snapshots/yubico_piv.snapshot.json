@@ -1,0 +1,3080 @@
+{
+  "cardId": {
+    "name": "YubiKey (PIV)",
+    "id": "yubikey-piv",
+    "vendor": "Yubico",
+    "confidence": 0.99,
+    "signals": [
+      "Yubico AID selected",
+      "ATR match: Yubico Yubikey 4 OTP+U2F+CCID"
+    ],
+    "cardType": null
+  },
+  "atrOnlyId": {
+    "name": "Yubico Yubikey 4 OTP+U2F+CCID",
+    "confidence": 0.92
+  },
+  "atrParse": {
+    "convention": "direct",
+    "protocols": [
+      "T=1"
+    ],
+    "historicalAscii": null,
+    "checkValid": true,
+    "summary": "Direct | T=1 | TCK:ok"
+  },
+  "sessionCount": 5,
+  "annotations": [
+    {
+      "idx": 0,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 1,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 2,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 3,
+      "ins": "GET DATA",
+      "note": "GET DATA → INS not supported",
+      "flag": "warn"
+    },
+    {
+      "idx": 4,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → 6D00",
+      "flag": null
+    },
+    {
+      "idx": 5,
+      "ins": "SELECT",
+      "note": "SELECT PIV applet",
+      "flag": null
+    },
+    {
+      "idx": 6,
+      "ins": "YUBI GET VERSION",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 7,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 8,
+      "ins": "GET DATA",
+      "note": "GET Key History Object → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 9,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 10,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 11,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (612E)",
+      "flag": null
+    },
+    {
+      "idx": 12,
+      "ins": "INS_C0",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 13,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 14,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 15,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 16,
+      "ins": "GET DATA",
+      "note": "GET Biometric Info Templates Group → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 17,
+      "ins": "SELECT",
+      "note": "SELECT ISD v1",
+      "flag": null
+    },
+    {
+      "idx": 18,
+      "ins": "SELECT",
+      "note": "SELECT ISD v1",
+      "flag": null
+    },
+    {
+      "idx": 19,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 20,
+      "ins": "GET DATA",
+      "note": "GET Key History Object → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 21,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → 302B",
+      "flag": null
+    },
+    {
+      "idx": 22,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 23,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 24,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 25,
+      "ins": "SELECT",
+      "note": "SELECT Yubico PIV → success",
+      "flag": null
+    },
+    {
+      "idx": 26,
+      "ins": "INS_1D",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 27,
+      "ins": "SELECT",
+      "note": "SELECT Yubico PIV → success",
+      "flag": null
+    },
+    {
+      "idx": 28,
+      "ins": "INS_1D",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 29,
+      "ins": "SELECT",
+      "note": "SELECT Yubico OTP → success",
+      "flag": null
+    },
+    {
+      "idx": 30,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 31,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 32,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 33,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 34,
+      "ins": "YUBI GET VERSION",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 35,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 36,
+      "ins": "GET DATA",
+      "note": "GET DATA tag=5F FF 00 → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 37,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 38,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 39,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 40,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 41,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 42,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 43,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 44,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 45,
+      "ins": "VERIFY",
+      "note": "Retries: 2 (63C2)",
+      "flag": null
+    },
+    {
+      "idx": 46,
+      "ins": "VERIFY",
+      "note": "Retries: 1 (63C1)",
+      "flag": null
+    },
+    {
+      "idx": 47,
+      "ins": "VERIFY",
+      "note": "Auth method blocked (6983)",
+      "flag": "bug"
+    },
+    {
+      "idx": 48,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 49,
+      "ins": "CHG REF DATA",
+      "note": "CHANGE REF DATA P2=80 (admin): set PUK+PIN credential",
+      "flag": "key"
+    },
+    {
+      "idx": 50,
+      "ins": "CHG REF DATA",
+      "note": "CHANGE REF DATA P2=80 (admin): set PUK+PIN credential",
+      "flag": "key"
+    },
+    {
+      "idx": 51,
+      "ins": "CHG REF DATA",
+      "note": "CHANGE REF DATA P2=80 (admin): set PUK+PIN credential",
+      "flag": "key"
+    },
+    {
+      "idx": 52,
+      "ins": "INS_FB",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 53,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 54,
+      "ins": "GET DATA",
+      "note": "GET DATA tag=5F FF 00 → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 55,
+      "ins": "SELECT",
+      "note": "SELECT Yubico PIV → success",
+      "flag": null
+    },
+    {
+      "idx": 56,
+      "ins": "INS_1D",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 57,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 58,
+      "ins": "YUBI GET VERSION",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 59,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 60,
+      "ins": "GET DATA",
+      "note": "GET DATA tag=5F FF 00 → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 61,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 62,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 63,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 64,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 65,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 66,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 67,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 68,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 01 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 69,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 70,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 02 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 71,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 72,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 03 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 73,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 74,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 04 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 75,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 76,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 05 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 77,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 78,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 06 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 79,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 80,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 07 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 81,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 82,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 08 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 83,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 84,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 09 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 85,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 86,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 10 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 87,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 88,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 11 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 89,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 90,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 12 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 91,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 92,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 13 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 93,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 94,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 14 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 95,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 96,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 15 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 97,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 98,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 16 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 99,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 100,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 17 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 101,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 102,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 18 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 103,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 104,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 19 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 105,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 106,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 20 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 107,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 108,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 109,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 110,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 111,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 112,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 113,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 114,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 115,
+      "ins": "VERIFY",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 116,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 117,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 118,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 119,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 120,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 121,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 122,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 123,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 01 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 124,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 125,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 02 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 126,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 127,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 03 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 128,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 129,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 04 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 130,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 131,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 05 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 132,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 133,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 06 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 134,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 135,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 07 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 136,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 137,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 08 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 138,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 139,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 09 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 140,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 141,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 10 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 142,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 143,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 11 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 144,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 145,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 12 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 146,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 147,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 13 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 148,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 149,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 14 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 150,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 151,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 15 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 152,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 153,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 16 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 154,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 155,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 17 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 156,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 157,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 18 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 158,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 159,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 19 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 160,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 161,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 20 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 162,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 163,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 164,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 165,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 166,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 167,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 168,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 169,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 170,
+      "ins": "INS_47",
+      "note": "Security status not satisfied (6982)",
+      "flag": null
+    },
+    {
+      "idx": 171,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 172,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH Management Key (9B) (3DES-ECB) → ok",
+      "flag": null
+    },
+    {
+      "idx": 173,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH Management Key (9B) (3DES-ECB) → ok",
+      "flag": null
+    },
+    {
+      "idx": 174,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 175,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 176,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 177,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 178,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 179,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 180,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 181,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 01 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 182,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 183,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 02 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 184,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 185,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 03 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 186,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 187,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 04 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 188,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 189,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 05 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 190,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 191,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 06 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 192,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 193,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 07 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 194,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 195,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 08 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 196,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 197,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 09 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 198,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 199,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 10 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 200,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 201,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 11 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 202,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 203,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 12 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 204,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 205,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 13 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 206,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 207,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 14 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 208,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 209,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 15 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 210,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 211,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 16 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 212,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 213,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 17 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 214,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 215,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 18 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 216,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 217,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 19 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 218,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 219,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 20 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 220,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 221,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 222,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 223,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 224,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 225,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 226,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 227,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 228,
+      "ins": "INS_47",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 229,
+      "ins": "VERIFY",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 230,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH Digital Signature (9C) (ECC P-256) → ok",
+      "flag": null
+    },
+    {
+      "idx": 231,
+      "ins": "PUT DATA",
+      "note": "PUT DATA tag=5F C1 0A → ok",
+      "flag": null
+    },
+    {
+      "idx": 232,
+      "ins": "PUT DATA",
+      "note": "PUT DATA tag=5F C1 02 → ok",
+      "flag": null
+    },
+    {
+      "idx": 233,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 234,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 01 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 235,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 236,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 02 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 237,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 238,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 03 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 239,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 240,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 04 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 241,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 242,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 05 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 243,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 244,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 06 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 245,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 246,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 07 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 247,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 248,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 08 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 249,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 250,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 09 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 251,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 252,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 10 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 253,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 254,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 11 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 255,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 256,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 12 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 257,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 258,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 13 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 259,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 260,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 14 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 261,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 262,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 15 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 263,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 264,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 16 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 265,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 266,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 17 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 267,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 268,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 18 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 269,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 270,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 19 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 271,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 272,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 20 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 273,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 274,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 275,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 276,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → 318B",
+      "flag": null
+    },
+    {
+      "idx": 277,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 278,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 279,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 280,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 281,
+      "ins": "SELECT",
+      "note": "SELECT Yubico PIV → success",
+      "flag": null
+    },
+    {
+      "idx": 282,
+      "ins": "INS_1D",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 283,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 284,
+      "ins": "YUBI GET VERSION",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 285,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 286,
+      "ins": "GET DATA",
+      "note": "GET DATA tag=5F FF 00 → 6A82",
+      "flag": "warn"
+    },
+    {
+      "idx": 287,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 288,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 289,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 290,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 291,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 292,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 293,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 294,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 01 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 295,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 296,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 02 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 297,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 298,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 03 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 299,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 300,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 04 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 301,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 302,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 05 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 303,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 304,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 06 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 305,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 306,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 07 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 307,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 308,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 08 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 309,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 310,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 09 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 311,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 312,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 10 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 313,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 314,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 11 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 315,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 316,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 12 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 317,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 318,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 13 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 319,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 320,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 14 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 321,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 322,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 15 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 323,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 324,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 16 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 325,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 326,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 17 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 327,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 328,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 18 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 329,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 330,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 19 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 331,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 332,
+      "ins": "GET DATA",
+      "note": "GET Retired Cert 20 → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 333,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 334,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 335,
+      "ins": "INS_F7",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 336,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → 318B",
+      "flag": null
+    },
+    {
+      "idx": 337,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 338,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 339,
+      "ins": "INS_F7",
+      "note": "Reference data not found (6A88)",
+      "flag": null
+    },
+    {
+      "idx": 340,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A82)",
+      "flag": null
+    },
+    {
+      "idx": 341,
+      "ins": "SELECT",
+      "note": "SELECT Yubico OTP → success",
+      "flag": null
+    },
+    {
+      "idx": 342,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    },
+    {
+      "idx": 343,
+      "ins": "SELECT",
+      "note": "SELECT AID → success",
+      "flag": null
+    }
+  ],
+  "annotationStats": {
+    "total": 344,
+    "annotated": 307,
+    "flags": {
+      "warn": 8,
+      "bug": 1,
+      "key": 3
+    }
+  },
+  "integrity": {
+    "kind": "complete",
+    "confidence": "high",
+    "sessionKind": "sessions",
+    "warnings": [],
+    "isFragment": false,
+    "isFiltered": false,
+    "isTiny": false
+  },
+  "objectLedger": [
+    {
+      "id": "5F C1 02",
+      "label": "Tag 5F C1 02",
+      "type": "data-object",
+      "reads": {
+        "ok": 4,
+        "fail": 3,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 1,
+        "fail": 0
+      },
+      "app": null,
+      "size": 61,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "5F C1 0A",
+      "label": "Tag 5F C1 0A",
+      "type": "data-object",
+      "reads": {
+        "ok": 2,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 1,
+        "fail": 0
+      },
+      "app": null,
+      "size": 318,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "7E",
+      "label": "Discovery Object",
+      "type": "data-object",
+      "reads": {
+        "ok": 2,
+        "fail": 1,
+        "sws": [
+          "6D00"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 20,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "5F C1 05",
+      "label": "Tag 5F C1 05",
+      "type": "data-object",
+      "reads": {
+        "ok": 1,
+        "fail": 6,
+        "sws": [
+          "612E",
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 302,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "DF 30",
+      "label": "Tag DF 30",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6D00"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0C",
+      "label": "Tag 5F C1 0C",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0B",
+      "label": "Tag 5F C1 0B",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 7,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 01",
+      "label": "Tag 5F C1 01",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 7,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 22",
+      "label": "Tag 5F C1 22",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F FF 00",
+      "label": "Tag 5F FF 00",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 4,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 07",
+      "label": "Tag 5F C1 07",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0D",
+      "label": "Tag 5F C1 0D",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0E",
+      "label": "Tag 5F C1 0E",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0F",
+      "label": "Tag 5F C1 0F",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 10",
+      "label": "Tag 5F C1 10",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 11",
+      "label": "Tag 5F C1 11",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 12",
+      "label": "Tag 5F C1 12",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 13",
+      "label": "Tag 5F C1 13",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 14",
+      "label": "Tag 5F C1 14",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 15",
+      "label": "Tag 5F C1 15",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 16",
+      "label": "Tag 5F C1 16",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 17",
+      "label": "Tag 5F C1 17",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 18",
+      "label": "Tag 5F C1 18",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 19",
+      "label": "Tag 5F C1 19",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1A",
+      "label": "Tag 5F C1 1A",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1B",
+      "label": "Tag 5F C1 1B",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1C",
+      "label": "Tag 5F C1 1C",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1D",
+      "label": "Tag 5F C1 1D",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1E",
+      "label": "Tag 5F C1 1E",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 1F",
+      "label": "Tag 5F C1 1F",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 20",
+      "label": "Tag 5F C1 20",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 5,
+        "sws": [
+          "6A82"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "62 76 01 FF 00 00 00",
+      "label": "62 76 01 FF 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 00 01 01",
+      "label": "A0 00 00 00 01…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "E8 2B 06 01 04 01 81 C3 1F 02 01",
+      "label": "E8 2B 06 01 04…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08 00 00 10 00",
+      "label": "PIV",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08 00 00 10 00 01 00",
+      "label": "ISD v1",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 05 27 47 11 17",
+      "label": "A0 00 00 05 27…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 05 27 21 01",
+      "label": "A0 00 00 05 27…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "74 08 00 00 00 00 03 87 27 6C",
+      "label": "74 08 00 00 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "74 08 00 00 00 00 03 87 27 6D",
+      "label": "74 08 00 00 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08",
+      "label": "ISD",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "74 08 00 00 00 00 03 87 27 6E",
+      "label": "74 08 00 00 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    }
+  ],
+  "threats": [
+    {
+      "id": "reset-undefined",
+      "type": "INTENTIONAL_RESET",
+      "severity": "info",
+      "title": "Intentional credential exhaustion followed by factory reset (INS FB)",
+      "detail": "3 consecutive auth failures followed by successful factory reset (INS FB) at exchange #undefined. Consistent with reset or re-provisioning workflow."
+    },
+    {
+      "id": "cred-undefined",
+      "type": "CLEARTEXT_CREDENTIAL",
+      "severity": "critical",
+      "title": "Default PIN accepted by card — card is using factory credentials",
+      "detail": "VERIFY at exchange #undefined — \"123456\" matches known default",
+      "cred": "123456"
+    },
+    {
+      "id": "timing-crypto",
+      "type": "TIMING_PROFILE",
+      "icon": "⏱",
+      "severity": "pass",
+      "title": "Fast GEN AUTH (~24ms) — consistent with ECC or modern hardware",
+      "detail": "Average card crypto execution: 24ms."
+    },
+    {
+      "id": "pii-undefined",
+      "type": "PII_EXPOSURE",
+      "severity": "warn",
+      "title": "Identity data read from slot 5FC105 (trace does not confirm channel protection)",
+      "detail": "Subject: CN=Test; Issuer: CN=Test; Serial: 0485ca710a0354e6859a20f9ec70ee91925e5e4e",
+      "certInfo": {
+        "subject": "CN=Test",
+        "serial": "0485ca710a0354e6859a20f9ec70ee91925e5e4e",
+        "keyAlg": "EC P-256",
+        "keySize": 256,
+        "sigAlg": "ECDSA (SHA-256)",
+        "notAfter": "2027-04-03T00:00:00.000Z"
+      }
+    }
+  ],
+  "threatSummary": [
+    {
+      "id": "reset-undefined",
+      "severity": "info",
+      "type": "INTENTIONAL_RESET",
+      "title": "Intentional credential exhaustion followed by factory reset (INS FB)"
+    },
+    {
+      "id": "cred-undefined",
+      "severity": "critical",
+      "type": "CLEARTEXT_CREDENTIAL",
+      "title": "Default PIN accepted by card — card is using factory credentials"
+    },
+    {
+      "id": "timing-crypto",
+      "severity": "pass",
+      "type": "TIMING_PROFILE",
+      "title": "Fast GEN AUTH (~24ms) — consistent with ECC or modern hardware"
+    },
+    {
+      "id": "pii-undefined",
+      "severity": "warn",
+      "type": "PII_EXPOSURE",
+      "title": "Identity data read from slot 5FC105 (trace does not confirm channel protection)"
+    }
+  ],
+  "certProvisioning": {
+    "probed": [
+      "5FC105",
+      "5FC10A",
+      "5FC10B",
+      "5FC101"
+    ],
+    "populated": [
+      "5FC105",
+      "5FC10A"
+    ],
+    "absent": [
+      "5FC10B",
+      "5FC101"
+    ],
+    "slotDetails": {
+      "5FC105": {
+        "probed": true,
+        "populated": true,
+        "size": 302,
+        "lastSW": 27266
+      },
+      "5FC10A": {
+        "probed": true,
+        "populated": true,
+        "size": 318,
+        "lastSW": 36864
+      },
+      "5FC10B": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27266
+      },
+      "5FC101": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27266
+      }
+    },
+    "allEmpty": false,
+    "partial": true,
+    "full": true
+  },
+  "score": {
+    "score": 90,
+    "label": "Low Findings",
+    "labelNote": "Trace appears to capture provisioning. Cert slot and auth findings reflect setup state, not deployment risk.",
+    "color": "#22c55e",
+    "deductions": [
+      {
+        "reason": "Partial cert population (provisioning in progress, empty: 9D, 9E)",
+        "points": 0,
+        "severity": "info",
+        "category": "readiness"
+      },
+      {
+        "reason": "Sensitive credential commands without proven secure messaging (not confirmed plaintext, but no protection observed in trace)",
+        "points": 10,
+        "severity": "warn"
+      }
+    ],
+    "confidence": "normal",
+    "isProvisioning": true
+  },
+  "compliance": {
+    "total": 344,
+    "standard": 184,
+    "proprietary": 160,
+    "unknown": 0,
+    "standardPct": 53,
+    "proprietaryPct": 47,
+    "proprietaryInsCodes": [
+      "FD",
+      "C0",
+      "1D",
+      "F7",
+      "FB",
+      "47"
+    ]
+  }
+}

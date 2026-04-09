@@ -26,13 +26,16 @@ export const hexStr = (arr) => (arr || []).map(b => h(b)).join(" ");
 
 // ── Instruction & Status Word Lookup ─────────────────────────────────────
 
-/** Human-readable names for common ISO 7816-4 / GP / PIV instructions. */
+/** Human-readable names for common ISO 7816-4 / GP / PIV / EMV instructions. */
 export const INS_MAP = {
   0xA4: "SELECT",       0xCB: "GET DATA",    0xCA: "GET DATA",
   0xDB: "PUT DATA",     0x87: "GEN AUTH",     0x82: "EXT AUTH",
   0x84: "GET CHALLENGE", 0x2C: "CHG REF DATA", 0x20: "VERIFY",
   0xE2: "APPEND RECORD", 0xF2: "GET STATUS",
   0xFD: "YUBI GET VERSION", 0x01: "YUBI GET SERIAL",
+  // EMV
+  0xA8: "GET PROCESSING OPTIONS", 0xB2: "READ RECORD", 0xAE: "GENERATE AC",
+  0x88: "INTERNAL AUTH",
 };
 
 /** Well-known status words with severity classification. */
