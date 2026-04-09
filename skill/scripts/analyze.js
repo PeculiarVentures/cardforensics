@@ -109,7 +109,7 @@ for (const ex of exchanges) {
 // Async: key check
 const keyCheck = await checkKnownKeys(exchanges);
 const securityScore = computeSecurityScore(
-  keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates
+  keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates, activeThreats
 );
 
 // ATR parse
@@ -179,7 +179,7 @@ const result = {
   security_score: securityScore ? {
     score: securityScore.score,
     label: securityScore.label,
-    breakdown: securityScore.breakdown ?? [],
+    breakdown: securityScore.deductions ?? [],
   } : null,
 
   // Compliance

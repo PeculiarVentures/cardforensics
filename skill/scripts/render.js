@@ -268,7 +268,11 @@ export default function Dashboard(){
           {chuid?.expiration&&<span>Exp {chuid.expiration}</span>}
         </div>
       </div>
-      {score&&<div style={{textAlign:"right"}}><div style={{fontSize:24,fontWeight:700,color:sc,lineHeight:1}}>{score.score}</div><div style={{fontSize:9,color:C.muted,letterSpacing:1}}>{score.label?.toUpperCase()}</div></div>}
+      {score&&<div style={{textAlign:"right",minWidth:120}}>
+        <div style={{fontSize:24,fontWeight:700,color:sc,lineHeight:1}}>{score.score}</div>
+        <div style={{fontSize:9,color:C.muted,letterSpacing:1,marginBottom:4}}>{score.label?.toUpperCase()}</div>
+        {score.breakdown?.filter(b=>b.points>0).map((b,i)=><div key={i} style={{fontSize:9,color:b.severity==="critical"?C.red:b.severity==="warn"?C.amber:C.muted,textAlign:"right",lineHeight:1.4}}>-{b.points} {b.reason?.substring(0,40)}{b.reason?.length>40?"...":""}</div>)}
+      </div>}
     </div>
 
     {/* AI Summary */}

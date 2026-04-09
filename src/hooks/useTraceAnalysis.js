@@ -54,8 +54,8 @@ export default function useTraceAnalysis(trace) {
 
   // Security score depends on keyCheck (async) + everything else (sync)
   const securityScore = useMemo(
-    () => computeSecurityScore(keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates),
-    [keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates]
+    () => computeSecurityScore(keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates, activeThreats),
+    [keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates, activeThreats]
   );
 
   // ── Async: key check runs once per trace ──

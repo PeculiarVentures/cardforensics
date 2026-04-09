@@ -46,11 +46,29 @@ function looksLikeProvisioning(exchanges) {
  *
  * @returns {{ score, label, labelNote, color, deductions[], confidence, isProvisioning }}
  */
-export function computeSecurityScore(keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates) {
+export function computeSecurityScore(keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates, threats) {
   let score = 100;
   const deductions = [];
   const isIncomplete = integrity.kind !== "complete";
   const isProvisioning = looksLikeProvisioning(exchanges);
+
+  // ── Threat-based deductions (deduplicated by threat type) ──
+  if (threats?.length) {
+    const seen = new Set();
+    for (const t of threats) {
+      const key = t.type || t.id;
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      if (t.severity === "critical") {
+        score -= 30;
+        deductions.push({ reason: t.title, points: 30, severity: "critical" });
+      } else if (t.severity === "warn") {
+        score -= 5;
+        deductions.push({ reason: t.title, points: 5, severity: "warn" });
+      }
+      // info and pass don't affect score
+    }
+  }
 
   // ── Default management key (high confidence regardless of trace completeness) ──
   const uniqueKeys = [...new Set((keyCheck?.matches ?? []).map(m => m.id))];
