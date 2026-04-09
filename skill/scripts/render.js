@@ -436,6 +436,7 @@ export default function Dashboard(){
     <div style={{flex:1,overflow:"auto"}} tabIndex={0}>
       {tab==="replay"&&<>
         {d._trimmed&&<div style={{padding:"6px 14px",fontSize:11,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries)</div>}
+        <div style={{position:"sticky",top:0,zIndex:10,background:C.bg}}>
         <div style={{padding:"4px 14px",fontSize:11,color:C.dim,borderBottom:\`1px solid \${C.border}\`,display:"flex",alignItems:"center",gap:8}}>
           <button onClick={()=>{if(!playing&&sel==null&&filtered.length){setSel(filtered[0].id);}setPlaying(p=>!p);}} style={{background:playing?C.amber+"22":"transparent",border:\`1px solid \${playing?C.amber:C.teal}66\`,borderRadius:4,padding:"3px 12px",fontSize:11,color:playing?C.amber:C.teal,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
             {playing?"⏸ Pause":"▶ Play"}
@@ -448,6 +449,7 @@ export default function Dashboard(){
           <button onClick={()=>setErrOnly(!errOnly)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,border:\`1px solid \${errOnly?C.red:C.border}\`,background:errOnly?C.red+"18":"transparent",color:errOnly?C.red:C.muted,cursor:"pointer"}}>Errors</button>
           <button onClick={()=>setHideGet(!hideGet)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,border:\`1px solid \${hideGet?C.amber:C.border}\`,background:hideGet?C.amber+"18":"transparent",color:hideGet?C.amber:C.muted,cursor:"pointer"}}>Hide GET</button>
           <span style={{fontSize:10,color:C.dim}}>{filtered.length}/{tl.length}</span>
+        </div>
         </div>
         {(()=>{
           const SC=["#6366f1","#f59e0b","#10b981","#ec4899","#3b82f6"];
