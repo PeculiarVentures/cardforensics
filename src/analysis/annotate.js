@@ -185,11 +185,33 @@ export function autoAnnotate(ex, protoState) {
 
   // GET DATA (INS 0xCB / 0xCA)
   if (cmd.ins === 0xCB || cmd.ins === 0xCA) {
+    // SafeNet hardware serial (CLA=0x82, INS=0xCA, P1=0x01, P2=0x04)
+    if (cmd.cla === 0x82 && cmd.ins === 0xCA && cmd.p1 === 0x01 && cmd.p2 === 0x04) {
+      if (swOk && rsp?.data?.length > 2) {
+        const serial = String.fromCharCode(...rsp.data.slice(2).filter(b => b >= 0x20 && b < 0x7F));
+        return { note: `GET hardware serial → "${serial}"`, flag: null };
+      }
+      return { note: `GET hardware serial → ${h(sw >> 8)}${h(sw & 0xff)}`, flag: swOk ? null : "warn" };
+    }
+    // SafeNet token ID / applet version (DF30) — two APDU formats:
+    //   1. Data-field form: CLA=0x81, INS=0xCB, data starts with DF 30
+    //   2. P1/P2 form: INS=0xCB/0xCA, P1=0xDF, P2=0x30
+    if ((cmd.data?.[0] === 0xDF && cmd.data?.[1] === 0x30) || (cmd.p1 === 0xDF && cmd.p2 === 0x30)) {
+      if (swOk && rsp?.data?.length > 3) {
+        const rd = rsp.data;
+        const ver = (rd[0] === 0xDF && rd[1] === 0x30 && rd.length > rd[2] + 3)
+          ? String.fromCharCode(...rd.slice(3, 3 + rd[2]).filter(b => b >= 0x20 && b < 0x7F))
+          : String.fromCharCode(...rd.slice(3).filter(b => b >= 0x20 && b < 0x7F));
+        return { note: `GET applet version (DF30) → "${ver}"`, flag: null };
+      }
+      const swLabel = h(sw >> 8) + h(sw & 0xff);
+      return { note: `GET applet version (DF30) → ${swLabel}`, flag: "expected" };
+    }
     const d = cmd.data;
     // Vendor-specific tags (SafeNet DF namespace) — check these first, they are not secrets
     if (d?.[0] === 0xDF) {
       if (d[1] === 0x39) { const cnt = rsp?.data ? hexStr(rsp.data) : "?"; return { note: `GET usage counter DF39 → 0x${cnt.replace(/ /g, "")}`, flag: null }; }
-      if (d[1] === 0x30) { const ver = rsp?.data ? String.fromCharCode(...rsp.data.filter(b => b >= 0x20 && b < 0x7F)) : "?"; return { note: swOk ? `GET firmware version → "${ver}"` : `GET firmware version → ${h(sw >> 8)}${h(sw & 0xff)}`, flag: null }; }
+      // DF30 (applet version) handled above in the unified DF30 handler
       if (d[1] === 0x35) return { note: "GET object directory DF35", flag: null };
       if (d[1] === 0x34) return { note: "GET key directory DF34", flag: null };
     }

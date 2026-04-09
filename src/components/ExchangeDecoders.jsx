@@ -69,7 +69,15 @@ function decodeCHUID(data) {
     0xFE: "Error Detection Code",
     0xEE: "Buffer Length",
   };
-  const tags = parseFlatTLV(Array.from(data));
+  // Skip 0x53 PIV container wrapper if present (SP 800-73-4 §3.1.2)
+  let unwrapped = Array.from(data);
+  if (unwrapped.length > 2 && unwrapped[0] === 0x53) {
+    let off = 1, len = unwrapped[off++];
+    if (len === 0x81 && off < unwrapped.length) len = unwrapped[off++];
+    else if (len === 0x82 && off + 1 < unwrapped.length) { len = (unwrapped[off] << 8) | unwrapped[off + 1]; off += 2; }
+    unwrapped = unwrapped.slice(off);
+  }
+  const tags = parseFlatTLV(unwrapped);
   return tags.map(t => {
     const label = CHUID_TAGS[t.tag] ?? `Tag ${h(t.tag)}`;
     let value;
@@ -77,11 +85,16 @@ function decodeCHUID(data) {
       // GUID as UUID format
       const hex = Array.from(t.data).map(b => h(b)).join("");
       value = `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+    } else if (t.tag === 0x36 && t.data.length === 16) {
+      // Cardholder UUID
+      const hex = Array.from(t.data).map(b => h(b)).join("");
+      value = `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
     } else if (t.tag === 0x35 && t.data.length === 8) {
       // Expiration as ASCII date
-      value = String.fromCharCode(...t.data);
+      const s = String.fromCharCode(...t.data);
+      value = /^\d{8}$/.test(s) ? `${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}` : s;
     } else if (t.tag === 0x3E) {
-      value = `${t.data.length}B signature`;
+      value = t.data.length > 0 ? `${t.data.length}B signature` : "absent";
     } else {
       value = t.data.length <= 16 ? hexStr(t.data) : `${hexStr(t.data.slice(0, 12))}... (${t.data.length}B)`;
     }
@@ -130,6 +143,46 @@ function ExchangeDecoders({ ex }) {
         <div style={styles.row}>
           <span style={styles.key}>Serial</span>
           <span style={styles.value}>{serial}</span>
+        </div>
+      </div>
+    );
+  }
+
+  // SafeNet GET SERIAL (CLA=0x82, INS=0xCA, P1=0x01, P2=0x04)
+  if (cmd.cla === 0x82 && cmd.ins === 0xCA && cmd.p1 === 0x01 && cmd.p2 === 0x04 && rsp?.sw === 0x9000 && rsp.data?.length > 2) {
+    const serialBytes = rsp.data.slice(2); // skip length header bytes
+    const serial = String.fromCharCode(...serialBytes.filter(b => b >= 0x20 && b < 0x7F));
+    return (
+      <div style={styles.container}>
+        <span style={styles.label}>SafeNet Hardware Serial</span>
+        <div style={styles.row}>
+          <span style={styles.key}>Serial</span>
+          <span style={styles.value}>{serial}</span>
+        </div>
+        <div style={styles.row}>
+          <span style={styles.key}>Raw</span>
+          <span style={{ ...styles.value, color: "#667788" }}>{hexStr(rsp.data)}</span>
+        </div>
+      </div>
+    );
+  }
+
+  // SafeNet GET TOKEN ID / applet version (DF30) — two APDU formats:
+  //   1. Data-field form: CLA=0x81, INS=0xCB, data starts with DF 30
+  //   2. P1/P2 form: INS=0xCB/0xCA, P1=0xDF, P2=0x30
+  const isDF30Data = cmd.data?.length >= 2 && cmd.data[0] === 0xDF && cmd.data[1] === 0x30;
+  const isDF30P1P2 = cmd.p1 === 0xDF && cmd.p2 === 0x30;
+  if ((cmd.ins === 0xCB || cmd.ins === 0xCA) && (isDF30Data || isDF30P1P2) && rsp?.sw === 0x9000 && rsp.data?.length > 3) {
+    const rd = rsp.data;
+    const version = (rd[0] === 0xDF && rd[1] === 0x30 && rd.length > rd[2] + 3)
+      ? String.fromCharCode(...rd.slice(3, 3 + rd[2]).filter(b => b >= 0x20 && b < 0x7F))
+      : String.fromCharCode(...rd.slice(3).filter(b => b >= 0x20 && b < 0x7F));
+    return (
+      <div style={styles.container}>
+        <span style={styles.label}>SafeNet Applet Version</span>
+        <div style={styles.row}>
+          <span style={styles.key}>Version</span>
+          <span style={styles.value}>{version}</span>
         </div>
       </div>
     );

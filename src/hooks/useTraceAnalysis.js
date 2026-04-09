@@ -13,7 +13,7 @@ import { groupSessions, buildProtocolStates } from "../protocol.js";
 import {
   analyzeIntegrity, classifyErrors, checkCertProvisioning, identifyCard,
   computeComplianceProfile, computeSecurityScore, buildObjectLedger,
-  analyzeThreats, autoAnnotate,
+  analyzeThreats, autoAnnotate, extractTokenMetadata,
 } from "../analysis/index.js";
 import { checkKnownKeys } from "../crypto.js";
 
@@ -28,6 +28,7 @@ export default function useTraceAnalysis(trace) {
   const integrity       = useMemo(() => analyzeIntegrity(exchanges, sessions), [exchanges, sessions]);
   const errorProfile    = useMemo(() => classifyErrors(exchanges), [exchanges]);
   const cardId          = useMemo(() => identifyCard(exchanges, traceATR), [exchanges, traceATR]);
+  const tokenMeta       = useMemo(() => extractTokenMetadata(exchanges), [exchanges]);
   const complianceProfile = useMemo(() => computeComplianceProfile(exchanges), [exchanges]);
   const protocolStates  = useMemo(() => buildProtocolStates(exchanges), [exchanges]);
   const objectLedger    = useMemo(() => buildObjectLedger(exchanges, protocolStates), [exchanges, protocolStates]);
@@ -68,7 +69,7 @@ export default function useTraceAnalysis(trace) {
 
   return {
     entries, exchanges, sessions,
-    integrity, errorProfile, cardId, complianceProfile,
+    integrity, errorProfile, cardId, complianceProfile, tokenMeta,
     protocolStates, protocolStatesRef,
     objectLedger, certProvision, annotations,
     activeThreats, securityScore, keyCheck,

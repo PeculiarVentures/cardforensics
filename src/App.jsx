@@ -25,7 +25,7 @@ export default function APDUViewer() {
   const analysis = useTraceAnalysis(trace);
   const {
     entries, exchanges, sessions,
-    integrity, errorProfile, cardId, complianceProfile,
+    integrity, errorProfile, cardId, complianceProfile, tokenMeta,
     protocolStates, protocolStatesRef,
     objectLedger, certProvision, annotations,
     activeThreats, securityScore, keyCheck,
@@ -163,6 +163,13 @@ export default function APDUViewer() {
               <div style={{ fontWeight:700, color:C.teal, marginBottom:6 }}>{cardId.profile.name}</div>
               <div style={{ color:C.text, marginBottom:4 }}>{cardId.profile.vendor} · {Math.round(cardId.confidence*100)}% confidence</div>
               <div style={{ color:"#8899bb", fontSize:10, marginBottom:6 }}>{cardId.signals.map((s,i)=><div key={i}>· {s}</div>)}</div>
+              {tokenMeta && (tokenMeta.serial || tokenMeta.version || tokenMeta.chuid) && <div style={{ fontSize:10, paddingTop:4, marginBottom:4, borderTop:`1px solid ${C.border}` }}>
+                {tokenMeta.serial && <div style={{ display:"flex", gap:6 }}><span style={{ color:C.dim, minWidth:60 }}>Serial</span><span style={{ color:C.text, fontFamily:"monospace" }}>{tokenMeta.serial}</span></div>}
+                {tokenMeta.version && <div style={{ display:"flex", gap:6 }}><span style={{ color:C.dim, minWidth:60 }}>Version</span><span style={{ color:C.text, fontFamily:"monospace" }}>{tokenMeta.version}</span></div>}
+                {tokenMeta.chuid?.guid && <div style={{ display:"flex", gap:6 }}><span style={{ color:C.dim, minWidth:60 }}>GUID</span><span style={{ color:C.text, fontFamily:"monospace", fontSize:9 }}>{tokenMeta.chuid.guid}</span></div>}
+                {tokenMeta.chuid?.expiration && <div style={{ display:"flex", gap:6 }}><span style={{ color:C.dim, minWidth:60 }}>Expires</span><span style={{ color:C.text, fontFamily:"monospace" }}>{tokenMeta.chuid.expiration}</span></div>}
+                {tokenMeta.chuid?.hasSignature != null && <div style={{ display:"flex", gap:6 }}><span style={{ color:C.dim, minWidth:60 }}>Signed</span><span style={{ color: tokenMeta.chuid.hasSignature ? C.green : C.amber }}>{tokenMeta.chuid.hasSignature ? `Yes (${tokenMeta.chuid.signatureLength}B)` : "No"}</span></div>}
+              </div>}
               {complianceProfile && <div style={{ color:C.text, fontSize:10, paddingTop:4, borderTop:`1px solid ${C.border}` }}>
                 Compliance: {complianceProfile.standardPct}% standard, {complianceProfile.proprietaryPct}% proprietary
                 {complianceProfile.proprietaryInsCodes.length > 0 && <span style={{ color:"#8899bb" }}> (INS: {complianceProfile.proprietaryInsCodes.join(", ")})</span>}
@@ -179,7 +186,7 @@ export default function APDUViewer() {
               {securityScore && <span style={{ color:securityScore.color }}>{securityScore.score}</span>}
             </div>
             <button onClick={() => {
-              const pkg = buildForensicExport({ exchanges, sessions, protocolStates, annotations, objectLedger, keyCheck, integrity, errorProfile, aiSessions, aiTraceMeta, aiCache: aiCache.current, certProvision, securityScore, complianceProfile, cardId });
+              const pkg = buildForensicExport({ exchanges, sessions, protocolStates, annotations, objectLedger, keyCheck, integrity, errorProfile, aiSessions, aiTraceMeta, aiCache: aiCache.current, certProvision, securityScore, complianceProfile, cardId, tokenMeta });
               const json = JSON.stringify(pkg, null, 2);
               const filename = `apdu-forensic-${exchanges[0]?.cmd.ts.split(" ")[0] ?? "export"}.json`;
               setExportModal({ json, filename });

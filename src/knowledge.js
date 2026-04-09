@@ -134,6 +134,15 @@ const TLV_TAGS = {
   "7F 61": { name: "CCC", desc: "Card Capability Container — card identifier and capability bits.", spec: "nist_73" },
   "BC": { name: "Biometric", desc: "PIV biometric data template.", spec: "nist_73" },
   "FE": { name: "Error Detection Code", desc: "PIV error detection code for data integrity.", spec: "nist_73" },
+  // PIV CHUID internal tags (SP 800-73-4 §3.1.2, FIPS 201-2 §4.2.1)
+  "30": { name: "FASC-N", desc: "Federal Agency Smart Credential Number — 25-byte BCD-encoded agency/system/credential identifier (FIPS 201-2 §4.2.1).", spec: "nist_73" },
+  "32": { name: "Org Identifier", desc: "Organizational identifier (deprecated in FIPS 201-2).", spec: "nist_73" },
+  "33": { name: "DUNS", desc: "Dun & Bradstreet number for the issuing organization.", spec: "nist_73" },
+  "34": { name: "GUID", desc: "Global Unique Identifier — 16-byte UUID identifying this credential (RFC 4122).", spec: "nist_73" },
+  "35": { name: "Expiration Date", desc: "Credential expiration date (8 bytes, ASCII YYYYMMDD).", spec: "nist_73" },
+  "36": { name: "Cardholder UUID", desc: "Cardholder UUID — optional persistent person identifier.", spec: "nist_73" },
+  "3E": { name: "Issuer Signature", desc: "Asymmetric digital signature over the CHUID data elements.", spec: "nist_73" },
+  "EE": { name: "Buffer Length", desc: "PIV buffer length tag.", spec: "nist_73" },
   "FF 84": { name: "PIV Key Info", desc: "PIV key information by slot.", spec: "nist_73" },
   "FF 90": { name: "PIV Key Template", desc: "PIV key template (CRT: 7F48 algorithm info, 7F49 public key).", spec: "nist_73" },
   "7F 48": { name: "CRT Algo Info", desc: "Cardholder role template — algorithm identifier for key slot.", spec: "nist_73" },
@@ -206,6 +215,22 @@ function interpretValue(tagBytes, valueBytes) {
   if (k === "DF 39") { const v = valueBytes.reduce((a, b) => (a << 8) | b, 0); return `0x${v.toString(16).padStart(8,"0").toUpperCase()} (${v} uses)`; }
   if ((k === "84" || k === "4F") && valueBytes.length >= 5) return `AID: ${hexStr(valueBytes)}`;
   if (k === "8A" && valueBytes.length === 1) return ({ 0x01:"INSTALLED", 0x03:"SELECTABLE", 0x05:"PERSONALIZED", 0x07:"BLOCKED", 0x0F:"LOCKED" })[valueBytes[0]] ?? `0x${h(valueBytes[0])}`;
+  // PIV CHUID value interpreters
+  if (k === "34" && valueBytes.length === 16) {
+    const hex = Array.from(valueBytes).map(b => h(b)).join("");
+    return `UUID: ${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+  }
+  if (k === "35") {
+    try { const s = String.fromCharCode(...valueBytes); if (/^\d{8}$/.test(s)) return `Expires: ${s.slice(0,4)}-${s.slice(4,6)}-${s.slice(6,8)}`; } catch {}
+    return `Expires: ${hexStr(valueBytes)}`;
+  }
+  if (k === "30") return `FASC-N (${valueBytes.length} bytes BCD)`;
+  if (k === "36" && valueBytes.length === 16) {
+    const hex = Array.from(valueBytes).map(b => h(b)).join("");
+    return `UUID: ${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+  }
+  if (k === "3E") return valueBytes.length > 0 ? `Signed (${valueBytes.length}B signature)` : "Empty signature";
+  if (k === "EE" && valueBytes.length >= 2) return `Buffer: ${(valueBytes[0] << 8) | valueBytes[1]} bytes`;
   // EMV value interpreters
   if (k === "50" || k === "5F 20" || k === "5F 2D" || k === "9F 12") {
     // Text fields: Application Label, Cardholder Name, Language Preference, App Preferred Name

@@ -10,3 +10,4 @@ export { extractObjectId, buildObjectLedger } from "./ledger.js";
 export { translateToAPI } from "./translate.js";
 export { buildTopSummary } from "./summary.js";
 export { unwrapPIVCert, analyzeCertificate, parseKeyTemplate } from "./x509.js";
+export { extractTokenMetadata } from "./tokenid.js";

@@ -24,6 +24,7 @@ import { analyzeIntegrity, classifyErrors } from "../src/analysis/integrity.js";
 import { checkCertProvisioning } from "../src/analysis/certcheck.js";
 import { buildObjectLedger } from "../src/analysis/ledger.js";
 import { buildTopSummary } from "../src/analysis/summary.js";
+import { extractTokenMetadata } from "../src/analysis/tokenid.js";
 import { parseATR, formatATRSummary } from "../src/atr-parser.js";
 import { groupSessions, buildProtocolStates } from "../src/protocol.js";
 import { decodeCmd, decodeRsp, hexStr, INS_MAP, lookupSW } from "../src/decode.js";
@@ -165,6 +166,11 @@ function analyzeTrace(exchanges, atr) {
     snap.compliance = computeComplianceProfile(exchanges);
   } catch { snap.compliance = null; }
 
+  // Token identity metadata
+  try {
+    snap.tokenMeta = extractTokenMetadata(exchanges);
+  } catch { snap.tokenMeta = null; }
+
   return snap;
 }
 
@@ -284,6 +290,18 @@ function diffSnapshots(golden, actual, traceName) {
   // Security score
   if (golden.score?.score !== actual.score?.score)
     diffs.push(`score: ${golden.score?.score} → ${actual.score?.score}`);
+
+  // Token identity metadata
+  if (JSON.stringify(golden.tokenMeta) !== JSON.stringify(actual.tokenMeta)) {
+    if (golden.tokenMeta?.serial !== actual.tokenMeta?.serial)
+      diffs.push(`tokenMeta.serial: "${golden.tokenMeta?.serial}" → "${actual.tokenMeta?.serial}"`);
+    if (golden.tokenMeta?.version !== actual.tokenMeta?.version)
+      diffs.push(`tokenMeta.version: "${golden.tokenMeta?.version}" → "${actual.tokenMeta?.version}"`);
+    if (golden.tokenMeta?.vendor !== actual.tokenMeta?.vendor)
+      diffs.push(`tokenMeta.vendor: "${golden.tokenMeta?.vendor}" → "${actual.tokenMeta?.vendor}"`);
+    if (JSON.stringify(golden.tokenMeta?.chuid) !== JSON.stringify(actual.tokenMeta?.chuid))
+      diffs.push(`tokenMeta.chuid changed`);
+  }
 
   return diffs;
 }

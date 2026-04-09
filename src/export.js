@@ -14,7 +14,7 @@ import { analyzeThreats, translateToAPI, lookupAID, ATR_DB_STATS } from "./analy
 import { KNOWN_KEYS } from "./crypto.js";
 import { parseATR, formatATRSummary } from "./atr-parser.js";
 
-function buildForensicExport({ exchanges, sessions, protocolStates, annotations, objectLedger, keyCheck, integrity, errorProfile, aiSessions, aiTraceMeta, aiCache, certProvision, securityScore, complianceProfile, cardId }) {
+function buildForensicExport({ exchanges, sessions, protocolStates, annotations, objectLedger, keyCheck, integrity, errorProfile, aiSessions, aiTraceMeta, aiCache, certProvision, securityScore, complianceProfile, cardId, tokenMeta }) {
   const ref = { ex:(id)=>`ex:${id}`, sess:(i)=>`sess:${i}` };
   const sessionOf = (ex) => sessions.findIndex(s => s.some(e => e.id === ex.id));
   const testedPairs = keyCheck?.testedPairs ?? [], keyMatches = keyCheck?.matches ?? [];
@@ -50,8 +50,8 @@ function buildForensicExport({ exchanges, sessions, protocolStates, annotations,
   }
 
   return {
-    schema_version: "2.3",
-    schema_note: "Three-layer forensic evidence package. source: trace=raw bytes, rules=deterministic analysis, ai=LLM hypothesis requiring verification. v2.3: cert_provisioning split into required/all, key_check renamed scp03_key_check with scope, PIV reset chronology correction, vendor-specific probe tagging.",
+    schema_version: "2.4",
+    schema_note: "Three-layer forensic evidence package. source: trace=raw bytes, rules=deterministic analysis, ai=LLM hypothesis requiring verification. v2.4: added token_identity (serial, version, CHUID fields). v2.3: cert_provisioning split into required/all, key_check renamed scp03_key_check with scope, PIV reset chronology correction, vendor-specific probe tagging.",
     provenance: {
       exported_at: new Date().toISOString(),
       log_source: "macOS CryptoTokenKit APDU log",
@@ -77,6 +77,20 @@ function buildForensicExport({ exchanges, sessions, protocolStates, annotations,
       read_only: cardId.atrMatch?.readOnly ?? cardId.profile.readOnly ?? null,
       atr_parse: atrParse,
     } : { source: "rules", name: null, note: "Card family could not be identified." },
+    token_identity: tokenMeta ? {
+      source: "rules",
+      serial: tokenMeta.serial,
+      version: tokenMeta.version,
+      vendor: tokenMeta.vendor,
+      chuid: tokenMeta.chuid ? {
+        guid: tokenMeta.chuid.guid ?? null,
+        fascn: tokenMeta.chuid.fascn ?? null,
+        expiration: tokenMeta.chuid.expiration ?? null,
+        cardholder_uuid: tokenMeta.chuid.cardholderUUID ?? null,
+        has_signature: tokenMeta.chuid.hasSignature ?? null,
+        signature_length: tokenMeta.chuid.signatureLength ?? null,
+      } : null,
+    } : null,
     security_score: securityScore ?? null,
     compliance_profile: complianceProfile ? { source: "rules", standard_pct: complianceProfile.standardPct, proprietary_pct: complianceProfile.proprietaryPct, proprietary_ins_codes: complianceProfile.proprietaryInsCodes } : null,
     cert_provisioning: certProvision?.probed.length > 0 ? { source: "rules", probed_slots: certProvision.probed, populated_slots: certProvision.populated, absent_slots: certProvision.absent, all_empty: certProvision.allEmpty, required_slots_populated: certProvision.requiredPopulated, all_slots_populated: certProvision.allPopulated } : null,

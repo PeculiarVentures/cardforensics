@@ -46,8 +46,8 @@
     {
       "idx": 3,
       "ins": "GET DATA",
-      "note": "GET DATA → INS not supported",
-      "flag": "warn"
+      "note": "GET applet version (DF30) → 6D00",
+      "flag": "expected"
     },
     {
       "idx": 4,
@@ -2094,7 +2094,8 @@
     "total": 344,
     "annotated": 332,
     "flags": {
-      "warn": 8,
+      "warn": 7,
+      "expected": 1,
       "bug": 1,
       "key": 4
     }
@@ -3091,5 +3092,17 @@
       "FB",
       "47"
     ]
+  },
+  "tokenMeta": {
+    "serial": null,
+    "version": "5.4.3",
+    "chuid": {
+      "fascn": "D4E739DA739CED39CE739D836858210842108421C84210C3EB",
+      "guid": "845BC964-8574-4B3A-8FFD-80ECFA1A3126",
+      "expiration": "2030-01-01",
+      "hasSignature": false,
+      "signatureLength": 0
+    },
+    "vendor": "Yubico"
   }
 }

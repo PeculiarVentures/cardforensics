@@ -53,8 +53,8 @@
     {
       "idx": 4,
       "ins": "GET DATA",
-      "note": "GET DATA → SW 6999",
-      "flag": "warn"
+      "note": "GET applet version (DF30) → 6999",
+      "flag": "expected"
     },
     {
       "idx": 5,
@@ -221,8 +221,8 @@
     {
       "idx": 32,
       "ins": "GET DATA",
-      "note": "GET DATA → Channel unsupported",
-      "flag": "warn"
+      "note": "GET applet version (DF30) → 6881",
+      "flag": "expected"
     },
     {
       "idx": 33,
@@ -233,7 +233,7 @@
     {
       "idx": 34,
       "ins": "GET DATA",
-      "note": "GET DATA → Success",
+      "note": "GET applet version (DF30) → \"v4.00\"",
       "flag": null
     },
     {
@@ -275,7 +275,7 @@
     {
       "idx": 41,
       "ins": "GET DATA",
-      "note": "GET DATA → Success",
+      "note": "GET hardware serial → \"548TPK73\"",
       "flag": null
     },
     {
@@ -725,7 +725,7 @@
     {
       "idx": 116,
       "ins": "GET DATA",
-      "note": "GET DATA → Success",
+      "note": "GET applet version (DF30) → \"v4.00\"",
       "flag": null
     },
     {
@@ -893,7 +893,7 @@
     {
       "idx": 144,
       "ins": "GET DATA",
-      "note": "GET DATA → Success",
+      "note": "GET applet version (DF30) → \"v4.00\"",
       "flag": null
     },
     {
@@ -1057,7 +1057,8 @@
     "total": 171,
     "annotated": 169,
     "flags": {
-      "warn": 6,
+      "warn": 4,
+      "expected": 2,
       "bug": 2
     }
   },
@@ -1695,5 +1696,17 @@
       "CA",
       "47"
     ]
+  },
+  "tokenMeta": {
+    "serial": "548TPK73",
+    "version": "v4.00",
+    "chuid": {
+      "fascn": "D4E739DA739CED39CE739D836858210842108436CF08D143EB",
+      "guid": "C2C567DA-FD79-A7DA-A33C-98D493A25D87",
+      "expiration": "2036-04-01",
+      "hasSignature": false,
+      "signatureLength": 0
+    },
+    "vendor": "Thales (SafeNet)"
   }
 }
