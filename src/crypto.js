@@ -145,7 +145,7 @@ async function checkKnownKeys(exchanges) {
         if (enc.every((b, i) => b === cryptogram[i])) { matches.push({ ...k, ...pair, method: "AES_ECB_encrypt(K, nonce)", protocol: "PIV 9B" }); continue; }
         const dec = await aesEcbDecrypt(k.bytes, nonce);
         if (dec.every((b, i) => b === cryptogram[i])) matches.push({ ...k, ...pair, method: "AES_ECB_decrypt(K, nonce)", protocol: "PIV 9B" });
-      } catch (e) {}
+      } catch (e) { /* expected: wrong key size or algorithm mismatch */ }
     }
   }
   // GP SCP03 pairs
@@ -161,7 +161,7 @@ async function checkKnownKeys(exchanges) {
           const sEnc = await deriveSCP03SessionKey(k.bytes, 0x04, context);
           matches.push({ ...k, ...pair, method: "SCP03 card cryptogram — S-MAC via NIST SP 800-108 KDF", protocol: "GP SCP03", sEnc: Array.from(sEnc), sessionStart: pair.ex1Id });
         }
-      } catch (e) {}
+      } catch (e) { /* expected: wrong key size or algorithm mismatch */ }
     }
   }
   return { matches, testedPairs };

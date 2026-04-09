@@ -204,7 +204,7 @@ async function analyzeBatch(chunk, protocolStates, aiCache) {
     const results = JSON.parse(extractJSON(text));
     if (!Array.isArray(results)) return;
     for (const r of results) if (r?.id != null && r?.text) aiCache.current.set(r.id, r.text);
-  } catch (e) {}
+  } catch (e) { console.warn("AI batch parse failed:", e.message); }
 }
 
 

@@ -121,7 +121,7 @@ export default function APDUViewer() {
           if (s) setAiSessions(s);
           if (traceMeta) setAiTraceMeta(traceMeta);
         }
-      } catch (e) {}
+      } catch (e) { console.debug("Cache restore failed:", e); }
     })();
   }, [trace]);
 
@@ -187,7 +187,7 @@ export default function APDUViewer() {
             await analyzeBatch(uncached, protocolStatesRef.current, aiCache);
             if (STORAGE_CACHE) {
               const snap = Object.fromEntries(aiCache.current);
-              storage.set(STORAGE_CACHE, JSON.stringify(snap)).catch(() => {});
+              storage.set(STORAGE_CACHE, JSON.stringify(snap)).catch(e => console.debug("Cache write failed:", e));
             }
           } catch (err) { console.warn("Batch analysis failed:", err); }
         }
@@ -224,7 +224,7 @@ export default function APDUViewer() {
           const meta = { card: parsed.card ?? null, protocol: parsed.protocol ?? null, finding: parsed.finding ?? null };
           setAiTraceMeta(meta);
           if (STORAGE_META)
-            storage.set(STORAGE_META, JSON.stringify({ sessions: sessionData, traceMeta: meta })).catch(() => {});
+            storage.set(STORAGE_META, JSON.stringify({ sessions: sessionData, traceMeta: meta })).catch(e => console.debug("Meta write failed:", e));
         } catch (e) { setAiSessionsError("Parse error: " + e.message); }
       })
       .catch(e => { setAiSessionsError(e.message ?? "Request failed"); })
@@ -241,7 +241,7 @@ export default function APDUViewer() {
   // Key check — runs once per trace.
   useEffect(() => {
     if (!exchanges.length) return;
-    checkKnownKeys(exchanges).then(setKeyCheck).catch(() => {});
+    checkKnownKeys(exchanges).then(setKeyCheck).catch(e => console.warn("Key check failed:", e));
   }, [exchanges]);
 
   const handleSelect   = useCallback((ex) => setSelected(prev => prev?.id === ex.id ? null : ex), []);
