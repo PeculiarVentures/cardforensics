@@ -229,10 +229,43 @@ const result = {
     .map(([id, a]) => ({ exchange: Number(id), note: a.note, flag: a.flag })),
 };
 
-// In verbose mode, include every annotation
+// In verbose mode, include every annotation + full timeline for replay
 if (verboseFlag) {
   result.all_annotations = Object.entries(annotations)
     .map(([id, a]) => ({ exchange: Number(id), note: a.note, flag: a.flag }));
+
+  // Session membership map
+  const sessionOf = (exId) => sessions.findIndex(s => s.some(e => e.id === exId));
+
+  // Full timeline for sequence replay
+  result.timeline = exchanges.map(ex => {
+    const cmd = decodeCmd(ex.cmd.bytes);
+    const rsp = ex.rsp ? decodeRsp(ex.rsp.bytes) : null;
+    const ps = protocolStates[ex.id];
+    const ann = annotations[ex.id];
+    const ins = cmd ? (INS_MAP[cmd.ins] ?? `INS_${h(cmd.ins)}`) : "?";
+    const sw = rsp ? (rsp.sw === 0x9000 ? "9000" : `${h(rsp.sw1)}${h(rsp.sw2)}`) : null;
+    const swOk = rsp?.sw === 0x9000;
+    const sw61 = rsp && ((rsp.sw >> 8) === 0x61);
+    return {
+      id: ex.id,
+      session: sessionOf(ex.id),
+      ins,
+      cla: cmd ? h(cmd.cla) : null,
+      sw,
+      ok: swOk || sw61,
+      phase: ps?.phase ?? null,
+      auth: ps?.authenticated ?? false,
+      selected: ps?.selected ?? null,
+      note: ann?.note ?? null,
+      flag: ann?.flag ?? null,
+      cmdLen: ex.cmd.bytes?.length ?? 0,
+      rspLen: ex.rsp?.bytes?.length ?? 0,
+      dataLen: rsp?.data?.length ?? 0,
+      ts: ex.cmd.ts ?? null,
+      continuations: ex.continuations ?? 0,
+    };
+  });
 }
 
 console.log(JSON.stringify(result, null, 2));
