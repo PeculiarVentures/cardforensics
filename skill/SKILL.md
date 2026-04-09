@@ -37,19 +37,36 @@ The skill has two scripts in `skill/scripts/`:
 
 ### Full Trace Analysis (primary)
 
-Run both scripts in a pipeline to produce a visual dashboard:
+**Step 1: Run the analyzer**
 
 ```bash
 cd /home/claude/cardforensics
-npx vite-node skill/scripts/analyze.js <path-to-log> --verbose | \
-  npx vite-node skill/scripts/render.js --output /mnt/user-data/outputs/cardforensics-dashboard.jsx
+npx vite-node skill/scripts/analyze.js <path-to-log> --verbose > /tmp/cf-analysis.json 2>/dev/null
 ```
 
 - `<path-to-log>` — uploaded CryptoTokenKit `.log` file (check `/mnt/user-data/uploads/`)
-- `--atr <hex>` — optional ATR if known (improves card identification confidence)
-- `--verbose` — include all annotations (recommended for dashboard)
+- `--verbose` — include full timeline with per-exchange data (recommended for dashboard)
 
-Then present the artifact with `present_files`. The dashboard renders as an interactive React component with collapsible sections for card identity, CHUID, certificate slots, threats, key check, compliance, sessions, and annotations.
+**Step 2: Enrich with AI explanations**
+
+Read `/tmp/cf-analysis.json` and add an `explanation` field to notable or flagged timeline exchanges. Focus on exchanges where `flag` is set (`bug`, `warn`, `key`, `expected`) and any exchange the user is asking about. Each explanation should be 2-3 sentences covering what the host is doing, why, and any security implications. Write the enriched JSON back:
+
+```bash
+# Claude reads the JSON, adds explanation fields, writes enriched version
+# Example: for exchange with flag "bug" and note "GEN AUTH step 3 (PROBABLE BUG)..."
+# add: "explanation": "The host sent an empty tag 82 after already completing mutual auth..."
+```
+
+The dashboard renders `explanation` fields in a side panel next to the decoded fields. Exchanges without an `explanation` field simply show the decoded fields at full width.
+
+**Step 3: Render the dashboard**
+
+```bash
+cat /tmp/cf-enriched.json | npx vite-node skill/scripts/render.js \
+  --output /mnt/user-data/outputs/cardforensics-dashboard.jsx
+```
+
+Then present the artifact with `present_files`. The dashboard renders as an interactive React component with play/pause, keyboard navigation, PV certificate viewer, and AI analysis panels.
 
 After presenting the dashboard, add a brief prose summary highlighting the most important findings for the user's question.
 

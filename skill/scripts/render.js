@@ -124,19 +124,27 @@ function ExDetail({t}){
     {/* Annotation bar */}
     {t.note&&<div style={{padding:"6px 12px",borderLeft:\`3px solid \${flagC(t.flag)||C.teal}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.teal,fontSize:11}}>✦ {t.note}</div>}
 
-    {/* Fields */}
-    <div style={{padding:"8px 12px",fontSize:11,display:"grid",gridTemplateColumns:"90px 1fr",gap:"2px 8px",lineHeight:1.7}}>
-      <span style={{color:C.dim}}>Instruction</span><span>{t.ins}</span>
-      <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace"}}>{t.cla} ({t.claDesc})</span>
-      <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace"}}>{t.p1} / {t.p2}</span>
-      {t.lc!=null&&<><span style={{color:C.dim}}>Lc</span><span>{t.lc}</span></>}
-      <span style={{color:C.dim}}>Phase</span><span style={{color:PC[t.phase]||C.muted}}>{t.phase}</span>
-      <span style={{color:C.dim}}>Session</span><span>{t.session}</span>
-      <span style={{color:C.dim}}>Auth</span><span style={{color:t.auth?C.green:C.dim}}>{t.auth?"Authenticated":"No"}</span>
-      {t.selected&&<><span style={{color:C.dim}}>Selected</span><span>{t.selected}</span></>}
-      <span style={{color:C.dim}}>Cmd size</span><span>{t.cmdLen}B</span>
-      <span style={{color:C.dim}}>Rsp size</span><span>{t.rspLen}B{t.dataLen?\` (\${t.dataLen}B data)\`:""}</span>
-      {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span>{t.continuations} GET RESPONSE continuations</span></>}
+    {/* Two-column: Fields + AI Analysis */}
+    <div style={{display:"flex",borderBottom:\`1px solid \${C.border}\`}}>
+      {/* Left: decoded fields */}
+      <div style={{flex:"0 0 55%",padding:"8px 12px",fontSize:11,display:"grid",gridTemplateColumns:"90px 1fr",gap:"2px 8px",lineHeight:1.7,borderRight:t.explanation?\`1px solid \${C.border}\`:"none"}}>
+        <span style={{color:C.dim}}>Instruction</span><span>{t.ins}</span>
+        <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace"}}>{t.cla} ({t.claDesc})</span>
+        <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace"}}>{t.p1} / {t.p2}</span>
+        {t.lc!=null&&<><span style={{color:C.dim}}>Lc</span><span>{t.lc}</span></>}
+        <span style={{color:C.dim}}>Phase</span><span style={{color:PC[t.phase]||C.muted}}>{t.phase}</span>
+        <span style={{color:C.dim}}>Session</span><span>{t.session}</span>
+        <span style={{color:C.dim}}>Auth</span><span style={{color:t.auth?C.green:C.dim}}>{t.auth?"Authenticated":"No"}</span>
+        {t.selected&&<><span style={{color:C.dim}}>Selected</span><span>{t.selected}</span></>}
+        <span style={{color:C.dim}}>Cmd size</span><span>{t.cmdLen}B</span>
+        <span style={{color:C.dim}}>Rsp size</span><span>{t.rspLen}B{t.dataLen?\` (\${t.dataLen}B data)\`:""}</span>
+        {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span>{t.continuations} GET RESPONSE continuations</span></>}
+      </div>
+      {/* Right: AI explanation (pre-computed by Claude during skill run) */}
+      {t.explanation&&<div style={{flex:1,padding:"8px 12px",background:"#0d1117",minHeight:80}}>
+        <div style={{fontSize:9,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:6}}>AI ANALYSIS</div>
+        <div style={{fontSize:10,color:"#b0b8cc",lineHeight:1.7}}>{t.explanation}</div>
+      </div>}
     </div>
 
     {/* PV Certificate Viewer */}
