@@ -127,7 +127,7 @@ function ExDetail({t}){
     {/* Two-column: Fields + AI Analysis */}
     <div style={{display:"flex",borderBottom:\`1px solid \${C.border}\`}}>
       {/* Left: decoded fields */}
-      <div style={{flex:"0 0 55%",padding:"10px 14px",fontSize:12,display:"grid",gridTemplateColumns:"90px 1fr",gap:"3px 10px",lineHeight:1.7,borderRight:\`1px solid \${C.border}\`}}>
+      <div style={{flex:"0 0 auto",padding:"10px 14px",fontSize:12,display:"grid",gridTemplateColumns:"90px 1fr",gap:"3px 10px",lineHeight:1.7,borderRight:t.explanation?\`1px solid \${C.border}\`:"none"}}>
         <span style={{color:C.dim}}>Instruction</span><span style={{color:C.text}}>{t.ins}</span>
         <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace",color:C.text}}>{t.cla} ({t.claDesc})</span>
         <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace",color:C.text}}>{t.p1} / {t.p2}</span>
@@ -141,10 +141,10 @@ function ExDetail({t}){
         {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span style={{color:C.text}}>{t.continuations} GET RESPONSE continuations</span></>}
       </div>
       {/* Right: AI explanation (pre-computed by Claude during skill run) */}
-      <div style={{flex:1,padding:"10px 14px",background:"#0d1117",minHeight:80}}>
-        <div style={{fontSize:10,fontWeight:700,color:t.explanation?C.purple:C.dim,letterSpacing:.5,marginBottom:8}}>{t.explanation?"AI ANALYSIS":"ROUTINE"}</div>
-        <div style={{fontSize:12,color:t.explanation?"#c4ccdd":C.dim,lineHeight:1.7}}>{t.explanation||"Standard "+t.ins+" operation. No notable findings."}</div>
-      </div>
+      {t.explanation&&<div style={{flex:1,padding:"10px 14px",background:"#0d1117",minHeight:80}}>
+        <div style={{fontSize:10,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:8}}>AI ANALYSIS</div>
+        <div style={{fontSize:12,color:"#c4ccdd",lineHeight:1.7}}>{t.explanation}</div>
+      </div>}
     </div>
 
     {/* PV Certificate Viewer */}
