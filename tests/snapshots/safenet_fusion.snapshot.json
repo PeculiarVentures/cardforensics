@@ -107,7 +107,7 @@
     {
       "idx": 13,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → 6881",
+      "note": "GET Discovery Object (7E) → 6881",
       "flag": null
     },
     {
@@ -317,7 +317,7 @@
     {
       "idx": 48,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -329,7 +329,7 @@
     {
       "idx": 50,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -389,7 +389,7 @@
     {
       "idx": 60,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -473,7 +473,7 @@
     {
       "idx": 74,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -1055,7 +1055,7 @@
     {
       "idx": 171,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -3170,6 +3170,8 @@
     },
     "allEmpty": true,
     "partial": false,
+    "requiredPopulated": false,
+    "allPopulated": false,
     "full": false
   },
   "score": {

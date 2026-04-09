@@ -197,7 +197,7 @@ export function autoAnnotate(ex, protoState) {
     if (d?.[0] === 0x5C) {
       const tag = d.slice(2, 2 + d[1]);
       const th = hexStr(tag);
-      if (th === "7E") return { note: swOk ? "GET CCCID (7E) → present" : `GET CCCID (7E) → ${h(sw >> 8)}${h(sw & 0xff)}`, flag: null };
+      if (th === "7E") return { note: swOk ? "GET Discovery Object (7E) → present" : `GET Discovery Object (7E) → ${h(sw >> 8)}${h(sw & 0xff)}`, flag: null };
       if (th === "9F 7F") return { note: "GET CPLC (9F7F) → card production lifecycle data", flag: null };
       if (tag[0] === 0xFF && tag[1] === 0xF3) { const slot = h(tag[2]); return sw6A80 ? { note: `GET key container FF F3 ${slot} → not found`, flag: null } : { note: `GET key container FF F3 ${slot} → ${rsp?.data?.length ?? 0}B`, flag: null }; }
       if (tag[0] === 0x5F && tag[1] === 0xFF && tag[2] === 0x12) return { note: "GET card identity (5FFF12) → label/serial/product", flag: null };
@@ -245,6 +245,16 @@ export function autoAnnotate(ex, protoState) {
     ? { note: "CHANGE REF DATA P2=80 (admin): set PUK+PIN credential", flag: "key" }
     : { note: `CHANGE REF DATA P2=${h(cmd.p2)}`, flag: null };
   if (cmd.ins === 0x84) return { note: "GET CHALLENGE (random nonce request)", flag: null };
+
+  // PIV applet reset (Yubico INS FB) — destructive: deletes all keys, certs, restores default PIN/PUK
+  if (cmd.ins === 0xFB) return { note: swOk ? "PIV RESET (INS FB) → success — all keys, certs, PIN/PUK restored to factory defaults" : `PIV RESET (INS FB) → ${h(sw >> 8)}${h(sw & 0xff)}`, flag: swOk ? "key" : null };
+
+  // Proprietary probe commands (F7 = Yubico-specific slot probe)
+  if (cmd.ins === 0xF7) {
+    const slotRef = cmd.p2 ? `slot ${h(cmd.p2)}` : "card";
+    const status = swOk ? "present" : (sw === 0x6A88 ? "not found" : `${h(sw >> 8)}${h(sw & 0xff)}`);
+    return { note: `VENDOR PROBE (INS F7) ${slotRef} → ${status} [proprietary — not standard PIV]`, flag: null };
+  }
 
   // Generic error handling
   if (rsp && rsp.sw !== 0x9000) {

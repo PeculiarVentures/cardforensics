@@ -52,7 +52,7 @@
     {
       "idx": 4,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → 6D00",
+      "note": "GET Discovery Object (7E) → 6D00",
       "flag": null
     },
     {
@@ -70,7 +70,7 @@
     {
       "idx": 7,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -82,7 +82,7 @@
     {
       "idx": 9,
       "ins": "GET DATA",
-      "note": "GET CCCID (7E) → present",
+      "note": "GET Discovery Object (7E) → present",
       "flag": null
     },
     {
@@ -238,7 +238,7 @@
     {
       "idx": 35,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -250,25 +250,25 @@
     {
       "idx": 37,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 38,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 39,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 40,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -286,13 +286,13 @@
     {
       "idx": 43,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 44,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -316,7 +316,7 @@
     {
       "idx": 48,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -339,14 +339,14 @@
     },
     {
       "idx": 52,
-      "ins": "INS_FB",
-      "note": null,
-      "flag": null
+      "ins": "PIV RESET",
+      "note": "PIV RESET (INS FB) → success — all keys, certs, PIN/PUK restored to factory defaults",
+      "flag": "key"
     },
     {
       "idx": 53,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -382,7 +382,7 @@
     {
       "idx": 59,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -394,25 +394,25 @@
     {
       "idx": 61,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 62,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 63,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 64,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -430,7 +430,7 @@
     {
       "idx": 67,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 82 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -442,7 +442,7 @@
     {
       "idx": 69,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 83 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -454,7 +454,7 @@
     {
       "idx": 71,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 84 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -466,7 +466,7 @@
     {
       "idx": 73,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 85 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -478,7 +478,7 @@
     {
       "idx": 75,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 86 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -490,7 +490,7 @@
     {
       "idx": 77,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 87 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -502,7 +502,7 @@
     {
       "idx": 79,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 88 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -514,7 +514,7 @@
     {
       "idx": 81,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 89 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -526,7 +526,7 @@
     {
       "idx": 83,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -538,7 +538,7 @@
     {
       "idx": 85,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8B → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -550,7 +550,7 @@
     {
       "idx": 87,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -562,7 +562,7 @@
     {
       "idx": 89,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -574,7 +574,7 @@
     {
       "idx": 91,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -586,7 +586,7 @@
     {
       "idx": 93,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8F → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -598,7 +598,7 @@
     {
       "idx": 95,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 90 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -610,7 +610,7 @@
     {
       "idx": 97,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 91 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -622,7 +622,7 @@
     {
       "idx": 99,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 92 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -634,7 +634,7 @@
     {
       "idx": 101,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 93 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -646,7 +646,7 @@
     {
       "idx": 103,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 94 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -658,7 +658,7 @@
     {
       "idx": 105,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 95 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -670,7 +670,7 @@
     {
       "idx": 107,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -682,7 +682,7 @@
     {
       "idx": 109,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -694,7 +694,7 @@
     {
       "idx": 111,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -706,7 +706,7 @@
     {
       "idx": 113,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -724,25 +724,25 @@
     {
       "idx": 116,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 117,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 118,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 119,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -760,7 +760,7 @@
     {
       "idx": 122,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 82 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -772,7 +772,7 @@
     {
       "idx": 124,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 83 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -784,7 +784,7 @@
     {
       "idx": 126,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 84 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -796,7 +796,7 @@
     {
       "idx": 128,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 85 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -808,7 +808,7 @@
     {
       "idx": 130,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 86 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -820,7 +820,7 @@
     {
       "idx": 132,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 87 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -832,7 +832,7 @@
     {
       "idx": 134,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 88 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -844,7 +844,7 @@
     {
       "idx": 136,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 89 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -856,7 +856,7 @@
     {
       "idx": 138,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -868,7 +868,7 @@
     {
       "idx": 140,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8B → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -880,7 +880,7 @@
     {
       "idx": 142,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -892,7 +892,7 @@
     {
       "idx": 144,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -904,7 +904,7 @@
     {
       "idx": 146,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -916,7 +916,7 @@
     {
       "idx": 148,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8F → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -928,7 +928,7 @@
     {
       "idx": 150,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 90 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -940,7 +940,7 @@
     {
       "idx": 152,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 91 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -952,7 +952,7 @@
     {
       "idx": 154,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 92 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -964,7 +964,7 @@
     {
       "idx": 156,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 93 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -976,7 +976,7 @@
     {
       "idx": 158,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 94 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -988,7 +988,7 @@
     {
       "idx": 160,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 95 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1000,7 +1000,7 @@
     {
       "idx": 162,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1012,7 +1012,7 @@
     {
       "idx": 164,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1024,7 +1024,7 @@
     {
       "idx": 166,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1036,7 +1036,7 @@
     {
       "idx": 168,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1047,14 +1047,14 @@
     },
     {
       "idx": 170,
-      "ins": "INS_47",
+      "ins": "GEN ASYM PAIR",
       "note": "Security status not satisfied (6982)",
       "flag": null
     },
     {
       "idx": 171,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1072,25 +1072,25 @@
     {
       "idx": 174,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 175,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 176,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 177,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1108,7 +1108,7 @@
     {
       "idx": 180,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 82 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1120,7 +1120,7 @@
     {
       "idx": 182,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 83 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1132,7 +1132,7 @@
     {
       "idx": 184,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 84 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1144,7 +1144,7 @@
     {
       "idx": 186,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 85 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "idx": 188,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 86 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1168,7 +1168,7 @@
     {
       "idx": 190,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 87 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1180,7 +1180,7 @@
     {
       "idx": 192,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 88 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1192,7 +1192,7 @@
     {
       "idx": 194,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 89 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "idx": 196,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1216,7 +1216,7 @@
     {
       "idx": 198,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8B → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1228,7 +1228,7 @@
     {
       "idx": 200,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1240,7 +1240,7 @@
     {
       "idx": 202,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1252,7 +1252,7 @@
     {
       "idx": 204,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1264,7 +1264,7 @@
     {
       "idx": 206,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8F → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1276,7 +1276,7 @@
     {
       "idx": 208,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 90 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1288,7 +1288,7 @@
     {
       "idx": 210,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 91 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "idx": 212,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 92 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1312,7 +1312,7 @@
     {
       "idx": 214,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 93 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1324,7 +1324,7 @@
     {
       "idx": 216,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 94 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1336,7 +1336,7 @@
     {
       "idx": 218,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 95 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "idx": 220,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1360,7 +1360,7 @@
     {
       "idx": 222,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1372,7 +1372,7 @@
     {
       "idx": 224,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1384,7 +1384,7 @@
     {
       "idx": 226,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1395,7 +1395,7 @@
     },
     {
       "idx": 228,
-      "ins": "INS_47",
+      "ins": "GEN ASYM PAIR",
       "note": null,
       "flag": null
     },
@@ -1426,7 +1426,7 @@
     {
       "idx": 233,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 82 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1438,7 +1438,7 @@
     {
       "idx": 235,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 83 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1450,7 +1450,7 @@
     {
       "idx": 237,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 84 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1462,7 +1462,7 @@
     {
       "idx": 239,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 85 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1474,7 +1474,7 @@
     {
       "idx": 241,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 86 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1486,7 +1486,7 @@
     {
       "idx": 243,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 87 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1498,7 +1498,7 @@
     {
       "idx": 245,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 88 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1510,7 +1510,7 @@
     {
       "idx": 247,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 89 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1522,7 +1522,7 @@
     {
       "idx": 249,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1534,7 +1534,7 @@
     {
       "idx": 251,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8B → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1546,7 +1546,7 @@
     {
       "idx": 253,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1558,7 +1558,7 @@
     {
       "idx": 255,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1570,7 +1570,7 @@
     {
       "idx": 257,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1582,7 +1582,7 @@
     {
       "idx": 259,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8F → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1594,7 +1594,7 @@
     {
       "idx": 261,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 90 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1606,7 +1606,7 @@
     {
       "idx": 263,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 91 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1618,7 +1618,7 @@
     {
       "idx": 265,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 92 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1630,7 +1630,7 @@
     {
       "idx": 267,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 93 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1642,7 +1642,7 @@
     {
       "idx": 269,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 94 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1654,7 +1654,7 @@
     {
       "idx": 271,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 95 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1666,7 +1666,7 @@
     {
       "idx": 273,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1678,7 +1678,7 @@
     {
       "idx": 275,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9C → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1690,7 +1690,7 @@
     {
       "idx": 277,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1702,7 +1702,7 @@
     {
       "idx": 279,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1738,7 +1738,7 @@
     {
       "idx": 285,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1750,25 +1750,25 @@
     {
       "idx": 287,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 80 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 288,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 81 → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 289,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9B → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
       "idx": 290,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 96 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1786,7 +1786,7 @@
     {
       "idx": 293,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 82 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1798,7 +1798,7 @@
     {
       "idx": 295,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 83 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1810,7 +1810,7 @@
     {
       "idx": 297,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 84 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1822,7 +1822,7 @@
     {
       "idx": 299,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 85 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1834,7 +1834,7 @@
     {
       "idx": 301,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 86 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1846,7 +1846,7 @@
     {
       "idx": 303,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 87 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1858,7 +1858,7 @@
     {
       "idx": 305,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 88 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1870,7 +1870,7 @@
     {
       "idx": 307,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 89 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1882,7 +1882,7 @@
     {
       "idx": 309,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1894,7 +1894,7 @@
     {
       "idx": 311,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8B → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1906,7 +1906,7 @@
     {
       "idx": 313,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8C → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1918,7 +1918,7 @@
     {
       "idx": 315,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1930,7 +1930,7 @@
     {
       "idx": 317,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1942,7 +1942,7 @@
     {
       "idx": 319,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 8F → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1954,7 +1954,7 @@
     {
       "idx": 321,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 90 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1966,7 +1966,7 @@
     {
       "idx": 323,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 91 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1978,7 +1978,7 @@
     {
       "idx": 325,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 92 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -1990,7 +1990,7 @@
     {
       "idx": 327,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 93 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2002,7 +2002,7 @@
     {
       "idx": 329,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 94 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2014,7 +2014,7 @@
     {
       "idx": 331,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 95 → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2026,7 +2026,7 @@
     {
       "idx": 333,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9A → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2038,7 +2038,7 @@
     {
       "idx": 335,
       "ins": "INS_F7",
-      "note": null,
+      "note": "VENDOR PROBE (INS F7) slot 9C → present [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2050,7 +2050,7 @@
     {
       "idx": 337,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9D → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2062,7 +2062,7 @@
     {
       "idx": 339,
       "ins": "INS_F7",
-      "note": "Reference data not found (6A88)",
+      "note": "VENDOR PROBE (INS F7) slot 9E → not found [proprietary — not standard PIV]",
       "flag": null
     },
     {
@@ -2092,11 +2092,11 @@
   ],
   "annotationStats": {
     "total": 344,
-    "annotated": 307,
+    "annotated": 332,
     "flags": {
       "warn": 8,
       "bug": 1,
-      "key": 3
+      "key": 4
     }
   },
   "integrity": {
@@ -2967,6 +2967,13 @@
         "sigAlg": "ECDSA (SHA-256)",
         "notAfter": "2027-04-03T00:00:00.000Z"
       }
+    },
+    {
+      "id": "piv-reset-undefined",
+      "type": "PIV_RESET",
+      "severity": "info",
+      "title": "PIV applet reset — all keys, certs, PIN/PUK restored to factory defaults",
+      "detail": "Exchange #undefined: successful PIV RESET (INS FB). All prior lockout state is cleared. Subsequent provisioning activity operates on a clean card."
     }
   ],
   "threatSummary": [
@@ -2993,6 +3000,12 @@
       "severity": "warn",
       "type": "PII_EXPOSURE",
       "title": "Identity data read from slot 5FC105 (trace does not confirm channel protection)"
+    },
+    {
+      "id": "piv-reset-undefined",
+      "severity": "info",
+      "type": "PIV_RESET",
+      "title": "PIV applet reset — all keys, certs, PIN/PUK restored to factory defaults"
     }
   ],
   "certProvisioning": {
@@ -3038,7 +3051,9 @@
     },
     "allEmpty": false,
     "partial": true,
-    "full": true
+    "requiredPopulated": true,
+    "allPopulated": false,
+    "full": false
   },
   "score": {
     "score": 90,

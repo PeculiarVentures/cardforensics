@@ -409,6 +409,33 @@ export function analyzeThreats(exchanges, protocolStates, integrity) {
     }
   }
 
+  // ── PIV Reset chronology correction ──
+  // If a successful PIV RESET (INS FB) occurred, prior AUTH_BLOCKED events
+  // are expected (intentional lockout before reset) and should be downgraded.
+  // A PIV reset on YubiKey destroys all keys/certs and restores default PIN/PUK,
+  // so any "permanent lockout" before the reset is not a real threat.
+  const pivResets = exchanges.filter(ex => {
+    const c = decodeCmd(ex.cmd.bytes), r = ex.rsp ? decodeRsp(ex.rsp.bytes) : null;
+    return c?.ins === 0xFB && r?.sw === 0x9000;
+  });
+  for (const resetEx of pivResets) {
+    threats.push({
+      id: `piv-reset-${resetEx.id}`, type: "PIV_RESET",
+      severity: "info",
+      title: "PIV applet reset — all keys, certs, PIN/PUK restored to factory defaults",
+      detail: `Exchange #${resetEx.id}: successful PIV RESET (INS FB). All prior lockout state is cleared. Subsequent provisioning activity operates on a clean card.`,
+      exchangeId: resetEx.id,
+    });
+    // Downgrade AUTH_BLOCKED events that preceded this reset
+    for (const t of threats) {
+      if (t.type === "AUTH_BLOCKED" && t.exchangeId < resetEx.id) {
+        t.severity = "info";
+        t.title += " [resolved by subsequent PIV reset]";
+        t.detail += ` Reset at exchange #${resetEx.id} cleared this lockout.`;
+      }
+    }
+  }
+
   // ── Deduplicate — keep most severe per type, but allow per-slot PII ──
   const seen = new Map();
   for (const t of threats) {

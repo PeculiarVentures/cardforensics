@@ -50,8 +50,8 @@ function buildForensicExport({ exchanges, sessions, protocolStates, annotations,
   }
 
   return {
-    schema_version: "2.2",
-    schema_note: "Three-layer forensic evidence package. source: trace=raw bytes, rules=deterministic analysis, ai=LLM hypothesis requiring verification.",
+    schema_version: "2.3",
+    schema_note: "Three-layer forensic evidence package. source: trace=raw bytes, rules=deterministic analysis, ai=LLM hypothesis requiring verification. v2.3: cert_provisioning split into required/all, key_check renamed scp03_key_check with scope, PIV reset chronology correction, vendor-specific probe tagging.",
     provenance: {
       exported_at: new Date().toISOString(),
       log_source: "macOS CryptoTokenKit APDU log",
@@ -79,9 +79,9 @@ function buildForensicExport({ exchanges, sessions, protocolStates, annotations,
     } : { source: "rules", name: null, note: "Card family could not be identified." },
     security_score: securityScore ?? null,
     compliance_profile: complianceProfile ? { source: "rules", standard_pct: complianceProfile.standardPct, proprietary_pct: complianceProfile.proprietaryPct, proprietary_ins_codes: complianceProfile.proprietaryInsCodes } : null,
-    cert_provisioning: certProvision?.probed.length > 0 ? { source: "rules", probed_slots: certProvision.probed, populated_slots: certProvision.populated, absent_slots: certProvision.absent, all_empty: certProvision.allEmpty, fully_provisioned: certProvision.full } : null,
+    cert_provisioning: certProvision?.probed.length > 0 ? { source: "rules", probed_slots: certProvision.probed, populated_slots: certProvision.populated, absent_slots: certProvision.absent, all_empty: certProvision.allEmpty, required_slots_populated: certProvision.requiredPopulated, all_slots_populated: certProvision.allPopulated } : null,
     active_threats: activeThreats,
-    key_check: { source: "rules", pairs_tested: testedPairs.length, known_keys_tested: KNOWN_KEYS.length, unique_default_keys_matched: uniqueDefaultKeyIds.length, matches: keyMatches },
+    scp03_key_check: { source: "rules", scope: "SCP03 management key brute-force (not PIN verification — see active_threats for PIN findings)", pairs_tested: testedPairs.length, known_keys_tested: KNOWN_KEYS.length, unique_default_keys_matched: uniqueDefaultKeyIds.length, matches: keyMatches },
     sessions: sessions.map((sess, si) => ({ ref: ref.sess(si), index: si, exchange_count: sess.length, start_time: sess[0]?.cmd.ts ?? null, ai_label: aiSessions?.[si]?.label ?? null, ai_summary: { source: "ai", text: aiSessions?.[si]?.summary ?? null }, api_operations: translateToAPI(sess, protocolStates).map(op => ({ source: "rules", label: op.label, detail: op.detail })) })),
     object_ledger: objectLedger ?? [],
     exchanges: exchanges.map(ex => {
