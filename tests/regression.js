@@ -20,6 +20,7 @@ import { autoAnnotate, classifySW, PIV_OBJECTS, PIV_KEY_REFS, PIV_ALGORITHMS } f
 import { lookupAID, getAllAIDs } from "../src/analysis/aid-database.js";
 import { analyzeThreats } from "../src/analysis/threats.js";
 import { computeSecurityScore, computeComplianceProfile } from "../src/analysis/scoring.js";
+import { checkKnownKeys } from "../src/crypto.js";
 import { analyzeIntegrity, classifyErrors } from "../src/analysis/integrity.js";
 import { checkCertProvisioning } from "../src/analysis/certcheck.js";
 import { buildObjectLedger } from "../src/analysis/ledger.js";
@@ -61,7 +62,7 @@ function parseLog(text) {
 }
 
 // ── Build full analysis snapshot for one trace ──
-function analyzeTrace(exchanges, atr) {
+async function analyzeTrace(exchanges, atr) {
   const snap = {};
 
   // Card identification
@@ -156,10 +157,12 @@ function analyzeTrace(exchanges, atr) {
   } catch { snap.certProvisioning = null; }
 
   // Scoring (requires full pipeline — wrap each dependency)
+  let keyCheck = null;
+  try { keyCheck = await checkKnownKeys(exchanges); } catch {}
   try {
     const errorProfile = { errors: [], errorRate: 0 };
     try { Object.assign(errorProfile, classifyErrors(exchanges)); } catch {}
-    snap.score = computeSecurityScore(null, snap.integrity, errorProfile, snap.certProvisioning, exchanges, protoStates, snap.threats);
+    snap.score = computeSecurityScore(keyCheck, snap.integrity, errorProfile, snap.certProvisioning, exchanges, protoStates, snap.threats);
   } catch { snap.score = null; }
 
   try {
@@ -196,7 +199,7 @@ for (const traceFile of traceFiles) {
   const logText = readFileSync(join(TRACES_DIR, traceFile), "utf-8");
   const exchanges = parseLog(logText);
   const atr = KNOWN_ATRS[traceFile] || null;
-  const snap = analyzeTrace(exchanges, atr);
+  const snap = await analyzeTrace(exchanges, atr);
   const snapPath = join(SNAP_DIR, traceFile.replace(".log", ".snapshot.json"));
 
   if (UPDATE) {
