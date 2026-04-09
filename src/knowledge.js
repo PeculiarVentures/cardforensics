@@ -128,11 +128,16 @@ const TLV_TAGS = {
   "9F 7F": { name: "CPLC", desc: "Card Production Life Cycle — chip manufacturer, OS, personalization data.", spec: "gp_card" },
   "A0": { name: "Application Template", desc: "GP application template containing AID and metadata.", spec: "gp_card" },
   "E2": { name: "Key Set Info", desc: "GP key set information record.", spec: "gp_card" },
-  // PIV
+  // PIV (expanded with data object IDs from SP 800-73-4, informed by card-spy piv-handler.ts)
   "5F C1": { name: "PIV Data Object", desc: "PIV data object by slot ID.", spec: "nist_73" },
-  "7E": { name: "CCCID", desc: "Card Capability Container ID.", spec: "nist_73" },
+  "7E": { name: "Discovery Object", desc: "PIV discovery object — supported algorithms and PIN policy.", spec: "nist_73" },
+  "7F 61": { name: "CCC", desc: "Card Capability Container — card identifier and capability bits.", spec: "nist_73" },
+  "BC": { name: "Biometric", desc: "PIV biometric data template.", spec: "nist_73" },
+  "FE": { name: "Error Detection Code", desc: "PIV error detection code for data integrity.", spec: "nist_73" },
   "FF 84": { name: "PIV Key Info", desc: "PIV key information by slot.", spec: "nist_73" },
   "FF 90": { name: "PIV Key Template", desc: "PIV key template (CRT: 7F48 algorithm info, 7F49 public key).", spec: "nist_73" },
+  "7F 48": { name: "CRT Algo Info", desc: "Cardholder role template — algorithm identifier for key slot.", spec: "nist_73" },
+  "7F 49": { name: "CRT Public Key", desc: "Cardholder role template — public key value.", spec: "nist_73" },
   // ── EMV tags (informed by card-spy emv-tags.ts, https://github.com/tomkp/card-spy) ──
   "4F": { name: "AID", desc: "Application Identifier (DF name).", spec: "emv" },
   "50": { name: "Application Label", desc: "Mnemonic associated with the AID (1-16 alphanumeric chars).", spec: "emv" },
