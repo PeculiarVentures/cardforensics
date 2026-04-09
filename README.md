@@ -32,28 +32,62 @@ Everything runs in the browser. No data leaves your machine (unless AI is enable
 
 ## Claude Skill
 
-CardForensics includes a Claude skill for offline trace analysis. The skill runs the full analysis pipeline (card ID, token identity, threats, key brute-force, cert provisioning, scoring, sessions, annotations) and renders an interactive React dashboard with keyboard navigation. AI summaries are generated inline by Claude without requiring an API key.
+CardForensics includes a Claude skill for offline trace analysis. Upload a CryptoTokenKit log and Claude runs the full analysis pipeline, adds AI commentary, and renders an interactive React dashboard — no API key needed for the AI summaries.
+
+### Install
+
+Add the skill to your Claude project's user skills:
+
+```bash
+# Clone the repo (skill is at skill/)
+git clone https://github.com/PeculiarVentures/cardforensics.git
+cd cardforensics && npm install
+```
+
+For **Claude.ai Projects**, add the `skill/` directory as a user skill in your project settings. For **Claude Code**, reference the skill path in your CLAUDE.md or let Claude discover it in the repo.
+
+The skill triggers automatically when you upload a `.log` file and mention APDU analysis, smart card forensics, PIV provisioning, CardForensics, or related terms.
+
+### Usage
+
+1. Upload a CryptoTokenKit `.log` file to Claude
+2. Ask Claude to analyze it (e.g., "analyze this smart card trace", "what's wrong with this PIV provisioning?", "run CardForensics on this")
+3. Claude produces an interactive React dashboard artifact with:
+   - Letter grade (A–F) with score breakdown
+   - Executive summary and per-session AI narratives
+   - Threat findings with severity filters and spec reference badges
+   - Collapsible session blocks with operation badges
+   - Annotated hex with TLV-colored segments and hover tooltips
+   - Embedded X.509 certificate viewer (vendored [@peculiar/certificates-viewer](https://github.com/PeculiarVentures/pv-certificates-viewer))
+   - Keyboard navigation (arrow keys, j/k, space for play/pause)
+   - Object ledger, compliance profile, and token identity panel
+
+You can also do ATR-only lookups: "What card has ATR 3BFD1300008131FE158073C021C057597562694B657940?"
+
+### How It Works
+
+The skill runs a three-step pipeline:
 
 ```
 skill/
-  SKILL.md              # Skill definition and triggers
+  SKILL.md              # Skill definition, triggers, and presentation guidance
   scripts/
-    analyze.js          # Full pipeline CLI (trace or ATR-only mode)
-    render.js           # JSON-to-JSX dashboard renderer
+    analyze.js          # Full pipeline: parse → annotate → threats → score → export JSON
+    render.js           # JSON → React JSX dashboard renderer
+  vendor/
+    pv-cert-viewer.*    # Vendored certificate viewer (base64 + minified JS)
 ```
-
-Usage from the skill:
 
 ```bash
-# Full trace analysis
-npx vite-node skill/scripts/analyze.js trace.log --verbose | \
-  npx vite-node skill/scripts/render.js --output dashboard.jsx
+# Step 1: Analyze (produces JSON)
+npx vite-node skill/scripts/analyze.js trace.log --verbose > analysis.json
 
-# ATR-only lookup
-npx vite-node skill/scripts/analyze.js --atr "3B 7F 96 00 00 80 31 80 65 B0 85 03 00 EF 12 0F FE 82 90 00"
+# Step 2: Claude enriches JSON with AI summaries and per-exchange explanations
+
+# Step 3: Render dashboard
+cat enriched.json | npx vite-node skill/scripts/render.js --output dashboard.jsx
 ```
 
-The dashboard supports arrow key / j/k navigation and auto-trims large traces to notable exchanges for artifact size limits.
 
 ## Supported Card Families
 
