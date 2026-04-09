@@ -131,7 +131,7 @@ async function checkKnownKeys(exchanges) {
     if (!cd1 || !isAuthStep1(cd1) || !rd1 || rd1.sw !== 0x9000) continue;
     if (!cd2 || cd2.ins !== 0x87 || cd2?.data?.[0] !== 0x7C || cd2?.data?.[2] !== 0x82) continue;
     const rsp = rd1.data;
-    if (!rsp || rsp[0] !== 0x7C || rsp[2] !== 0x80) continue;
+    if (!rsp || rsp[0] !== 0x7C || (rsp[2] !== 0x80 && rsp[2] !== 0x81)) continue;
     const nonce = Array.from(rsp.slice(4, 4 + rsp[3])), cmd = cd2.data;
     if (!cmd || cmd[3] == null) continue;
     const cryptogram = Array.from(cmd.slice(4, 4 + cmd[3]));
