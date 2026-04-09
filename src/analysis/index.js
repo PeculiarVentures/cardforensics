@@ -11,3 +11,4 @@ export { translateToAPI } from "./translate.js";
 export { buildTopSummary } from "./summary.js";
 export { unwrapPIVCert, analyzeCertificate, parseKeyTemplate } from "./x509.js";
 export { extractTokenMetadata } from "./tokenid.js";
+export { decodeExchange, decodeCHUID, decodeCCC, decodeCredentialBlock, decodeDiscoveryObject, parseFlatTLV } from "./decoders.js";

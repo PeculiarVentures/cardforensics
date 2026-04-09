@@ -21,6 +21,7 @@ import {
   checkCertProvisioning, computeSecurityScore, computeComplianceProfile,
   buildObjectLedger, analyzeThreats, autoAnnotate, extractTokenMetadata,
   lookupAID, getAllAIDs, unwrapPIVCert, analyzeCertificate,
+  decodeExchange,
 } from "../../src/analysis/index.js";
 import { checkKnownKeys, KNOWN_KEYS } from "../../src/crypto.js";
 import { parseATR, formatATRSummary } from "../../src/atr-parser.js";
@@ -292,6 +293,7 @@ if (verboseFlag) {
       dt,
       continuations: ex.continuations ?? 0,
       cert,
+      decoded: decodeExchange(ex),
     };
   });
 }

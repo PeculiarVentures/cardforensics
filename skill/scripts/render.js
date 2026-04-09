@@ -8,6 +8,16 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { TLV_TAGS } from "../../src/knowledge.js";
+
+/** Build TLV_NAMES map string from knowledge.js TLV_TAGS (runs at generation time). */
+function buildTLVNames() {
+  const entries = Object.entries(TLV_TAGS).map(([k, v]) => {
+    const num = "0x" + k.replace(/ /g, "");
+    return `${num}:${JSON.stringify(v.name)}`;
+  });
+  return `{${entries.join(",")}}`;
+}
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const inputIdx = args.indexOf("--input");
@@ -176,71 +186,18 @@ function ExDetail({t}){
   </div>;
 }
 
-const hexToBytes=h=>h?h.split(" ").map(b=>parseInt(b,16)).filter(b=>!isNaN(b)):[];
-const bytesToAscii=b=>b.filter(x=>x>=0x20&&x<=0x7E&&x!==0xFF).map(x=>String.fromCharCode(x)).join("");
-const bytesToHex=b=>b.map(x=>x.toString(16).padStart(2,"0").toUpperCase()).join("");
-const formatUUID=b=>b.length>=16?[bytesToHex(b.slice(0,4)),bytesToHex(b.slice(4,6)),bytesToHex(b.slice(6,8)),bytesToHex(b.slice(8,10)),bytesToHex(b.slice(10,16))].join("-"):bytesToHex(b);
 function DecodedFields({t}){
-  const cmd=hexToBytes(t.cmdHex),rsp=hexToBytes(t.rspHex);
-  const fields=[];
-  const ins=parseInt(t.cla,16)===0?parseInt(cmd[1]?.toString(16)||"0",16):null;
-  // CHUID decode (GET DATA for 5FC102)
-  if(t.note?.includes("CHUID")&&t.ok&&rsp.length>10){
-    let d=rsp;if(d[0]===0x53){const l=d[1]===0x82?(d[2]<<8|d[3]):d[1];d=d.slice(d[1]===0x82?4:2);}
-    let i=0;while(i<d.length-1){let tag=d[i++];if(i>=d.length)break;let len=d[i++];if(len===0x81)len=d[i++];else if(len===0x82){len=(d[i]<<8)|d[i+1];i+=2;}
-      if(tag===0x30&&len===25)fields.push({l:"FASC-N",v:len+"B encoded"});
-      if(tag===0x34&&len===16)fields.push({l:"GUID",v:formatUUID(d.slice(i,i+len))});
-      if(tag===0x35&&len===8)fields.push({l:"Expiration",v:bytesToAscii(d.slice(i,i+len))});
-      if(tag===0x36&&len===16)fields.push({l:"Cardholder UUID",v:formatUUID(d.slice(i,i+len))});
-      if(tag===0x3E)fields.push({l:"Issuer Signature",v:len+"B"});
-      if(tag===0xFE)fields.push({l:"Error Detection",v:len+"B"});
-      i+=len;
-    }
-  }
-  // Credential decode (CHANGE REF DATA)
-  if(t.ins==="CHG REF DATA"&&cmd.length>=21){
-    const data=cmd.slice(5);
-    if(data.length>=16){
-      const puk=data.slice(0,8).filter(b=>b!==0xFF);
-      const pin=data.slice(8,16).filter(b=>b!==0xFF);
-      fields.push({l:"PUK",v:puk.length?bytesToAscii(puk)+" ("+puk.length+" digits)":"(empty)",warn:true});
-      fields.push({l:"PIN",v:pin.length?bytesToAscii(pin)+" ("+pin.length+" digits)":"(empty)",warn:true});
-    }
-  }
-  // YubiKey version (INS FD)
-  if(t.note?.includes("version")&&t.ok&&rsp.length>=5){
-    const d=rsp.slice(0,-2);
-    if(d.length===3)fields.push({l:"Firmware",v:d.join(".")});
-    else if(d.length>=5&&d[0]===0xDF&&d[1]===0x30){const vb=d.slice(3);fields.push({l:"Version",v:bytesToAscii(vb)});}
-  }
-  // Discovery Object (7E)
-  if(t.note?.includes("Discovery")&&t.ok&&rsp.length>4){
-    const d=rsp;let i=0;if(d[0]===0x7E){i=2;}
-    while(i<d.length-3){
-      if(d[i]===0x4F){const len=d[i+1];fields.push({l:"PIV AID",v:d.slice(i+2,i+2+len).map(b=>b.toString(16).padStart(2,"0")).join(" ")});i+=2+len;}
-      else if(d[i]===0x5F&&d[i+1]===0x2F){const len=d[i+2];const pp=d[i+3];fields.push({l:"PIN Policy",v:"0x"+pp.toString(16).padStart(2,"0")+(pp&0x40?" (global PIN)":"")+(pp&0x20?" (app PIN)":"")});i+=3+len;}
-      else i++;
-    }
-  }
-  // GP CPLC (9F7F)
-  if(t.note?.includes("CPLC")&&t.ok&&rsp.length>20){
-    fields.push({l:"CPLC",v:"Card Production Life Cycle data ("+rsp.length+"B)"});
-  }
-  // Hardware serial
-  if(t.note?.includes("hardware serial")&&t.ok){
-    const d=rsp.slice(0,-2);const start=d.findIndex((b,i)=>i>2&&b>=0x30&&b<=0x7A);
-    if(start>=0)fields.push({l:"Serial",v:bytesToAscii(d.slice(start))});
-  }
-  if(!fields.length)return null;
+  const d=t.decoded;
+  if(!d||!d.fields?.length)return null;
   return <div style={{borderTop:\`1px solid \${C.border}\`,padding:"8px 12px",background:"#0e1218"}}>
-    <div style={{fontSize:10,fontWeight:600,color:C.teal,marginBottom:4}}>Decoded</div>
+    <div style={{fontSize:10,fontWeight:600,color:C.teal,marginBottom:4}}>{d.title||"Decoded"}</div>
     <div style={{display:"grid",gridTemplateColumns:"110px 1fr",gap:"2px 8px",fontSize:11,lineHeight:1.7}}>
-      {fields.map((f,i)=><>{f.l&&<span key={"l"+i} style={{color:C.dim}}>{f.l}</span>}<span key={"v"+i} style={{color:f.warn?C.red:C.text,fontFamily:"monospace",fontSize:10,wordBreak:"break-all"}}>{f.v}</span></>)}
+      {d.fields.map((f,i)=><>{f.label&&<span key={"l"+i} style={{color:C.dim}}>{f.label}</span>}<span key={"v"+i} style={{color:f.warn?C.red:C.text,fontFamily:"monospace",fontSize:10,wordBreak:"break-all"}}>{f.value}</span></>)}
     </div>
   </div>;
 }
 
-const TLV_NAMES={0x30:"FASC-N",0x32:"Org ID",0x33:"DUNS",0x34:"GUID",0x35:"Expiration",0x36:"Cardholder UUID",0x3E:"Issuer Sig",0x4F:"AID",0x50:"Label",0x53:"PIV Data",0x5C:"Tag List",0x5F2F:"PIN Usage",0x5FC102:"CHUID",0x5FC105:"PIV Auth Cert",0x5FC10A:"Dig Sig Cert",0x5FC10B:"Key Mgmt Cert",0x5FC101:"Card Auth Cert",0x61:"App Template",0x6F:"FCI",0x70:"Cert Data",0x71:"Cert Info",0x73:"Discretionary",0x79:"Alloc Auth",0x7E:"Discovery",0x7F49:"Public Key",0x80:"Key Ref/Length",0x81:"Challenge/Witness",0x82:"Response",0x83:"Key ID",0x84:"DF Name",0x86:"PIN",0x87:"Auth Template",0x8A:"LC State",0x91:"Key Version",0x99:"Capability",0x9A:"Slot",0x9B:"Slot",0x9C:"Slot",0x9D:"Slot",0x9E:"Slot",0x9F65:"Max Length",0x9F6E:"App Prod ID",0xA0:"Key Set",0xA1:"Key Component",0xA5:"Proprietary",0xDF30:"Version",0xE2:"Container",0xEE:"Buffer Length",0xFE:"Error Detection"};
+const TLV_NAMES=${buildTLVNames()};
 function parseTLVSegments(bytes){
   const segs=[];let i=0;
   while(i<bytes.length){
