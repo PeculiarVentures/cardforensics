@@ -108,7 +108,14 @@ function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCach
     return () => clearTimeout(timerRef.current);
   }, [playing, idx, ANIM_MS, exchanges.length]);
 
-  useEffect(() => { if (hasStarted) { internalNav.current = true; onSelect?.(exchanges[idx] ?? null); } }, [idx, hasStarted]);
+  const externalSync = useRef(false); // true when idx changed due to external selectedExchange
+
+  useEffect(() => {
+    if (!hasStarted) return;
+    if (externalSync.current) { externalSync.current = false; return; }
+    internalNav.current = true;
+    onSelect?.(exchanges[idx] ?? null);
+  }, [idx, hasStarted]);
 
   // Sync idx when exchange is selected externally (e.g. clicking the list)
   useEffect(() => {
@@ -117,10 +124,10 @@ function SequenceReplay({ exchanges, sessions, sessionAnalysis, onSelect, aiCach
     const newIdx = exchanges.findIndex(e => e.id === selectedExchange.id);
     if (newIdx >= 0 && newIdx !== idx) {
       clearTimeout(timerRef.current);
+      externalSync.current = true;
       setIdx(newIdx);
       setAnimKey(k => k + 1);
       setHasStarted(true);
-      // If playing, playback effect will re-fire from new idx automatically
     }
   }, [selectedExchange]);
 
