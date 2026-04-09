@@ -14,13 +14,13 @@
  */
 import "reflect-metadata";
 import { readFileSync } from "fs";
-import { parseEntries, buildExchanges, extractATR, decodeCmd, decodeRsp, hexStr, h, INS_MAP, lookupSW } from "../../src/decode.js";
+import { parseEntries, buildExchanges, extractATR, decodeCmd, decodeRsp, hexStr, h, INS_MAP, lookupSW, descCLA, execDeltaMs } from "../../src/decode.js";
 import { groupSessions, buildProtocolStates, aidLabel } from "../../src/protocol.js";
 import {
   identifyCard, ATR_DB_STATS, analyzeIntegrity, classifyErrors,
   checkCertProvisioning, computeSecurityScore, computeComplianceProfile,
   buildObjectLedger, analyzeThreats, autoAnnotate, extractTokenMetadata,
-  lookupAID, getAllAIDs,
+  lookupAID, getAllAIDs, unwrapPIVCert, analyzeCertificate,
 } from "../../src/analysis/index.js";
 import { checkKnownKeys, KNOWN_KEYS } from "../../src/crypto.js";
 import { parseATR, formatATRSummary } from "../../src/atr-parser.js";
@@ -238,6 +238,7 @@ if (verboseFlag) {
   const sessionOf = (exId) => sessions.findIndex(s => s.some(e => e.id === exId));
 
   // Full timeline for sequence replay
+  const PIV_CERT_TAGS = new Set(["5FC105", "5FC10A", "5FC10B", "5FC101"]);
   result.timeline = exchanges.map(ex => {
     const cmd = decodeCmd(ex.cmd.bytes);
     const rsp = ex.rsp ? decodeRsp(ex.rsp.bytes) : null;
@@ -247,23 +248,49 @@ if (verboseFlag) {
     const sw = rsp ? (rsp.sw === 0x9000 ? "9000" : `${h(rsp.sw1)}${h(rsp.sw2)}`) : null;
     const swOk = rsp?.sw === 0x9000;
     const sw61 = rsp && ((rsp.sw >> 8) === 0x61);
+    const swInfo = rsp ? lookupSW(rsp.sw) : null;
+    const dt = execDeltaMs(ex);
+
+    // Cert extraction for PIV cert slots
+    let cert = null;
+    if (swOk && cmd && (cmd.ins === 0xCB || cmd.ins === 0xCA) && cmd.data?.[0] === 0x5C && rsp?.data?.length >= 50) {
+      const tagHex = hexStr(cmd.data.slice(2, 2 + (cmd.data[1] ?? 0))).replace(/ /g, "").toUpperCase();
+      if (PIV_CERT_TAGS.has(tagHex)) {
+        try {
+          const der = unwrapPIVCert(Array.from(rsp.data));
+          if (der) {
+            const info = analyzeCertificate(der);
+            cert = { slot: tagHex, subject: info.subject, issuer: info.issuer, serial: info.serial, notBefore: info.notBefore, notAfter: info.notAfter, algorithm: info.signatureAlgorithm, keyAlgorithm: info.keyAlgorithm, keySize: info.keySize, b64: btoa(String.fromCharCode(...der)) };
+          }
+        } catch { /* cert parse failure is non-fatal */ }
+      }
+    }
+
     return {
       id: ex.id,
       session: sessionOf(ex.id),
       ins,
       cla: cmd ? h(cmd.cla) : null,
-      sw,
+      claDesc: cmd ? descCLA(cmd.cla) : null,
+      p1: cmd ? h(cmd.p1) : null,
+      p2: cmd ? h(cmd.p2) : null,
+      lc: cmd?.lc ?? null,
+      sw, swMsg: swInfo?.msg ?? null, swSev: swInfo?.s ?? null,
       ok: swOk || sw61,
       phase: ps?.phase ?? null,
       auth: ps?.authenticated ?? false,
       selected: ps?.selected ?? null,
       note: ann?.note ?? null,
       flag: ann?.flag ?? null,
+      cmdHex: ex.cmd.hex,
+      rspHex: ex.rsp?.hex ?? null,
       cmdLen: ex.cmd.bytes?.length ?? 0,
       rspLen: ex.rsp?.bytes?.length ?? 0,
       dataLen: rsp?.data?.length ?? 0,
       ts: ex.cmd.ts ?? null,
+      dt,
       continuations: ex.continuations ?? 0,
+      cert,
     };
   });
 }
