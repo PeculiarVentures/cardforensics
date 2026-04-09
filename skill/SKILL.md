@@ -29,27 +29,38 @@ cd cardforensics && npm install
 
 If the repo is already cloned, skip to running the analyzer.
 
-## Two Modes
+## How to Run
 
-### Mode 1: Full Trace Analysis (primary)
+The skill has two scripts in `skill/scripts/`:
+- `analyze.js` — runs the analysis pipeline, outputs JSON
+- `render.js` — takes analysis JSON, produces a React dashboard artifact
+
+### Full Trace Analysis (primary)
+
+Run both scripts in a pipeline to produce a visual dashboard:
 
 ```bash
 cd /home/claude/cardforensics
-npx vite-node skill/scripts/analyze.js <path-to-log> [--atr <hex>] [--verbose]
+npx vite-node skill/scripts/analyze.js <path-to-log> --verbose | \
+  npx vite-node skill/scripts/render.js --output /mnt/user-data/outputs/cardforensics-dashboard.jsx
 ```
 
 - `<path-to-log>` — uploaded CryptoTokenKit `.log` file (check `/mnt/user-data/uploads/`)
 - `--atr <hex>` — optional ATR if known (improves card identification confidence)
-- `--verbose` — include all annotations, not just notable ones
+- `--verbose` — include all annotations (recommended for dashboard)
 
-### Mode 2: ATR Lookup (secondary)
+Then present the artifact with `present_files`. The dashboard renders as an interactive React component with collapsible sections for card identity, CHUID, certificate slots, threats, key check, compliance, sessions, and annotations.
+
+After presenting the dashboard, add a brief prose summary highlighting the most important findings for the user's question.
+
+### ATR Lookup (secondary)
 
 ```bash
 cd /home/claude/cardforensics
 npx vite-node skill/scripts/analyze.js --atr-only <hex>
 ```
 
-Use when the user provides an ATR string and wants to know what card it is, without a full trace.
+ATR lookup mode returns minimal JSON — present as text, no dashboard needed.
 
 ## Understanding the Output
 
