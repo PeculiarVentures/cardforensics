@@ -11,6 +11,29 @@ const inputIdx = args.indexOf("--input");
 const outputIdx = args.indexOf("--output");
 let json = (inputIdx >= 0 && args[inputIdx + 1]) ? readFileSync(args[inputIdx + 1], "utf-8") : readFileSync("/dev/stdin", "utf-8");
 const data = JSON.parse(json);
+
+// Auto-trim for artifact size limits (~100KB JSX target)
+const MAX_JSON_CHARS = 80000;
+if (JSON.stringify(data).length > MAX_JSON_CHARS) {
+  console.error(`Data is ${Math.round(JSON.stringify(data).length/1024)}KB — trimming for artifact renderer...`);
+  // Strip heavy fields
+  if (data.timeline) data.timeline.forEach(t => { delete t.cmdHex; delete t.rspHex; delete t.ts; delete t.cert; });
+  delete data.all_annotations;
+  delete data.object_ledger;
+  if (data.sessions) data.sessions.forEach(s => { if (s.operations?.length > 5) s.operations = s.operations.slice(0, 5); });
+  // If still too large, keep only notable + session boundary exchanges
+  if (JSON.stringify(data).length > MAX_JSON_CHARS && data.timeline?.length > 100) {
+    const notable = new Set((data.notable_annotations || []).map(a => a.exchange));
+    const sessionStarts = new Set((data.sessions || []).map((s, i) => {
+      const first = data.timeline.find(t => t.session === i);
+      return first?.id;
+    }).filter(Boolean));
+    data.timeline = data.timeline.filter(t => notable.has(t.id) || sessionStarts.has(t.id) || t.flag);
+    data._trimmed = { original: data.exchange_count, shown: data.timeline.length };
+    console.error(`  Reduced timeline: ${data.exchange_count} → ${data.timeline.length} exchanges (notable + session starts)`);
+  }
+}
+
 const out = generateJSX(data);
 if (outputIdx >= 0 && args[outputIdx + 1]) { writeFileSync(args[outputIdx + 1], out); console.error(`Dashboard written to ${args[outputIdx + 1]}`); } else { console.log(out); }
 
@@ -35,7 +58,7 @@ function ExRow({t,sel,onClick}){
       <span style={{color:C.muted,width:68,fontSize:9,flexShrink:0}}>{t.ts?.split(" ")[1]?.substring(0,12)||""}{t.dt!=null?<span style={{color:C.dim,fontSize:8,marginLeft:2}}>{t.dt}ms</span>:null}</span>
       {t.auth&&<span style={{fontSize:8,color:C.green,flexShrink:0}}>🔒</span>}
       <span style={{fontSize:8,color:pc,border:\`1px solid \${C.border}\`,borderRadius:2,padding:"0 3px",flexShrink:0}}>{PS[t.phase]||""}</span>
-      <span style={{color:C.blue,fontSize:10,flexShrink:0}}>\\u25B6 CMD</span>
+      <span style={{color:C.blue,fontSize:10,flexShrink:0}}>▶ CMD</span>
       <span style={{fontSize:8,padding:"1px 4px",borderRadius:2,background:C.purple+"22",color:C.purple,border:\`1px solid \${C.purple}44\`,flexShrink:0}}>{t.claDesc||t.cla}</span>
       <span style={{color:C.white,fontWeight:600,flexShrink:0}}>{t.ins}</span>
       <span style={{color:C.muted,flexShrink:0}}>P1={t.p1} P2={t.p2}</span>
@@ -46,14 +69,14 @@ function ExRow({t,sel,onClick}){
     {t.sw&&<div style={{display:"flex",alignItems:"center",gap:6,padding:"2px 10px 3px",fontFamily:"monospace",fontSize:11}}>
       <span style={{width:28,flexShrink:0}}/>
       <span style={{width:68,flexShrink:0}}/>
-      <span style={{color:C.green,fontSize:10,flexShrink:0}}>\\u25C0 RSP</span>
+      <span style={{color:C.green,fontSize:10,flexShrink:0}}>◀ RSP</span>
       <span style={{color:swC(t.swSev),fontWeight:700,flexShrink:0}}>{t.sw}</span>
       <span style={{color:swC(t.swSev),fontSize:10,flexShrink:0}}>{t.swMsg}</span>
       {t.dataLen>0&&<span style={{color:C.muted,fontSize:10,flexShrink:0}}>{t.dataLen}B</span>}
-      {t.continuations>0&&<span style={{fontSize:8,color:C.teal,border:\`1px solid \${C.teal}44\`,borderRadius:3,padding:"0 4px"}}>\\u26D3 {t.continuations+1} chunks</span>}
+      {t.continuations>0&&<span style={{fontSize:8,color:C.teal,border:\`1px solid \${C.teal}44\`,borderRadius:3,padding:"0 4px"}}>⛓ {t.continuations+1} chunks</span>}
     </div>}
     {/* Annotation */}
-    {t.note&&<div style={{padding:"3px 10px 3px 108px",borderLeft:\`2px solid \${flagC(t.flag)||C.muted}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.muted,fontSize:10}}>\\u2726 {t.note}</div>}
+    {t.note&&<div style={{padding:"3px 10px 3px 108px",borderLeft:\`2px solid \${flagC(t.flag)||C.muted}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.muted,fontSize:10}}>✦ {t.note}</div>}
   </div>;
 }
 
@@ -73,7 +96,7 @@ function ExDetail({t}){
     </div>
 
     {/* Annotation bar */}
-    {t.note&&<div style={{padding:"6px 12px",borderLeft:\`3px solid \${flagC(t.flag)||C.teal}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.teal,fontSize:11}}>\\u2726 {t.note}</div>}
+    {t.note&&<div style={{padding:"6px 12px",borderLeft:\`3px solid \${flagC(t.flag)||C.teal}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.teal,fontSize:11}}>✦ {t.note}</div>}
 
     {/* Fields */}
     <div style={{padding:"8px 12px",fontSize:11,display:"grid",gridTemplateColumns:"90px 1fr",gap:"2px 8px",lineHeight:1.7}}>
@@ -92,12 +115,12 @@ function ExDetail({t}){
 
     {/* Cert viewer */}
     {t.cert&&<div style={{padding:"8px 12px",borderTop:\`1px solid \${C.border}\`}}>
-      <div style={{color:C.teal,fontWeight:600,fontSize:11,marginBottom:6}}>X.509 Certificate \\u2014 {CN[t.cert.slot]||t.cert.slot}</div>
+      <div style={{color:C.teal,fontWeight:600,fontSize:11,marginBottom:6}}>X.509 Certificate — {CN[t.cert.slot]||t.cert.slot}</div>
       <div style={{fontSize:10,display:"grid",gridTemplateColumns:"80px 1fr",gap:"2px 8px",lineHeight:1.7}}>
         <span style={{color:C.dim}}>Subject</span><span style={{fontFamily:"monospace",fontSize:9,wordBreak:"break-all"}}>{t.cert.subject}</span>
         <span style={{color:C.dim}}>Issuer</span><span style={{fontFamily:"monospace",fontSize:9,wordBreak:"break-all"}}>{t.cert.issuer}</span>
         <span style={{color:C.dim}}>Serial</span><span style={{fontFamily:"monospace",fontSize:9}}>{t.cert.serial}</span>
-        <span style={{color:C.dim}}>Valid</span><span>{t.cert.notBefore} \\u2192 {t.cert.notAfter}</span>
+        <span style={{color:C.dim}}>Valid</span><span>{t.cert.notBefore} → {t.cert.notAfter}</span>
         <span style={{color:C.dim}}>Key</span><span>{t.cert.keyAlgorithm}{t.cert.keySize?\` \${t.cert.keySize}-bit\`:""}</span>
         <span style={{color:C.dim}}>Signature</span><span>{t.cert.algorithm}</span>
       </div>
@@ -105,7 +128,7 @@ function ExDetail({t}){
 
     {/* Hex toggle */}
     <div style={{borderTop:\`1px solid \${C.border}\`}}>
-      <div onClick={()=>setHexOpen(!hexOpen)} style={{padding:"4px 12px",fontSize:10,color:C.muted,cursor:"pointer"}}>{hexOpen?"\\u25BC":"\\u25B6"} Raw Hex</div>
+      <div onClick={()=>setHexOpen(!hexOpen)} style={{padding:"4px 12px",fontSize:10,color:C.muted,cursor:"pointer"}}>{hexOpen?"▼":"▶"} Raw Hex</div>
       {hexOpen&&<div style={{padding:"4px 12px 8px",fontFamily:"monospace",fontSize:10,lineHeight:1.8,wordBreak:"break-all"}}>
         <div style={{color:C.blue,marginBottom:2}}>CMD</div>
         <div style={{color:C.dim,marginBottom:6,background:C.bg,padding:"4px 6px",borderRadius:3}}>{t.cmdHex}</div>
@@ -131,6 +154,21 @@ export default function Dashboard(){
   const[sel,setSel]=useState(null),[as,setAs]=useState(null),[tab,setTab]=useState("replay");
   const filtered=as!=null?tl.filter(t=>t.session===as):tl;
   const go=id=>{setSel(id);setTab("replay");setTimeout(()=>{const el=document.getElementById(\`ex-\${id}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},30);};
+  useEffect(()=>{
+    const onKey=e=>{
+      if(tab!=="replay"||!filtered.length)return;
+      const ids=filtered.map(t=>t.id);
+      const ci=sel!=null?ids.indexOf(sel):-1;
+      let ni=-1;
+      if(e.key==="ArrowDown"||e.key==="j"){ni=ci<ids.length-1?ci+1:0;e.preventDefault();}
+      else if(e.key==="ArrowUp"||e.key==="k"){ni=ci>0?ci-1:ids.length-1;e.preventDefault();}
+      else if(e.key==="Enter"||e.key===" "){if(sel!=null){setSel(sel);} return;}
+      else return;
+      if(ni>=0){const nid=ids[ni];setSel(nid);setTimeout(()=>{const el=document.getElementById(\`ex-\${nid}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"nearest"});},20);}
+    };
+    window.addEventListener("keydown",onKey);
+    return()=>window.removeEventListener("keydown",onKey);
+  },[tab,sel,filtered]);
   const sc=score?.score>=90?C.green:score?.score>=70?C.amber:C.red;
   const phases=[...new Set(tl.map(t=>t.phase).filter(Boolean))];
 
@@ -178,8 +216,11 @@ export default function Dashboard(){
     </div>
 
     {/* Content */}
-    <div style={{flex:1,overflow:"auto"}}>
-      {tab==="replay"&&<>{filtered.map(t=><div key={t.id} id={\`ex-\${t.id}\`}>
+    <div style={{flex:1,overflow:"auto"}} tabIndex={0}>
+      {tab==="replay"&&<>
+        {d._trimmed&&<div style={{padding:"6px 14px",fontSize:10,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries). Full trace at CardForensics web app.</div>}
+        <div style={{padding:"3px 14px",fontSize:9,color:C.dim,borderBottom:\`1px solid \${C.border}\`}}>Use arrow keys or j/k to navigate</div>
+        {filtered.map(t=><div key={t.id} id={\`ex-\${t.id}\`}>
         <ExRow t={t} sel={sel===t.id} onClick={()=>setSel(sel===t.id?null:t.id)}/>
         {sel===t.id&&<ExDetail t={t}/>}
       </div>)}</>}
@@ -187,9 +228,9 @@ export default function Dashboard(){
       {tab==="findings"&&<div style={{padding:14}}>
         {certs&&<div style={{marginBottom:16}}><div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Certificate Slots</div>
           <div style={{display:"flex",flexWrap:"wrap"}}>{(certs.probed||[]).map(tag=><div key={tag} style={{display:"inline-flex",alignItems:"center",gap:4,padding:"3px 8px",borderRadius:3,border:\`1px solid \${(certs.populated||[]).includes(tag)?C.green:C.red}33\`,background:\`\${(certs.populated||[]).includes(tag)?C.green:C.red}08\`,marginRight:4,marginBottom:4}}>
-            <span style={{fontSize:10,color:(certs.populated||[]).includes(tag)?C.green:C.red}}>{(certs.populated||[]).includes(tag)?"\\u25CF":"\\u25CB"}</span>
+            <span style={{fontSize:10,color:(certs.populated||[]).includes(tag)?C.green:C.red}}>{(certs.populated||[]).includes(tag)?"●":"○"}</span>
             <span style={{fontSize:10}}>{CN[tag]||tag}</span></div>)}</div>
-          {certs.all_empty&&<div style={{fontSize:10,color:C.amber,marginTop:4}}>All slots empty \\u2014 unprovisioned</div>}
+          {certs.all_empty&&<div style={{fontSize:10,color:C.amber,marginTop:4}}>All slots empty — unprovisioned</div>}
         </div>}
 
         <div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Threats ({threats.length})</div>
@@ -225,7 +266,7 @@ export default function Dashboard(){
           <span style={{color:C.dim}}>Vendor</span><span>{card.vendor}</span>
           <span style={{color:C.dim}}>Confidence</span><span style={{color:card.confidence>=90?C.green:C.amber}}>{card.confidence}%</span>
         </div>:<div style={{color:C.dim}}>Not identified</div>}
-        {card?.signals?.map((s,i)=><div key={i} style={{fontSize:10,color:C.muted,paddingLeft:98,lineHeight:1.5}}>\\u00B7 {s}</div>)}
+        {card?.signals?.map((s,i)=><div key={i} style={{fontSize:10,color:C.muted,paddingLeft:98,lineHeight:1.5}}>· {s}</div>)}
 
         {token&&<><div style={{fontWeight:600,fontSize:12,marginTop:16,marginBottom:8}}>Token Identity</div>
           <div style={{fontSize:11,display:"grid",gridTemplateColumns:"90px 1fr",gap:"2px 8px",lineHeight:1.7}}>
