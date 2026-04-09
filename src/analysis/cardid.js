@@ -1,13 +1,64 @@
 /**
- * Card family identification via ATR database, AID, tag, and CLA heuristics.
+ * Card family identification via ATR database, AID, tag, CLA, and pattern heuristics.
  *
  * Matches observed APDU patterns and optional ATR against known card profiles
  * using the PeculiarVentures/webcrypto-local card database (85 ATR entries)
  * plus built-in AID/CLA/tag heuristics for SafeNet, YubiKey, Gemalto,
- * and generic PIV.
+ * and generic PIV. Falls back to regex-based ATR pattern matching for
+ * card family hints (EMV, SIM, JavaCard, transport, eID).
  */
 import { hexStr, decodeCmd, decodeRsp } from "../decode.js";
 import cardDB from "./card-database.json";
+
+// ── ATR pattern heuristics (informed by card-spy atr.ts) ──
+// Regex-based card family hints when exact ATR database lookup fails.
+// Checked after database match, before returning "unknown".
+const ATR_PATTERNS = [
+  // YubiKey
+  { pattern: /^3BF81300008131FE/, name: "YubiKey", type: "security-key" },
+  { pattern: /^3B8D80018073C021C057597562694B657940/, name: "YubiKey NEO", type: "security-key" },
+  { pattern: /^3BFD1300008131FE158073C021C057597562694B657940/, name: "YubiKey 4", type: "security-key" },
+  { pattern: /^3BFC1300008131FE15597562696B65794E454F/, name: "YubiKey NEO", type: "security-key" },
+  // SafeNet / Thales
+  { pattern: /^3BFF9600008131FE4380318065B08/, name: "SafeNet eToken", type: "token" },
+  { pattern: /^3BD518/, name: "SafeNet eToken 5100/ePass", type: "token" },
+  // Nitrokey
+  { pattern: /^3BFE1800008131FE454.*4853/, name: "Nitrokey HSM", type: "security-key" },
+  // EMV / Payment
+  { pattern: /^3B67/, name: "EMV Card", type: "payment" },
+  { pattern: /^3B6[89ABC]/, name: "EMV Card", type: "payment" },
+  // JavaCard / JCOP
+  { pattern: /^3B.*4A434F50/, name: "JCOP Card", type: "javacard" },
+  { pattern: /^3BF[89].*4A617661/, name: "JavaCard", type: "javacard" },
+  { pattern: /^3B8980014A434F50/, name: "NXP JCOP", type: "javacard" },
+  // SIM / USIM
+  { pattern: /^3B3F/, name: "GSM SIM", type: "sim" },
+  { pattern: /^3B9[0-9A-F]96/, name: "USIM", type: "sim" },
+  { pattern: /^3B1[EF]/, name: "Mini SIM", type: "sim" },
+  // Identity cards
+  { pattern: /^3B7F.*00006563/, name: "Belgian eID", type: "eid" },
+  { pattern: /^3B9813400AA503/, name: "Belgian eID", type: "eid" },
+  { pattern: /^3B7F960000006A444E4965/, name: "Spanish DNIe", type: "eid" },
+  // Transport / NFC
+  { pattern: /^3B8F80/, name: "Calypso Transport", type: "transport" },
+  { pattern: /^3B8180018080/, name: "MIFARE DESFire", type: "transport" },
+  { pattern: /^3B8[0-9A-F]80.*D276000085/, name: "MIFARE DESFire EV", type: "transport" },
+  // Generic smart card patterns (lowest priority)
+  { pattern: /^3B8[0-9A-F]80/, name: "Contact Smart Card", type: "generic" },
+];
+
+/**
+ * Match ATR against regex heuristic patterns.
+ * @param {string} atrHex - Normalized uppercase hex (no spaces)
+ * @returns {{ name: string, type: string }|null}
+ */
+function matchATRPattern(atrHex) {
+  if (!atrHex) return null;
+  for (const { pattern, name, type } of ATR_PATTERNS) {
+    if (pattern.test(atrHex)) return { name, type };
+  }
+  return null;
+}
 
 // ── ATR database lookup (exact + prefix matching) ──
 
@@ -119,6 +170,25 @@ export function identifyCard(exchanges, atr) {
   // Generic PIV fallback
   if (selectedAIDs.some(a => a.startsWith("A000000308000010"))) {
     return { profile: CARD_PROFILES[4], confidence: 0.60, signals: ["PIV AID selected, no ATR available for specific identification"] };
+  }
+
+  // ── ATR pattern heuristic fallback ──
+  // When no database or AID match, try regex patterns for card family hints.
+  if (atr) {
+    const norm = atr.toUpperCase().replace(/\s+/g, "");
+    const patternMatch = matchATRPattern(norm);
+    if (patternMatch) {
+      const synthProfile = {
+        id: `pattern-${patternMatch.type}-${patternMatch.name.toLowerCase().replace(/\W+/g, "-")}`,
+        name: patternMatch.name, vendor: inferVendor(patternMatch.name),
+        readOnly: true, cardType: patternMatch.type,
+        signals: [{ type: "atr-pattern", value: atr, desc: "ATR pattern heuristic match" }],
+      };
+      return {
+        profile: synthProfile, confidence: 0.50,
+        signals: [`ATR pattern: ${patternMatch.name} (heuristic, not confirmed)`],
+      };
+    }
   }
 
   return null;
