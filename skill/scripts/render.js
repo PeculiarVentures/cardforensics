@@ -66,7 +66,7 @@ const pvConst = pvB64 ? `\nconst PV_B64="${pvB64}";\nconst PV_VARS=[["--pv-color
 ` : "";
 return `import{useState,useRef,useEffect}from"react";
 const D=${JSON.stringify(data)};${pvConst}
-const C={bg:"#0a0d12",surface:"#111720",s2:"#161d28",border:"#1c2536",text:"#c8d0e0",dim:"#4a5570",muted:"#7888a4",teal:"#4ad8c7",green:"#34d399",amber:"#fbbf24",red:"#f87171",blue:"#60a5fa",purple:"#a78bfa",pink:"#f472b6",white:"#fff"};
+const C={bg:"#0a0d12",surface:"#111720",s2:"#161d28",border:"#1c2536",text:"#dce4f0",dim:"#6b7a94",muted:"#98a8c0",teal:"#4ad8c7",green:"#34d399",amber:"#fbbf24",red:"#f87171",blue:"#60a5fa",purple:"#a78bfa",pink:"#f472b6",white:"#f0f4fa"};
 const PC={"pre-select probing":"#6366f1","application selection":C.blue,"GP card enumeration":C.purple,"PIV discovery":C.teal,"vendor object inventory":"#8b5cf6",authentication:C.amber,personalization:C.pink,"post-write verification":C.green,"idle / status read":C.dim};
 const PS={"pre-select probing":"PROBE","application selection":"SELECT","GP card enumeration":"GP","PIV discovery":"PIV","vendor object inventory":"VENDOR",authentication:"AUTH",personalization:"WRITE","post-write verification":"VERIFY","idle / status read":"IDLE"};
 const CN={"5FC105":"PIV Auth (9A)","5FC10A":"Dig Sig (9C)","5FC10B":"Key Mgmt (9D)","5FC101":"Card Auth (9E)"};
@@ -79,30 +79,30 @@ function ExRow({t,sel,onClick}){
   const pc=PC[t.phase]||C.dim;
   return <div onClick={onClick} style={{borderBottom:\`1px solid \${C.border}\`,background:sel?\`\${C.teal}0c\`:"transparent",cursor:"pointer"}}>
     {/* CMD line */}
-    <div style={{display:"flex",alignItems:"center",gap:6,padding:"4px 10px",fontFamily:"monospace",fontSize:11}}>
-      <span style={{color:C.dim,fontSize:9,width:28,textAlign:"right",flexShrink:0}}>{t.id}</span>
-      <span style={{color:C.muted,width:68,fontSize:9,flexShrink:0}}>{t.ts?.split(" ")[1]?.substring(0,12)||""}{t.dt!=null?<span style={{color:C.dim,fontSize:8,marginLeft:2}}>{t.dt}ms</span>:null}</span>
-      {t.auth&&<span style={{fontSize:8,color:C.green,flexShrink:0}}>🔒</span>}
-      <span style={{fontSize:8,color:pc,border:\`1px solid \${C.border}\`,borderRadius:2,padding:"0 3px",flexShrink:0}}>{PS[t.phase]||""}</span>
-      <span style={{color:C.blue,fontSize:10,flexShrink:0}}>▶ CMD</span>
-      <span style={{fontSize:8,padding:"1px 4px",borderRadius:2,background:C.purple+"22",color:C.purple,border:\`1px solid \${C.purple}44\`,flexShrink:0}}>{t.claDesc||t.cla}</span>
-      <span style={{color:C.white,fontWeight:600,flexShrink:0}}>{t.ins}</span>
+    <div style={{display:"flex",alignItems:"center",gap:6,padding:"5px 10px",fontFamily:"monospace",fontSize:12}}>
+      <span style={{color:C.dim,fontSize:11,width:30,textAlign:"right",flexShrink:0}}>{t.id}</span>
+      <span style={{color:C.muted,width:36,fontSize:10,flexShrink:0}}>{t.dt!=null?<span>{t.dt}ms</span>:null}</span>
+      {t.auth&&<span style={{fontSize:10,color:C.green,flexShrink:0}}>🔒</span>}
+      <span style={{fontSize:9,color:pc,border:\`1px solid \${pc}44\`,borderRadius:2,padding:"1px 4px",flexShrink:0,fontWeight:600}}>{PS[t.phase]||""}</span>
+      <span style={{color:C.blue,fontSize:11,flexShrink:0}}>▶ CMD</span>
+      <span style={{fontSize:9,padding:"1px 5px",borderRadius:2,background:C.purple+"22",color:C.purple,border:\`1px solid \${C.purple}44\`,flexShrink:0}}>{t.claDesc||t.cla}</span>
+      <span style={{color:C.white,fontWeight:700,flexShrink:0}}>{t.ins}</span>
       <span style={{color:C.muted,flexShrink:0}}>P1={t.p1} P2={t.p2}</span>
       {t.lc!=null&&<span style={{color:C.dim,flexShrink:0}}>Lc={t.lc}</span>}
-      <span style={{color:C.dim,fontSize:10,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",flex:1}}>{t.cmdHex?.substring(0,60)}</span>
+      <span style={{color:C.dim,fontSize:11,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",flex:1}}>{t.cmdHex?.substring(0,60)}</span>
     </div>
     {/* RSP line */}
-    {t.sw&&<div style={{display:"flex",alignItems:"center",gap:6,padding:"2px 10px 3px",fontFamily:"monospace",fontSize:11}}>
-      <span style={{width:28,flexShrink:0}}/>
-      <span style={{width:68,flexShrink:0}}/>
-      <span style={{color:C.green,fontSize:10,flexShrink:0}}>◀ RSP</span>
+    {t.sw&&<div style={{display:"flex",alignItems:"center",gap:6,padding:"2px 10px 4px",fontFamily:"monospace",fontSize:12}}>
+      <span style={{width:30,flexShrink:0}}/>
+      <span style={{width:36,flexShrink:0}}/>
+      <span style={{color:C.green,fontSize:11,flexShrink:0}}>◀ RSP</span>
       <span style={{color:swC(t.swSev),fontWeight:700,flexShrink:0}}>{t.sw}</span>
-      <span style={{color:swC(t.swSev),fontSize:10,flexShrink:0}}>{t.swMsg}</span>
-      {t.dataLen>0&&<span style={{color:C.muted,fontSize:10,flexShrink:0}}>{t.dataLen}B</span>}
-      {t.continuations>0&&<span style={{fontSize:8,color:C.teal,border:\`1px solid \${C.teal}44\`,borderRadius:3,padding:"0 4px"}}>⛓ {t.continuations+1} chunks</span>}
+      <span style={{color:swC(t.swSev),fontSize:11,flexShrink:0}}>{t.swMsg}</span>
+      {t.dataLen>0&&<span style={{color:C.muted,fontSize:11,flexShrink:0}}>{t.dataLen}B</span>}
+      {t.continuations>0&&<span style={{fontSize:9,color:C.teal,border:\`1px solid \${C.teal}44\`,borderRadius:3,padding:"1px 5px"}}>⛓ {t.continuations+1} chunks</span>}
     </div>}
     {/* Annotation */}
-    {t.note&&<div style={{padding:"3px 10px 3px 108px",borderLeft:\`2px solid \${flagC(t.flag)||C.muted}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.muted,fontSize:10}}>✦ {t.note}</div>}
+    {t.note&&<div style={{padding:"4px 10px 4px 80px",borderLeft:\`3px solid \${flagC(t.flag)||C.muted}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.text,fontSize:11,lineHeight:1.5}}>✦ {t.note}</div>}
   </div>;
 }
 
@@ -127,23 +127,23 @@ function ExDetail({t}){
     {/* Two-column: Fields + AI Analysis */}
     <div style={{display:"flex",borderBottom:\`1px solid \${C.border}\`}}>
       {/* Left: decoded fields */}
-      <div style={{flex:"0 0 55%",padding:"8px 12px",fontSize:11,display:"grid",gridTemplateColumns:"90px 1fr",gap:"2px 8px",lineHeight:1.7,borderRight:t.explanation?\`1px solid \${C.border}\`:"none"}}>
-        <span style={{color:C.dim}}>Instruction</span><span>{t.ins}</span>
-        <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace"}}>{t.cla} ({t.claDesc})</span>
-        <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace"}}>{t.p1} / {t.p2}</span>
-        {t.lc!=null&&<><span style={{color:C.dim}}>Lc</span><span>{t.lc}</span></>}
+      <div style={{flex:"0 0 55%",padding:"10px 14px",fontSize:12,display:"grid",gridTemplateColumns:"90px 1fr",gap:"3px 10px",lineHeight:1.7,borderRight:t.explanation?\`1px solid \${C.border}\`:"none"}}>
+        <span style={{color:C.dim}}>Instruction</span><span style={{color:C.text}}>{t.ins}</span>
+        <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace",color:C.text}}>{t.cla} ({t.claDesc})</span>
+        <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace",color:C.text}}>{t.p1} / {t.p2}</span>
+        {t.lc!=null&&<><span style={{color:C.dim}}>Lc</span><span style={{color:C.text}}>{t.lc}</span></>}
         <span style={{color:C.dim}}>Phase</span><span style={{color:PC[t.phase]||C.muted}}>{t.phase}</span>
-        <span style={{color:C.dim}}>Session</span><span>{t.session}</span>
+        <span style={{color:C.dim}}>Session</span><span style={{color:C.text}}>{t.session}</span>
         <span style={{color:C.dim}}>Auth</span><span style={{color:t.auth?C.green:C.dim}}>{t.auth?"Authenticated":"No"}</span>
-        {t.selected&&<><span style={{color:C.dim}}>Selected</span><span>{t.selected}</span></>}
-        <span style={{color:C.dim}}>Cmd size</span><span>{t.cmdLen}B</span>
-        <span style={{color:C.dim}}>Rsp size</span><span>{t.rspLen}B{t.dataLen?\` (\${t.dataLen}B data)\`:""}</span>
-        {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span>{t.continuations} GET RESPONSE continuations</span></>}
+        {t.selected&&<><span style={{color:C.dim}}>Selected</span><span style={{color:C.text}}>{t.selected}</span></>}
+        <span style={{color:C.dim}}>Cmd size</span><span style={{color:C.text}}>{t.cmdLen}B</span>
+        <span style={{color:C.dim}}>Rsp size</span><span style={{color:C.text}}>{t.rspLen}B{t.dataLen?\` (\${t.dataLen}B data)\`:""}</span>
+        {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span style={{color:C.text}}>{t.continuations} GET RESPONSE continuations</span></>}
       </div>
       {/* Right: AI explanation (pre-computed by Claude during skill run) */}
-      {t.explanation&&<div style={{flex:1,padding:"8px 12px",background:"#0d1117",minHeight:80}}>
-        <div style={{fontSize:9,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:6}}>AI ANALYSIS</div>
-        <div style={{fontSize:10,color:"#b0b8cc",lineHeight:1.7}}>{t.explanation}</div>
+      {t.explanation&&<div style={{flex:1,padding:"10px 14px",background:"#0d1117",minHeight:80}}>
+        <div style={{fontSize:10,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:8}}>AI ANALYSIS</div>
+        <div style={{fontSize:12,color:"#c4ccdd",lineHeight:1.7}}>{t.explanation}</div>
       </div>}
     </div>
 
@@ -267,13 +267,19 @@ export default function Dashboard(){
           {chuid?.expiration&&<span>Exp {chuid.expiration}</span>}
         </div>
       </div>
-      {score&&<div style={{textAlign:"right"}}><div style={{fontSize:24,fontWeight:700,color:sc,lineHeight:1}}>{score.score}</div><div style={{fontSize:8,color:C.dim,letterSpacing:1}}>{score.label?.toUpperCase()}</div></div>}
+      {score&&<div style={{textAlign:"right"}}><div style={{fontSize:24,fontWeight:700,color:sc,lineHeight:1}}>{score.score}</div><div style={{fontSize:9,color:C.muted,letterSpacing:1}}>{score.label?.toUpperCase()}</div></div>}
     </div>
 
+    {/* AI Summary */}
+    {d.summary&&<div style={{padding:"10px 14px",borderBottom:\`1px solid \${C.border}\`,background:"#0d1117",flexShrink:0}}>
+      <div style={{fontSize:10,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:6}}>AI SUMMARY</div>
+      <div style={{fontSize:12,color:"#c4ccdd",lineHeight:1.7}}>{d.summary}</div>
+    </div>}
+
     {/* Threats */}
-    {threats.length>0&&<div style={{padding:"6px 14px",borderBottom:\`1px solid \${C.border}\`,background:C.red+"06",display:"flex",gap:6,flexWrap:"wrap",flexShrink:0}}>
+    {threats.length>0&&<div style={{padding:"8px 14px",borderBottom:\`1px solid \${C.border}\`,background:C.red+"06",display:"flex",gap:6,flexWrap:"wrap",flexShrink:0}}>
       {threats.map((t,i)=>{const tc=t.severity==="critical"?C.red:t.severity==="warn"?C.amber:C.blue;
-        return <div key={i} onClick={()=>t.exchange_ids?.[0]!=null&&go(t.exchange_ids[0])} style={{fontSize:10,padding:"3px 8px",borderRadius:3,border:\`1px solid \${tc}44\`,background:\`\${tc}10\`,cursor:t.exchange_ids?.length?"pointer":"default"}}>
+        return <div key={i} onClick={()=>t.exchange_ids?.[0]!=null&&go(t.exchange_ids[0])} style={{fontSize:11,padding:"4px 10px",borderRadius:3,border:\`1px solid \${tc}44\`,background:\`\${tc}10\`,cursor:t.exchange_ids?.length?"pointer":"default"}}>
           <Badge color={tc}>{t.severity}</Badge> <span style={{color:C.text,marginLeft:4}}>{t.title}</span></div>;})}
     </div>}
 
