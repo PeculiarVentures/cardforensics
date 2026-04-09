@@ -219,8 +219,9 @@ const result = {
 
   // Object ledger
   object_ledger: (objectLedger ?? []).map(obj => ({
-    tag: obj.tag, name: obj.name, size: obj.size,
-    phase: obj.phase, status: obj.status,
+    tag: obj.id, name: obj.label, size: obj.size,
+    status: obj.classification, reads: obj.reads?.ok||0,
+    writes: obj.writes?.ok||0, mutated: obj.mutated,
   })),
 
   // All annotations (notable first, then informational if --verbose)

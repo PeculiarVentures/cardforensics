@@ -21,7 +21,6 @@ if (rawSize > 50000) {
   console.error(`Data is ${Math.round(rawSize/1024)}KB — stripping hex/timestamps...`);
   if (data.timeline) data.timeline.forEach(t => { delete t.ts; });
   delete data.all_annotations;
-  delete data.object_ledger;
   if (data.sessions) data.sessions.forEach(s => { if (s.operations?.length > 10) s.operations = s.operations.slice(0, 10); });
   const trimmedSize = JSON.stringify(data).length;
   console.error(`  After strip: ${Math.round(trimmedSize/1024)}KB (${data.timeline?.length} exchanges)`);
@@ -151,16 +150,54 @@ function ExDetail({t}){
     {t.cert&&t.cert.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={t.cert.b64} slot={CN[t.cert.slot]||t.cert.slot} startOpen/>}
     {t.cert&&(!t.cert.b64||typeof PV_B64==="undefined")&&<div style={{padding:"8px 12px",borderTop:\`1px solid \${C.border}\`,fontSize:10,color:C.muted}}>Certificate data not available for PV viewer</div>}
 
-    {/* Hex toggle */}
+    {/* Annotated Hex */}
     <div style={{borderTop:\`1px solid \${C.border}\`}}>
-      <div onClick={()=>setHexOpen(!hexOpen)} style={{padding:"4px 12px",fontSize:10,color:C.muted,cursor:"pointer"}}>{hexOpen?"▼":"▶"} Raw Hex</div>
-      {hexOpen&&<div style={{padding:"4px 12px 8px",fontFamily:"monospace",fontSize:10,lineHeight:1.8,wordBreak:"break-all"}}>
-        <div style={{color:C.blue,marginBottom:2}}>CMD</div>
-        <div style={{color:C.dim,marginBottom:6,background:C.bg,padding:"4px 6px",borderRadius:3}}>{t.cmdHex}</div>
-        {t.rspHex&&<><div style={{color:C.green,marginBottom:2}}>RSP</div>
-        <div style={{color:C.dim,background:C.bg,padding:"4px 6px",borderRadius:3}}>{t.rspHex}</div></>}
+      <div onClick={()=>setHexOpen(!hexOpen)} style={{padding:"5px 12px",fontSize:11,color:C.muted,cursor:"pointer"}}>{hexOpen?"▼":"▶"} Annotated Hex</div>
+      {hexOpen&&<div style={{padding:"4px 12px 8px"}}>
+        <div style={{color:C.blue,marginBottom:2,fontSize:10,fontWeight:600}}>CMD ({t.cmdLen}B)</div>
+        <HexView hex={t.cmdHex} label="cmd"/>
+        {t.rspHex&&<><div style={{color:C.green,marginBottom:2,marginTop:8,fontSize:10,fontWeight:600}}>RSP ({t.rspLen}B)</div>
+        <HexView hex={t.rspHex} label="rsp"/></>}
       </div>}
     </div>
+  </div>;
+}
+
+const TLV_NAMES={0x30:"FASC-N",0x32:"Org ID",0x33:"DUNS",0x34:"GUID",0x35:"Expiration",0x36:"Cardholder UUID",0x3E:"Issuer Sig",0x4F:"AID",0x50:"Label",0x53:"PIV Data",0x5C:"Tag List",0x5F2F:"PIN Usage",0x5FC102:"CHUID",0x5FC105:"PIV Auth Cert",0x5FC10A:"Dig Sig Cert",0x5FC10B:"Key Mgmt Cert",0x5FC101:"Card Auth Cert",0x61:"App Template",0x6F:"FCI",0x70:"Cert Data",0x71:"Cert Info",0x73:"Discretionary",0x79:"Alloc Auth",0x7E:"Discovery",0x7F49:"Public Key",0x80:"Key Ref/Length",0x81:"Challenge/Witness",0x82:"Response",0x83:"Key ID",0x84:"DF Name",0x86:"PIN",0x87:"Auth Template",0x8A:"LC State",0x91:"Key Version",0x99:"Capability",0x9A:"Slot",0x9B:"Slot",0x9C:"Slot",0x9D:"Slot",0x9E:"Slot",0x9F65:"Max Length",0x9F6E:"App Prod ID",0xA0:"Key Set",0xA1:"Key Component",0xA5:"Proprietary",0xDF30:"Version",0xE2:"Container",0xEE:"Buffer Length",0xFE:"Error Detection"};
+function parseTLVSegments(bytes){
+  const segs=[];let i=0;
+  while(i<bytes.length){
+    const tagStart=i;
+    let tag=bytes[i++];
+    if((tag&0x1F)===0x1F){if(i<bytes.length)tag=(tag<<8)|bytes[i++];if(i<bytes.length&&(bytes[i-1]&0x80))tag=(tag<<8)|bytes[i++];}
+    if(i>=bytes.length){segs.push({start:tagStart,end:bytes.length,type:"raw"});break;}
+    const lenStart=i;
+    let len=bytes[i++];
+    if(len===0x81){if(i<bytes.length)len=bytes[i++];}
+    else if(len===0x82){if(i+1<bytes.length){len=(bytes[i]<<8)|bytes[i+1];i+=2;}}
+    else if(len>0x82){segs.push({start:tagStart,end:bytes.length,type:"raw"});break;}
+    segs.push({start:tagStart,end:lenStart,type:"tag",tag,name:TLV_NAMES[tag]||null});
+    segs.push({start:lenStart,end:i,type:"len",len});
+    const valEnd=Math.min(i+len,bytes.length);
+    if(valEnd>i)segs.push({start:i,end:valEnd,type:"val",tag});
+    i=valEnd;
+  }
+  return segs;
+}
+function HexView({hex}){
+  if(!hex)return null;
+  const bytes=hex.split(" ").map(b=>parseInt(b,16)).filter(b=>!isNaN(b));
+  const segs=parseTLVSegments(bytes);
+  const[hover,setHover]=useState(null);
+  const segColors={tag:C.teal,len:C.purple,val:C.text,raw:C.dim};
+  return <div style={{background:C.bg,padding:"6px 8px",borderRadius:3,fontFamily:"monospace",fontSize:11,lineHeight:2,wordBreak:"break-all",position:"relative"}}>
+    {segs.map((s,si)=>{
+      const byteStr=bytes.slice(s.start,s.end).map(b=>b.toString(16).padStart(2,"0")).join(" ");
+      return <span key={si} onMouseEnter={()=>setHover(s)} onMouseLeave={()=>setHover(null)} style={{color:segColors[s.type]||C.dim,cursor:"default",background:hover===s?(segColors[s.type]||C.dim)+"22":"transparent",borderRadius:2,padding:"0 1px"}}>{byteStr} </span>;
+    })}
+    {hover&&hover.name&&<div style={{position:"absolute",top:0,right:0,background:C.surface,border:\`1px solid \${C.border}\`,borderRadius:3,padding:"3px 8px",fontSize:10,color:C.text,pointerEvents:"none",zIndex:10}}>
+      <span style={{color:C.teal,fontWeight:600}}>{hover.tag?.toString(16).toUpperCase()}</span> {hover.name}{hover.len!=null?\` (\${hover.len}B)\`:""}
+    </div>}
   </div>;
 }
 
@@ -214,8 +251,16 @@ export default function Dashboard(){
   const threats=(d.threats||[]).filter(t=>t.severity!=="pass"),tl=d.timeline||[],sessions=d.sessions||[];
   const[sel,setSel]=useState(null),[as,setAs]=useState(null),[tab,setTab]=useState("replay");
   const[playing,setPlaying]=useState(false);
+  const[collapsed,setCollapsed]=useState({});
+  const[search,setSearch]=useState(""),[errOnly,setErrOnly]=useState(false),[hideGet,setHideGet]=useState(false);
   const playRef=useRef(null);
-  const filtered=as!=null?tl.filter(t=>t.session===as):tl;
+  const filtered=(()=>{
+    let f=as!=null?tl.filter(t=>t.session===as):tl;
+    if(errOnly)f=f.filter(t=>t.swSev==="err"||t.flag);
+    if(hideGet)f=f.filter(t=>t.ins!=="GET DATA");
+    if(search){const q=search.toLowerCase();f=f.filter(t=>(t.ins||"").toLowerCase().includes(q)||(t.note||"").toLowerCase().includes(q)||(t.sw||"").includes(q)||(t.cmdHex||"").toLowerCase().includes(q));}
+    return f;
+  })();
   const go=id=>{setSel(id);setTab("replay");setTimeout(()=>{const el=document.getElementById(\`ex-\${id}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},30);};
   // Auto-advance when playing
   useEffect(()=>{
@@ -318,7 +363,13 @@ export default function Dashboard(){
             {playing?"⏸ Pause":"▶ Play"}
           </button>
           {sel!=null&&<span style={{color:C.muted,fontSize:10}}>{filtered.findIndex(t=>t.id===sel)+1} / {filtered.length}</span>}
-          <span style={{marginLeft:"auto",fontSize:10}}>↑↓ or j/k navigate · space play/pause</span>
+          <span style={{marginLeft:"auto",fontSize:10}}>↑↓ j/k · space play</span>
+        </div>
+        <div style={{padding:"4px 14px",borderBottom:\`1px solid \${C.border}\`,display:"flex",alignItems:"center",gap:6,background:C.surface}}>
+          <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search INS, annotation, hex..." style={{flex:1,background:C.bg,border:\`1px solid \${C.border}\`,borderRadius:3,padding:"4px 8px",fontSize:11,color:C.text,outline:"none",fontFamily:"monospace",maxWidth:260}}/>
+          <button onClick={()=>setErrOnly(!errOnly)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,border:\`1px solid \${errOnly?C.red:C.border}\`,background:errOnly?C.red+"18":"transparent",color:errOnly?C.red:C.muted,cursor:"pointer"}}>Errors</button>
+          <button onClick={()=>setHideGet(!hideGet)} style={{fontSize:10,padding:"3px 8px",borderRadius:3,border:\`1px solid \${hideGet?C.amber:C.border}\`,background:hideGet?C.amber+"18":"transparent",color:hideGet?C.amber:C.muted,cursor:"pointer"}}>Hide GET</button>
+          <span style={{fontSize:10,color:C.dim}}>{filtered.length}/{tl.length}</span>
         </div>
         {(()=>{
           const SC=["#6366f1","#f59e0b","#10b981","#ec4899","#3b82f6"];
@@ -329,25 +380,30 @@ export default function Dashboard(){
             const si=t.session;
             const sm=sessions[si];
             const sc=SC[si%SC.length];
+            const isCollapsed=collapsed[si];
+            const sessionExchanges=filtered.filter(x=>x.session===si);
+            const errCount=sessionExchanges.filter(x=>x.swSev==="err"||x.flag==="bug").length;
             return <div key={t.id}>
-              {showHeader&&<div style={{position:"sticky",top:0,zIndex:9,background:"#131a28",borderBottom:\`1px solid \${C.border}\`,borderTop:\`1px solid \${C.border}\`}}>
+              {showHeader&&<div onClick={()=>setCollapsed(p=>({...p,[si]:!p[si]}))} style={{position:"sticky",top:0,zIndex:9,background:"#131a28",borderBottom:\`1px solid \${C.border}\`,borderTop:\`1px solid \${C.border}\`,cursor:"pointer",userSelect:"none"}}>
                 <div style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px"}}>
                   <div style={{width:3,alignSelf:"stretch",background:sc,borderRadius:"2px 0 0 2px",flexShrink:0,minHeight:20}}/>
+                  <span style={{color:"#8899bb",fontSize:12}}>{isCollapsed?"▶":"▼"}</span>
                   <span style={{color:sc,fontWeight:700,fontSize:13,fontFamily:"monospace"}}>SESSION {si}</span>
                   {sm&&<span style={{color:C.muted,fontSize:11}}>{sm.start_time?.split(" ")[1]?.substring(0,8)||""} – {sm.end_time?.split(" ")[1]?.substring(0,8)||""}</span>}
                   <span style={{color:C.muted,fontSize:11}}>{sm?.exchange_count||"?"} exchanges</span>
-                  {sm?.summary&&<span style={{flex:1}}/>}
+                  {errCount>0&&<span style={{color:C.red,fontSize:10,fontFamily:"monospace"}}>{errCount} errors</span>}
+                  <span style={{marginLeft:"auto",color:"#8899bb",fontSize:11}}>{isCollapsed?"▶":"▼"}</span>
                 </div>
-                {sm?.summary&&<div style={{padding:"4px 16px 8px",fontSize:11,color:C.muted,lineHeight:1.6,borderTop:\`1px solid \${C.border}44\`}}>{sm.summary}</div>}
-                {sm?.operations?.length>0&&<div style={{padding:"4px 16px 8px",display:"flex",flexWrap:"wrap",gap:4,borderTop:\`1px solid \${C.border}44\`}}>
+                {!isCollapsed&&sm?.summary&&<div style={{padding:"4px 16px 8px",fontSize:11,color:C.muted,lineHeight:1.6,borderTop:\`1px solid \${C.border}44\`}}>{sm.summary}</div>}
+                {!isCollapsed&&sm?.operations?.length>0&&<div style={{padding:"4px 16px 8px",display:"flex",flexWrap:"wrap",gap:4,borderTop:\`1px solid \${C.border}44\`}}>
                   <span style={{fontSize:9,color:C.muted,fontFamily:"monospace",letterSpacing:.3}}>OPS:</span>
                   {sm.operations.map((op,i)=><span key={i} style={{fontSize:10,fontFamily:"monospace",color:C.teal,background:C.teal+"11",border:\`1px solid \${C.teal}33\`,borderRadius:3,padding:"1px 6px"}}>{op.label} ({op.detail})</span>)}
                 </div>}
               </div>}
-              <div id={\`ex-\${t.id}\`} style={{borderLeft:\`3px solid \${sc}22\`}}>
+              {!isCollapsed&&<div id={\`ex-\${t.id}\`} style={{borderLeft:\`3px solid \${sc}22\`}}>
                 <ExRow t={t} sel={sel===t.id} onClick={()=>setSel(sel===t.id?null:t.id)}/>
                 {sel===t.id&&<ExDetail t={t}/>}
-              </div>
+              </div>}
             </div>;
           });
         })()}</>}
@@ -391,11 +447,25 @@ export default function Dashboard(){
           </div>
           <div style={{fontSize:10,color:C.muted}}>{d.compliance.standard_pct}% standard, {d.compliance.proprietary_pct}% proprietary ({(d.compliance.proprietary_ins||[]).join(", ")})</div></div>}
 
-        {d.notable_annotations?.length>0&&<div style={{marginTop:16}}><div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Notable ({d.notable_annotations.length})</div>
-          {d.notable_annotations.map((a,i)=><div key={i} onClick={()=>go(a.exchange)} style={{display:"flex",gap:6,fontSize:10,lineHeight:1.6,cursor:"pointer",padding:"2px 0"}}>
+        {d.notable_annotations?.length>0&&<div style={{marginTop:16}}><div style={{fontWeight:600,fontSize:13,marginBottom:6}}>Notable ({d.notable_annotations.length})</div>
+          {d.notable_annotations.map((a,i)=><div key={i} onClick={()=>go(a.exchange)} style={{display:"flex",gap:6,fontSize:11,lineHeight:1.6,cursor:"pointer",padding:"2px 0"}}>
             <span style={{color:C.teal,fontFamily:"monospace",minWidth:28,textDecoration:"underline"}}>{a.exchange}</span>
             <Badge color={flagC(a.flag)||C.amber}>{a.flag}</Badge>
             <span style={{color:C.muted}}>{a.note}</span></div>)}</div>}
+
+        {d.object_ledger?.length>0&&<div style={{marginTop:16}}><div style={{fontWeight:600,fontSize:13,marginBottom:8}}>Object Ledger ({d.object_ledger.length} objects)</div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(180px,1fr))",gap:4}}>
+          {d.object_ledger.map((obj,i)=>{
+            const sc=obj.status==="present"?C.green:obj.status==="mutated"?C.amber:obj.status==="access-error"?C.red:C.dim;
+            return <div key={i} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderRadius:3,border:\`1px solid \${sc}22\`,background:\`\${sc}08\`,fontSize:11}}>
+              <span style={{width:6,height:6,borderRadius:"50%",background:sc,flexShrink:0}}/>
+              <span style={{color:C.text,fontFamily:"monospace",fontSize:10}}>{obj.tag||"?"}</span>
+              <span style={{color:C.muted,fontSize:10,flex:1}}>{obj.name||""}</span>
+              {obj.size!=null&&<span style={{color:C.dim,fontSize:9}}>{obj.size}B</span>}
+            </div>;
+          })}
+          </div>
+        </div>}
       </div>}
 
       {tab==="identity"&&<div style={{padding:14}}>
