@@ -1,0 +1,1697 @@
+{
+  "cardId": {
+    "name": "SafeNet eToken 5110",
+    "id": "safenet-etoken-5110",
+    "vendor": "Thales (SafeNet)",
+    "confidence": 0.95,
+    "signals": [
+      "SafeNet FF F3 key containers",
+      "CLA=0x81 vendor commands",
+      "ATR match: SafeNet eToken 5100"
+    ],
+    "cardType": null
+  },
+  "atrOnlyId": {
+    "name": "SafeNet eToken 5100",
+    "confidence": 0.92
+  },
+  "atrParse": {
+    "convention": "direct",
+    "protocols": [
+      "T=1"
+    ],
+    "historicalAscii": null,
+    "checkValid": true,
+    "summary": "Direct | T=1 | TCK:ok"
+  },
+  "sessionCount": 4,
+  "annotations": [
+    {
+      "idx": 0,
+      "ins": "SELECT",
+      "note": "SELECT PKCS#15 → not found",
+      "flag": "warn"
+    },
+    {
+      "idx": 1,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6999",
+      "flag": "warn"
+    },
+    {
+      "idx": 2,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6999",
+      "flag": "warn"
+    },
+    {
+      "idx": 3,
+      "ins": "SELECT",
+      "note": "SELECT AID → 6999",
+      "flag": "warn"
+    },
+    {
+      "idx": 4,
+      "ins": "GET DATA",
+      "note": "GET DATA → SW 6999",
+      "flag": "warn"
+    },
+    {
+      "idx": 5,
+      "ins": "SELECT",
+      "note": "SELECT PIV applet",
+      "flag": null
+    },
+    {
+      "idx": 6,
+      "ins": "GET DATA",
+      "note": "GET Card Capability Container → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 7,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 8,
+      "ins": "GET DATA",
+      "note": "GET Key History Object → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 9,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 10,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 11,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 12,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 13,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 14,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 15,
+      "ins": "GET DATA",
+      "note": "GET Biometric Info Templates Group → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 16,
+      "ins": "SELECT",
+      "note": "SELECT ISD v1",
+      "flag": null
+    },
+    {
+      "idx": 17,
+      "ins": "SELECT",
+      "note": "SELECT ISD v1",
+      "flag": null
+    },
+    {
+      "idx": 18,
+      "ins": "GET DATA",
+      "note": "GET CHUID (Cardholder Unique ID) → 61B",
+      "flag": null
+    },
+    {
+      "idx": 19,
+      "ins": "GET DATA",
+      "note": "GET Key History Object → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 20,
+      "ins": "GET DATA",
+      "note": "GET X.509 PIV Auth Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 21,
+      "ins": "GET DATA",
+      "note": "GET X.509 Card Auth Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 22,
+      "ins": "GET DATA",
+      "note": "GET X.509 Digital Signature Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 23,
+      "ins": "GET DATA",
+      "note": "GET X.509 Key Management Cert → not populated (6A80)",
+      "flag": null
+    },
+    {
+      "idx": 24,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 25,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 02 → 61B",
+      "flag": null
+    },
+    {
+      "idx": 26,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 02 → 61B",
+      "flag": null
+    },
+    {
+      "idx": 27,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 05 → not found",
+      "flag": null
+    },
+    {
+      "idx": 28,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 0A → not found",
+      "flag": null
+    },
+    {
+      "idx": 29,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 0B → not found",
+      "flag": null
+    },
+    {
+      "idx": 30,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 01 → not found",
+      "flag": null
+    },
+    {
+      "idx": 31,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 0D → not found",
+      "flag": null
+    },
+    {
+      "idx": 32,
+      "ins": "GET DATA",
+      "note": "GET DATA → Channel unsupported",
+      "flag": "warn"
+    },
+    {
+      "idx": 33,
+      "ins": "SELECT",
+      "note": "SELECT ISD v2 on ch1",
+      "flag": null
+    },
+    {
+      "idx": 34,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 35,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/51 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 36,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 37,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 38,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/81 → 57B",
+      "flag": null
+    },
+    {
+      "idx": 39,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 40,
+      "ins": "SELECT",
+      "note": "SELECT MF (no AID) → GP FCI returned",
+      "flag": null
+    },
+    {
+      "idx": 41,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 42,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 43,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 44,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 45,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/44 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 46,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/43 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 47,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/42 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 48,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/41 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 49,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/40 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 50,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/73 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 51,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/72 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 52,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/71 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 53,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/70 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 54,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6F → 34B",
+      "flag": null
+    },
+    {
+      "idx": 55,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6E → 34B",
+      "flag": null
+    },
+    {
+      "idx": 56,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6D → 34B",
+      "flag": null
+    },
+    {
+      "idx": 57,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6C → 34B",
+      "flag": null
+    },
+    {
+      "idx": 58,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6B → 34B",
+      "flag": null
+    },
+    {
+      "idx": 59,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/6A → 34B",
+      "flag": null
+    },
+    {
+      "idx": 60,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/69 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 61,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/68 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 62,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/67 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 63,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/66 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 64,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/65 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 65,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/64 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 66,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/63 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 67,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/62 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 68,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/61 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 69,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/60 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 70,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/9E → 34B",
+      "flag": null
+    },
+    {
+      "idx": 71,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/9D → 34B",
+      "flag": null
+    },
+    {
+      "idx": 72,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/9C → 34B",
+      "flag": null
+    },
+    {
+      "idx": 73,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/9A → 34B",
+      "flag": null
+    },
+    {
+      "idx": 74,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/57 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 75,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/56 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 76,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/55 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 77,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/54 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 78,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/53 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 79,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/52 → 34B",
+      "flag": null
+    },
+    {
+      "idx": 80,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/04 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 81,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/22 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 82,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/0D → 33B",
+      "flag": null
+    },
+    {
+      "idx": 83,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/21 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 84,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/20 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 85,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1F → 33B",
+      "flag": null
+    },
+    {
+      "idx": 86,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1E → 33B",
+      "flag": null
+    },
+    {
+      "idx": 87,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1D → 33B",
+      "flag": null
+    },
+    {
+      "idx": 88,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1C → 33B",
+      "flag": null
+    },
+    {
+      "idx": 89,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1B → 33B",
+      "flag": null
+    },
+    {
+      "idx": 90,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/1A → 33B",
+      "flag": null
+    },
+    {
+      "idx": 91,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/19 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 92,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/18 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 93,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/17 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 94,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/16 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 95,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/15 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 96,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/14 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 97,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/13 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 98,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/12 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 99,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/11 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 100,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/10 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 101,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/27 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 102,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/0E → 33B",
+      "flag": null
+    },
+    {
+      "idx": 103,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/06 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 104,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/01 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 105,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/0B → 33B",
+      "flag": null
+    },
+    {
+      "idx": 106,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/0A → 33B",
+      "flag": null
+    },
+    {
+      "idx": 107,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/0F → 33B",
+      "flag": null
+    },
+    {
+      "idx": 108,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/08 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 109,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/09 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 110,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/03 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 111,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/05 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 112,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/02 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 113,
+      "ins": "GET DATA",
+      "note": "GET key set FFF3/07 → 33B",
+      "flag": null
+    },
+    {
+      "idx": 114,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 115,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 02 → 61B",
+      "flag": null
+    },
+    {
+      "idx": 116,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 117,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 118,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 119,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 120,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 121,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 2: host cryptogram accepted for Management Key (9B) — SCP03 channel likely established",
+      "flag": null
+    },
+    {
+      "idx": 122,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 123,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 2: host cryptogram accepted for Management Key (9B) — SCP03 channel likely established",
+      "flag": null
+    },
+    {
+      "idx": 124,
+      "ins": "GET DATA",
+      "note": "GET key set FF90/0A → 38B",
+      "flag": null
+    },
+    {
+      "idx": 125,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 126,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 127,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 128,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 129,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 130,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900A: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 131,
+      "ins": "INS_47",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 132,
+      "ins": "PUT DATA",
+      "note": "PUT key container FF F3 05: write 77B",
+      "flag": null
+    },
+    {
+      "idx": 133,
+      "ins": "GET DATA",
+      "note": "GET key set FF90/0A → 38B",
+      "flag": null
+    },
+    {
+      "idx": 134,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 05 → 77B",
+      "flag": null
+    },
+    {
+      "idx": 135,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 136,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 137,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 138,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 139,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 140,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 141,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 142,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 3 (PROBABLE BUG): empty 82 00 after completed auth → 6A80 — host sequencing error",
+      "flag": "bug"
+    },
+    {
+      "idx": 143,
+      "ins": "GET DATA",
+      "note": "GET CCCID (7E) → present",
+      "flag": null
+    },
+    {
+      "idx": 144,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 145,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 146,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 147,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 148,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 149,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 2: host cryptogram accepted for Management Key (9B) — SCP03 channel likely established",
+      "flag": null
+    },
+    {
+      "idx": 150,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 151,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 2: host cryptogram accepted for Management Key (9B) — SCP03 channel likely established",
+      "flag": null
+    },
+    {
+      "idx": 152,
+      "ins": "GET DATA",
+      "note": "GET key set FF90/0D → 38B",
+      "flag": null
+    },
+    {
+      "idx": 153,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 154,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 155,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 156,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 157,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 158,
+      "ins": "PUT DATA",
+      "note": "PUT PIV key template FF900D: init empty template",
+      "flag": null
+    },
+    {
+      "idx": 159,
+      "ins": "INS_47",
+      "note": null,
+      "flag": null
+    },
+    {
+      "idx": 160,
+      "ins": "PUT DATA",
+      "note": "PUT key container FF F3 0B: write 77B",
+      "flag": null
+    },
+    {
+      "idx": 161,
+      "ins": "GET DATA",
+      "note": "GET key set FF90/0D → 38B",
+      "flag": null
+    },
+    {
+      "idx": 162,
+      "ins": "GET DATA",
+      "note": "GET key container FF F3 0B → 77B",
+      "flag": null
+    },
+    {
+      "idx": 163,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 164,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 165,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 166,
+      "ins": "GET DATA",
+      "note": "GET DATA → Success",
+      "flag": null
+    },
+    {
+      "idx": 167,
+      "ins": "GET DATA",
+      "note": "GET key set FF81/80 → 58B",
+      "flag": null
+    },
+    {
+      "idx": 168,
+      "ins": "GET DATA",
+      "note": "GET key set FF84/0B → 40B",
+      "flag": null
+    },
+    {
+      "idx": 169,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 1: request challenge from Management Key (9B) (AES-128)",
+      "flag": null
+    },
+    {
+      "idx": 170,
+      "ins": "GEN AUTH",
+      "note": "GEN AUTH step 3 (PROBABLE BUG): empty 82 00 after completed auth → 6A80 — host sequencing error",
+      "flag": "bug"
+    }
+  ],
+  "annotationStats": {
+    "total": 171,
+    "annotated": 169,
+    "flags": {
+      "warn": 6,
+      "bug": 2
+    }
+  },
+  "integrity": {
+    "kind": "complete",
+    "confidence": "high",
+    "sessionKind": "sessions",
+    "warnings": [],
+    "isFragment": false,
+    "isFiltered": false,
+    "isTiny": false
+  },
+  "objectLedger": [
+    {
+      "id": "FF F3 05",
+      "label": "Tag FF F3 05",
+      "type": "data-object",
+      "reads": {
+        "ok": 1,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 1,
+        "fail": 0
+      },
+      "app": null,
+      "size": 77,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "FF F3 0B",
+      "label": "Tag FF F3 0B",
+      "type": "data-object",
+      "reads": {
+        "ok": 1,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 1,
+        "fail": 0
+      },
+      "app": null,
+      "size": 77,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "FF 90 0A",
+      "label": "Tag FF 90 0A",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 6,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "FF 90 0D",
+      "label": "Tag FF 90 0D",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 6,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": true,
+      "classification": "mutated"
+    },
+    {
+      "id": "7E",
+      "label": "Discovery Object",
+      "type": "data-object",
+      "reads": {
+        "ok": 5,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 20,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "5F C1 02",
+      "label": "Tag 5F C1 02",
+      "type": "data-object",
+      "reads": {
+        "ok": 2,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 61,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "FF F3 02",
+      "label": "Tag FF F3 02",
+      "type": "data-object",
+      "reads": {
+        "ok": 3,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 61,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "01 04",
+      "label": "Tag 01 04",
+      "type": "data-object",
+      "reads": {
+        "ok": 1,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": 11,
+      "mutated": false,
+      "classification": "present"
+    },
+    {
+      "id": "DF 30",
+      "label": "Tag DF 30",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6999"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "access-error"
+    },
+    {
+      "id": "5F C1 07",
+      "label": "Tag 5F C1 07",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0C",
+      "label": "Tag 5F C1 0C",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 05",
+      "label": "Tag 5F C1 05",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0A",
+      "label": "Tag 5F C1 0A",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 0B",
+      "label": "Tag 5F C1 0B",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 01",
+      "label": "Tag 5F C1 01",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 2,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "5F C1 22",
+      "label": "Tag 5F C1 22",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "FF F3 0A",
+      "label": "Tag FF F3 0A",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "FF F3 01",
+      "label": "Tag FF F3 01",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "FF F3 0D",
+      "label": "Tag FF F3 0D",
+      "type": "data-object",
+      "reads": {
+        "ok": 0,
+        "fail": 1,
+        "sws": [
+          "6A80"
+        ]
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "expected-absent"
+    },
+    {
+      "id": "A0 00 00 00 18 80 00 00 00 06 62",
+      "label": "A0 00 00 00 18…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "62 76 01 FF 00 00 00",
+      "label": "62 76 01 FF 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 00 01 01",
+      "label": "A0 00 00 00 01…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "E8 2B 06 01 04 01 81 C3 1F 02 01",
+      "label": "E8 2B 06 01 04…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08 00 00 10 00",
+      "label": "PIV",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08 00 00 10 00 01 00",
+      "label": "ISD v1",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "A0 00 00 03 08 00 00 10 00 02 00",
+      "label": "ISD v2",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    },
+    {
+      "id": "3F 00",
+      "label": "3F 00…",
+      "type": "aid",
+      "reads": {
+        "ok": 0,
+        "fail": 0,
+        "sws": []
+      },
+      "writes": {
+        "ok": 0,
+        "fail": 0
+      },
+      "app": null,
+      "size": null,
+      "mutated": false,
+      "classification": "probed"
+    }
+  ],
+  "threats": [
+    {
+      "id": "timing-crypto",
+      "type": "TIMING_PROFILE",
+      "icon": "⏱",
+      "severity": "pass",
+      "title": "Fast GEN AUTH (~50ms) — consistent with ECC or modern hardware",
+      "detail": "Average card crypto execution: 50ms."
+    },
+    {
+      "id": "orphaned-keys",
+      "type": "ORPHANED_KEYS",
+      "icon": "⚠",
+      "severity": "warn",
+      "title": "Incomplete provisioning — key templates written but certificate slots empty",
+      "detail": "PUT DATA targeting FF90xx succeeded, but 5FC1xx reads returned 6A80. Card will fail smart card logon until certificates are provisioned."
+    }
+  ],
+  "threatSummary": [
+    {
+      "id": "timing-crypto",
+      "severity": "pass",
+      "type": "TIMING_PROFILE",
+      "title": "Fast GEN AUTH (~50ms) — consistent with ECC or modern hardware"
+    },
+    {
+      "id": "orphaned-keys",
+      "severity": "warn",
+      "type": "ORPHANED_KEYS",
+      "title": "Incomplete provisioning — key templates written but certificate slots empty"
+    }
+  ],
+  "certProvisioning": {
+    "probed": [
+      "5FC105",
+      "5FC10A",
+      "5FC10B",
+      "5FC101"
+    ],
+    "populated": [],
+    "absent": [
+      "5FC105",
+      "5FC10A",
+      "5FC10B",
+      "5FC101"
+    ],
+    "slotDetails": {
+      "5FC105": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27264
+      },
+      "5FC10A": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27264
+      },
+      "5FC10B": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27264
+      },
+      "5FC101": {
+        "probed": true,
+        "populated": false,
+        "size": 0,
+        "lastSW": 27264
+      }
+    },
+    "allEmpty": true,
+    "partial": false,
+    "full": false
+  },
+  "score": {
+    "score": 95,
+    "label": "Low Findings",
+    "labelNote": "Trace appears to capture provisioning. Cert slot and auth findings reflect setup state, not deployment risk.",
+    "color": "#22c55e",
+    "deductions": [
+      {
+        "reason": "Certificate slots empty (expected during provisioning): 9A (PIV Authentication), 9C (Digital Signature), 9D (Key Management), 9E (Card Authentication)",
+        "points": 0,
+        "severity": "info",
+        "category": "readiness"
+      },
+      {
+        "reason": "19 real command failures",
+        "points": 5,
+        "severity": "low"
+      }
+    ],
+    "confidence": "normal",
+    "isProvisioning": true
+  },
+  "compliance": {
+    "total": 171,
+    "standard": 65,
+    "proprietary": 106,
+    "unknown": 0,
+    "standardPct": 38,
+    "proprietaryPct": 62,
+    "proprietaryInsCodes": [
+      "CB",
+      "CA",
+      "47"
+    ]
+  }
+}
