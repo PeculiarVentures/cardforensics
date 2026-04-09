@@ -18,9 +18,9 @@ Client-side smart card APDU trace forensic analyzer. Drop a macOS CryptoTokenKit
 - **SafeNet vendor decoding** for CLA=0x82 hardware serial retrieval, DF30 applet version, FF F3 key container mapping, and FF90 key template inventory
 - **EMV tag dictionary** with ~50 TLV tags and value interpreters (PAN masking, CVM rules, cryptogram types, transaction counters)
 - **Certificate viewer** with X.509 parsing via [Peculiar Ventures certificate viewer](https://github.com/PeculiarVentures/x509)
-- **Default key detection** using AES-ECB/SCP03 brute-force against known management keys
+- **Default key detection** via PIV GEN AUTH (AES-ECB, both witness and challenge tags) and GP SCP03 (session key derivation) brute-force against 10 known management keys
 - **Threat analysis** covering credential exposure, nonce replay, timing side-channels, bulk erasure patterns, orphaned keys, and ACL bypass
-- **Security scoring** with weighted findings and provisioning-aware confidence gating
+- **Security scoring** with threat-aware deductions (default keys -40, credential exposure -30, per-warning -5), provisioning-aware confidence gating, and letter-grade output (A-F)
 - **AI analysis** with optional per-exchange and session-level LLM analysis (requires your API key)
 - **Forensic export** as deterministic JSON evidence package (schema v2.4) with token identity, ATR parse, AID resolution, and database coverage metadata
 
@@ -32,7 +32,7 @@ Everything runs in the browser. No data leaves your machine (unless AI is enable
 
 ## Claude Skill
 
-CardForensics includes a Claude skill for offline trace analysis. The skill runs the full analysis pipeline (card ID, token identity, threats, key brute-force, cert provisioning, scoring, sessions, annotations) and renders an interactive React dashboard with keyboard navigation.
+CardForensics includes a Claude skill for offline trace analysis. The skill runs the full analysis pipeline (card ID, token identity, threats, key brute-force, cert provisioning, scoring, sessions, annotations) and renders an interactive React dashboard with keyboard navigation. AI summaries are generated inline by Claude without requiring an API key.
 
 ```
 skill/
