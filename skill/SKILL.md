@@ -47,17 +47,17 @@ npx vite-node skill/scripts/analyze.js <path-to-log> --verbose > /tmp/cf-analysi
 - `<path-to-log>` — uploaded CryptoTokenKit `.log` file (check `/mnt/user-data/uploads/`)
 - `--verbose` — include full timeline with per-exchange data (recommended for dashboard)
 
-**Step 2: Enrich with AI explanations**
+**Step 2: Enrich with AI analysis**
 
-Read `/tmp/cf-analysis.json` and add an `explanation` field to notable or flagged timeline exchanges. Focus on exchanges where `flag` is set (`bug`, `warn`, `key`, `expected`) and any exchange the user is asking about. Each explanation should be 2-3 sentences covering what the host is doing, why, and any security implications. Write the enriched JSON back:
+Read `/tmp/cf-analysis.json` and add these fields:
 
-```bash
-# Claude reads the JSON, adds explanation fields, writes enriched version
-# Example: for exchange with flag "bug" and note "GEN AUTH step 3 (PROBABLE BUG)..."
-# add: "explanation": "The host sent an empty tag 82 after already completing mutual auth..."
-```
+1. **`d.summary`** — 3-5 sentence executive summary covering card type, lifecycle phase, critical findings, cert status, and compliance observations.
 
-The dashboard renders `explanation` fields in a side panel next to the decoded fields. Exchanges without an `explanation` field simply show the decoded fields at full width.
+2. **`d.sessions[i].summary`** — 1-2 sentence summary per session describing what happened (e.g., "Card discovery and enumeration. Probes AIDs, reads firmware version, CHUID, certificate slots.").
+
+3. **`t.explanation`** on timeline exchanges — 1-2 sentence explanation covering what the host is doing, why, and security implications. Add to ALL exchanges with meaningful annotations, not just flagged ones. Cover: SELECT commands, cert reads, GET DATA results, GEN AUTH sequences, credential operations, vendor probes, key container operations. Exchanges without explanations show decoded fields at full width; exchanges with explanations show a side-by-side AI ANALYSIS panel.
+
+Write the enriched JSON to `/tmp/cf-enriched.json`.
 
 **Step 3: Render the dashboard**
 
@@ -66,7 +66,20 @@ cat /tmp/cf-enriched.json | npx vite-node skill/scripts/render.js \
   --output /mnt/user-data/outputs/cardforensics-dashboard.jsx
 ```
 
-Then present the artifact with `present_files`. The dashboard renders as an interactive React component with play/pause, keyboard navigation, PV certificate viewer, and AI analysis panels.
+Then present the artifact with `present_files`. The dashboard includes:
+- **Letter grade** (A-F) with hover tooltip showing score breakdown
+- **AI summary** panel at top with executive forensic summary
+- **Threat badges** with severity and clickable exchange links
+- **Session dividers** with sticky headers, colored bars, time ranges, error counts, AI summaries, operation badges. Collapsible.
+- **Filter bar** with text search, errors-only toggle, hide-GET-DATA toggle
+- **Play/pause** with sticky controls and keyboard navigation (arrows, j/k, space)
+- **Exchange detail** with two-column layout (decoded fields + AI analysis)
+- **Spec reference badges** linking to ISO 7816-4, SP 800-73-4, GP SCP03
+- **Decoded fields** for CHUID, credentials, version, discovery objects, key containers
+- **Annotated hex** with TLV-colored segments and hover tooltips
+- **PV certificate viewer** (vendored @peculiar/certificates-viewer) for cert exchanges
+- **Findings tab** with severity filter buttons, cert slot links, PV viewer in threats, key check, compliance bar, object ledger
+- **Identity tab** with card ID, token identity, CHUID fields
 
 After presenting the dashboard, add a brief prose summary highlighting the most important findings for the user's question.
 
@@ -211,7 +224,8 @@ Run with `--verbose` to get all annotations, then find the relevant exchange by 
 Focus on:
 1. `cert_provisioning` — slot status
 2. `object_ledger` — filter for 5FC1xx entries (PIV cert objects)
-3. Point them to the web UI at https://peculiarventures.github.io/cardforensics/ for interactive certificate viewing with the X.509 parser
+3. The dashboard embeds the PV certificate viewer (vendored @peculiar/certificates-viewer) for interactive X.509 inspection directly in the exchange detail and threat findings
+4. Cert slot badges in the Findings tab are clickable and jump to the exchange with the PV viewer
 
 ## Log Format
 
