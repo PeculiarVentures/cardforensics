@@ -1,38 +1,103 @@
 /**
  * Card family identification via ATR database, AID, tag, and CLA heuristics.
  *
- * Matches observed APDU patterns and optional ATR against known card profiles
- * using the PeculiarVentures/webcrypto-local card database (85 ATR entries)
- * plus built-in AID/CLA/tag heuristics for SafeNet, YubiKey, Gemalto,
+ * ATR matching uses two databases:
+ *  1. PeculiarVentures/webcrypto-local card-database.json (85 entries, includes
+ *     PKCS#11 driver paths and readOnly flags).
+ *  2. Community ATR database derived from pcsc-tools smartcard_list.txt (~5,000
+ *     entries including ~200 wildcard/mask patterns). See scripts/build-atr-db.js.
+ *
+ * Plus built-in AID/CLA/tag heuristics for SafeNet, YubiKey, Gemalto,
  * and generic PIV.
  */
 import { hexStr, decodeCmd, decodeRsp } from "../decode.js";
 import cardDB from "./card-database.json";
+import pcscDB from "./pcsc-atr-db.json";
 
-// ── ATR database lookup (exact + prefix matching) ──
+// ── ATR database: PV card-database.json (exact + prefix) ──
 
-const atrIndex = new Map();
+const pvIndex = new Map();
 for (const entry of cardDB.cards) {
   const key = entry.atr.toUpperCase().replace(/\s+/g, "");
-  atrIndex.set(key, entry);
+  pvIndex.set(key, entry);
+}
+
+// ── ATR database: pcsc-tools (exact map + compiled wildcard matchers) ──
+
+const pcscExactIndex = new Map();
+for (const rec of pcscDB.exact) {
+  pcscExactIndex.set(rec.a, rec);
 }
 
 /**
- * Match ATR against the PV card database.
- * Tries exact match first, then prefix match (some readers append
- * extra bytes after the historical characters).
+ * Compile a wildcard ATR pattern (using ".." for any-byte) into a test function.
+ * Each ".." matches exactly one hex byte pair (two hex chars).
+ * @param {string} pattern - e.g. "3B..0081.."
+ * @returns {(atr: string) => boolean}
+ */
+function compileWildcard(pattern) {
+  let reStr = "^";
+  for (let i = 0; i < pattern.length; i += 2) {
+    const pair = pattern.substring(i, i + 2);
+    reStr += pair === ".." ? "[0-9A-F]{2}" : pair.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+  reStr += "$";
+  const re = new RegExp(reStr);
+  return (atr) => re.test(atr);
+}
+
+const pcscWildcards = pcscDB.masked.map(rec => ({
+  ...rec,
+  test: compileWildcard(rec.a),
+}));
+
+/**
+ * Match ATR against all databases.
+ * Priority: PV exact > pcsc-tools exact > PV prefix > pcsc-tools wildcard.
+ *
+ * @param {string|null} atr - ATR hex string
+ * @returns {{ name: string, source: "pv"|"pcsc", type?: string, readOnly?: boolean, atr?: string, driver?: string }|null}
  */
 function matchATR(atr) {
   if (!atr) return null;
   const norm = atr.toUpperCase().replace(/\s+/g, "");
-  // Exact match
-  if (atrIndex.has(norm)) return atrIndex.get(norm);
-  // Prefix match (ATR in DB might be shorter than observed)
-  for (const [key, entry] of atrIndex) {
-    if (norm.startsWith(key) || key.startsWith(norm)) return entry;
+
+  // 1. PV exact (has driver/readOnly metadata)
+  if (pvIndex.has(norm)) {
+    const e = pvIndex.get(norm);
+    return { name: e.name, source: "pv", readOnly: e.readOnly, atr: e.atr, driver: e.driver };
   }
+
+  // 2. pcsc-tools exact
+  if (pcscExactIndex.has(norm)) {
+    const r = pcscExactIndex.get(norm);
+    return { name: r.n, source: "pcsc", type: r.t || null };
+  }
+
+  // 3. PV prefix match
+  for (const [key, entry] of pvIndex) {
+    if (norm.startsWith(key) || key.startsWith(norm)) {
+      return { name: entry.name, source: "pv", readOnly: entry.readOnly, atr: entry.atr, driver: entry.driver };
+    }
+  }
+
+  // 4. pcsc-tools wildcard/mask match
+  for (const wc of pcscWildcards) {
+    if (wc.test(norm)) {
+      return { name: wc.n, source: "pcsc", type: wc.t || null };
+    }
+  }
+
   return null;
 }
+
+/** Expose database stats for UI display. */
+export const ATR_DB_STATS = {
+  pvEntries: pvIndex.size,
+  pcscExact: pcscExactIndex.size,
+  pcscWildcards: pcscWildcards.length,
+  get total() { return this.pvEntries + this.pcscExact + this.pcscWildcards; },
+};
 
 /** Known card profiles with identification signal definitions. */
 export const CARD_PROFILES = [
@@ -103,15 +168,16 @@ export function identifyCard(exchanges, atr) {
   if (atrMatch) {
     const isReadOnly = atrMatch.readOnly === true;
     const name = atrMatch.name;
-    // Synthesize a profile from the database entry
+    const type = atrMatch.type || null;
     const synthProfile = {
-      id: `atr-${atrMatch.atr.substring(0, 12).toLowerCase()}`,
-      name, vendor: inferVendor(name), readOnly: isReadOnly,
-      signals: [{ type: "atr", value: atrMatch.atr, desc: `ATR database match` }],
+      id: type ? `${type}-${name.substring(0, 20).toLowerCase().replace(/\W+/g, "-")}` : `atr-${(atr || "").substring(0, 12).toLowerCase()}`,
+      name, vendor: inferVendor(name), readOnly: isReadOnly, cardType: type,
+      signals: [{ type: "atr", value: atr, desc: `ATR database match (${atrMatch.source})` }],
     };
+    const confidence = atrMatch.source === "pv" ? 0.92 : 0.85;
     return {
-      profile: synthProfile, confidence: 0.92,
-      signals: [`ATR database match: ${name}`, isReadOnly ? "card is read-only" : "card supports key operations"],
+      profile: synthProfile, confidence,
+      signals: [`ATR match: ${name}`, isReadOnly ? "card is read-only" : "card supports key operations"],
       atrMatch,
     };
   }
@@ -133,6 +199,12 @@ function inferVendor(name) {
   if (/athena/i.test(name)) return "Athena";
   if (/nitrokey/i.test(name)) return "Nitrokey";
   if (/rutoken/i.test(name)) return "Aktiv Co.";
+  if (/oberthur|idemia/i.test(name)) return "IDEMIA";
+  if (/nxp|jcop/i.test(name)) return "NXP";
+  if (/feitian/i.test(name)) return "Feitian";
+  if (/taglio/i.test(name)) return "Taglio";
+  if (/giesecke|g&d|starcos/i.test(name)) return "Giesecke+Devrient";
+  if (/acs\b|advanced card/i.test(name)) return "ACS";
   if (/national identity|eID|CNS/i.test(name)) return "Government eID";
   return "Unknown";
 }

@@ -7,7 +7,7 @@ Client-side PIV/GlobalPlatform smart card APDU trace forensic analyzer. Drop a m
 <img src="docs/assets/screenshot-analysis.png" width="49%" alt="Analyzing a YubiKey PIV trace" />
 </p>
 
-- **Card identification** via ATR database (85 cards) + AID/CLA/tag heuristics
+- **Card identification** via ATR database (~5,100 cards including ~200 wildcard patterns) + AID/CLA/tag heuristics
 - **Protocol reconstruction** — session boundaries, auth state machine, 61xx chaining
 - **Certificate viewer** — X.509 parsing with [Peculiar Ventures certificate viewer](https://github.com/nicolo-ribaudo/nicolo-ribaudo.github.io)
 - **Default key detection** — AES-ECB/SCP03 brute-force against known management keys
