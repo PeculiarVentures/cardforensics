@@ -73,6 +73,10 @@ const flagC=f=>f==="bug"?C.red:f==="key"?C.green:f==="warn"?C.amber:f==="expecte
 const flagBg=f=>f==="bug"?"#1a080811":f==="key"?"#082a1811":f==="warn"?"#1a160811":f==="expected"?"#11111411":"transparent";
 const Badge=({color:c,children:ch})=><span style={{fontSize:9,fontWeight:700,color:c,border:\`1px solid \${c}44\`,borderRadius:3,padding:"1px 6px",letterSpacing:.5,whiteSpace:"nowrap"}}>{ch}</span>;
 const swC=s=>s==="ok"?C.green:s==="err"?C.red:s==="warn"?C.amber:C.muted;
+const SPECS={"iso7816_4":{s:"ISO 7816-4",u:"https://www.iso.org/standard/77180.html"},"nist_73":{s:"SP 800-73-4",u:"https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-73-4.pdf"},"gp_scp03":{s:"GP SCP03",u:"https://globalplatform.org/specs-library/secure-channel-protocol-03-amendment-d-v1-1-2/"},"gp_card":{s:"GP Card 2.3",u:"https://globalplatform.org/specs-library/card-specification-v2-3-1/"},"emv":{s:"EMV",u:"https://www.emvco.com/emv-technologies/contact/"}};
+const INS_SPECS={0xA4:[{k:"nist_73",r:"§3.1"},{k:"iso7816_4",r:"§10.1"}],0xCB:[{k:"nist_73",r:"§3.5"}],0xCA:[{k:"nist_73",r:"§3.5"}],0xDB:[{k:"nist_73",r:"§3.6"}],0x87:[{k:"nist_73",r:"§3.7"},{k:"gp_scp03",r:"§3"}],0x20:[{k:"nist_73",r:"§3.2"},{k:"iso7816_4",r:"§10.7"}],0x2C:[{k:"iso7816_4",r:"§10.9"}],0x82:[{k:"gp_scp03",r:"§4"}],0x84:[{k:"gp_scp03",r:"§3"}],0xFD:[{k:"nist_73",r:"Vendor"}],0xFB:[{k:"nist_73",r:"Vendor"}]};
+const insToNum={"SELECT":0xA4,"GET DATA":0xCB,"PUT DATA":0xDB,"GEN AUTH":0x87,"VERIFY":0x20,"CHG REF DATA":0x2C,"EXT AUTH":0x82,"GET CHALLENGE":0x84,"INS_FD":0xFD,"PIV RESET":0xFB};
+function specRefs(ins){const n=insToNum[ins];return n?INS_SPECS[n]||[]:[];}
 
 function ExRow({t,sel,onClick}){
   const pc=PC[t.phase]||C.dim;
@@ -122,6 +126,12 @@ function ExDetail({t}){
 
     {/* Annotation bar */}
     {t.note&&<div style={{padding:"6px 12px",borderLeft:\`3px solid \${flagC(t.flag)||C.teal}\`,background:flagBg(t.flag),color:flagC(t.flag)||C.teal,fontSize:11}}>✦ {t.note}</div>}
+
+    {/* Spec references */}
+    {specRefs(t.ins).length>0&&<div style={{padding:"4px 12px",borderBottom:\`1px solid \${C.border}\`,display:"flex",gap:4,flexWrap:"wrap",alignItems:"center"}}>
+      <span style={{fontSize:9,color:C.dim,marginRight:4}}>SPEC</span>
+      {specRefs(t.ins).map((s,i)=>{const sp=SPECS[s.k];return sp?<a key={i} href={sp.u} target="_blank" rel="noopener" style={{fontSize:9,padding:"1px 6px",borderRadius:3,background:C.blue+"14",border:\`1px solid \${C.blue}33\`,color:C.blue,textDecoration:"none",fontFamily:"monospace"}}>{sp.s} {s.r}</a>:null;})}
+    </div>}
 
     {/* Two-column: Fields + AI Analysis */}
     <div style={{display:"flex",borderBottom:\`1px solid \${C.border}\`}}>
@@ -315,11 +325,12 @@ function PhaseBar({tl,s,oc}){
 
 export default function Dashboard(){
   const d=D,card=d.card_identification,token=d.token_identity,chuid=token?.chuid,score=d.security_score,certs=d.cert_provisioning;
-  const threats=(d.threats||[]).filter(t=>t.severity!=="pass"),tl=d.timeline||[],sessions=d.sessions||[];
+  const allThreats=d.threats||[],threats=allThreats.filter(t=>t.severity!=="pass"),tl=d.timeline||[],sessions=d.sessions||[];
   const[sel,setSel]=useState(null),[as,setAs]=useState(null),[tab,setTab]=useState("replay");
   const[playing,setPlaying]=useState(false);
   const[collapsed,setCollapsed]=useState({});
   const[search,setSearch]=useState(""),[errOnly,setErrOnly]=useState(false),[hideGet,setHideGet]=useState(false);
+  const[sevFilter,setSevFilter]=useState(null);
   const playRef=useRef(null);
   const filtered=(()=>{
     let f=as!=null?tl.filter(t=>t.session===as):tl;
@@ -489,8 +500,18 @@ export default function Dashboard(){
           {certs.all_empty&&<div style={{fontSize:11,color:C.amber,marginTop:4}}>All slots empty — unprovisioned</div>}
         </div>}
 
-        <div style={{fontWeight:600,fontSize:13,marginBottom:8}}>Threats ({threats.length})</div>
-        {threats.length===0?<div style={{color:C.green,fontSize:12}}>None</div>:threats.map((t,i)=>{
+        <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:10}}>
+          <span style={{fontWeight:600,fontSize:13}}>Threats</span>
+          {["critical","warn","info","pass"].map(sev=>{
+            const sc2=sev==="critical"?C.red:sev==="warn"?C.amber:sev==="info"?C.teal:C.green;
+            const ct=allThreats.filter(t=>t.severity===sev).length;
+            if(!ct)return null;
+            return <button key={sev} onClick={()=>setSevFilter(sevFilter===sev?null:sev)} style={{fontSize:10,padding:"2px 8px",borderRadius:3,border:\`1px solid \${sevFilter===sev?sc2:C.border}\`,background:sevFilter===sev?sc2+"22":"transparent",color:sevFilter===sev?sc2:C.muted,cursor:"pointer"}}>{sev} ({ct})</button>;
+          })}
+          {sevFilter&&<button onClick={()=>setSevFilter(null)} style={{fontSize:9,padding:"2px 6px",borderRadius:3,border:\`1px solid \${C.border}\`,background:"transparent",color:C.dim,cursor:"pointer"}}>clear</button>}
+        </div>
+        {(()=>{const ft=sevFilter?allThreats.filter(t=>t.severity===sevFilter):threats;
+        return ft.length===0?<div style={{color:C.green,fontSize:12}}>None</div>:ft.map((t,i)=>{
           const tc=t.severity==="critical"?C.red:t.severity==="warn"?C.amber:C.blue;
           const certMatch=(t.title+" "+t.detail).match(/slot (5FC1[0-9A-Fa-f]+)/i);
           const certTag=certMatch?certMatch[1].toUpperCase():null;
@@ -502,7 +523,7 @@ export default function Dashboard(){
               {t.exchange_ids?.length>0&&<div style={{marginTop:6}}>{t.exchange_ids.map(id=><span key={id} onClick={()=>go(id)} style={{fontSize:10,color:C.teal,cursor:"pointer",marginRight:8,textDecoration:"underline"}}>Exchange #{id}</span>)}</div>}
             </div>
             {certEx&&certEx.cert?.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={certEx.cert.b64} slot={CN[certTag]||certTag}/>}
-          </div>;})}
+          </div>;})})()}
 
         <div style={{fontWeight:600,fontSize:13,marginTop:16,marginBottom:8}}>Key Check</div>
         <div style={{fontSize:12,color:C.muted}}>Tested {d.key_check?.keys_tested} known keys across {d.key_check?.pairs_tested} auth pairs</div>
