@@ -1,43 +1,47 @@
 /**
  * CardForensics root component.
  *
- * Responsibilities:
- *   - Drag-and-drop file loading with APDU format validation
- *   - Memoized synchronous analysis pipeline (parse → decode → annotate)
- *   - Async AI pipeline: batch annotation → session summary (in that order)
- *   - Hybrid storage caching (artifact sandbox or localStorage fallback)
- *   - Three-screen flow: drop page → analysis loading → split-pane viewer
- *   - Export modal with copy-to-clipboard
+ * Layout router that composes analysis and AI hooks with the UI.
+ * Data pipeline lives in useTraceAnalysis, AI orchestration in useAIBatching.
  */
-import { useState, useMemo, useRef, useEffect, useCallback } from "react";
-import { storage, isSandbox } from "./storage.js";
-import { getApiConfig } from "./components/ApiConfig.jsx";
+import { useState, useRef, useEffect, useCallback } from "react";
 import LandingPage from "./components/LandingPage.jsx";
-import { traceHash, parseEntries, buildExchanges, decodeCmd, decodeRsp, h, hexStr, INS_MAP, extractATR } from "./decode.js";
-import { groupSessions, buildProtocolStates } from "./protocol.js";
-import {
-  analyzeIntegrity, classifyErrors, checkCertProvisioning, identifyCard,
-  computeComplianceProfile, computeSecurityScore, buildObjectLedger,
-  analyzeThreats, autoAnnotate,
-} from "./analysis/index.js";
-import { checkKnownKeys } from "./crypto.js";
-import { buildSessionPrompt, callClaude, extractJSON, analyzeBatch, MODEL, SESSION_MODEL } from "./ai.js";
+import { traceHash, decodeCmd, decodeRsp, h, hexStr, INS_MAP } from "./decode.js";
 import { buildForensicExport } from "./export.js";
 import { INS_SPECS } from "./knowledge.js";
 import { C, BTN, SESSION_COLORS } from "./theme.js";
 import {
   SequenceReplay, AISessionSummary, FindingsPanel,
-  FilterBar, SessionBlock, ExchangeDetail, ObjectLedger, SpecPanel, ApiConfig,
+  FilterBar, SessionBlock, ExchangeDetail, ObjectLedger, SpecPanel,
 } from "./components/index.js";
+import useTraceAnalysis from "./hooks/useTraceAnalysis.js";
+import useAIBatching from "./hooks/useAIBatching.js";
 
 export default function APDUViewer() {
-  // Single trace state: { name, log } or null.
-  // Replaces traceId + customTrace from the original.
-  const [trace, setTrace]       = useState(null);
+  // ── Trace state ──
+  const [trace, setTrace] = useState(null);
+
+  // ── Analysis pipeline (all synchronous memos + key check) ──
+  const analysis = useTraceAnalysis(trace);
+  const {
+    entries, exchanges, sessions,
+    integrity, errorProfile, cardId, complianceProfile,
+    protocolStates, protocolStatesRef,
+    objectLedger, certProvision, annotations,
+    activeThreats, securityScore, keyCheck,
+  } = analysis;
+
+  // ── AI pipeline (batching, session analysis, cache) ──
+  const ai = useAIBatching(trace, exchanges, sessions, protocolStatesRef, keyCheck);
+  const {
+    aiCache, aiSessions, aiSessionsLoading, aiSessionsError, aiSessionsWarning,
+    aiTraceMeta, lazyDone, batchComplete, triggerSessionAnalysis,
+  } = ai;
+
+  // ── UI state (stays in the component) ──
   const [selected, setSelected] = useState(null);
   const [collapsed, setCollapsed] = useState({});
   const [filters, setFilters]   = useState({ errorsOnly: false, hideGetData: false, search: "" });
-  const [keyCheck, setKeyCheck] = useState(null);
   const [dragOver, setDragOver] = useState(false);
   const [rightTab, setRightTab] = useState("detail");
   const [cardTip, setCardTip] = useState(false);
@@ -47,82 +51,16 @@ export default function APDUViewer() {
   const fileInputRef = useRef(null);
   const [exportModal, setExportModal] = useState(null);
   const [exportCopied, setExportCopied] = useState(false);
-  const aiCache = useRef(new Map());
-  const [aiSessions, setAiSessions]             = useState(null);
-  const [aiSessionsLoading, setAiSessionsLoading] = useState(false);
-  const [aiSessionsError, setAiSessionsError]   = useState(null);
-  const [aiSessionsWarning, setAiSessionsWarning] = useState(null);
-  const [aiTraceMeta, setAiTraceMeta]           = useState(null);
-  const [lazyDone, setLazyDone]                 = useState(0);
-  const [batchComplete, setBatchComplete]       = useState(false);
-  const [viewResults, setViewResults]           = useState(false);
-  const lazyRef = useRef({ running: false, aborted: false });
+  const [viewResults, setViewResults] = useState(false);
 
-  // Hash-based stable cache keys — survives re-drops of same file.
-  const cacheKey      = trace ? traceHash(trace.log) : null;
-  const STORAGE_CACHE = cacheKey ? `apdu-cache-${cacheKey}` : null;
-  const STORAGE_META  = cacheKey ? `apdu-meta-${cacheKey}`  : null;
+  // Cache key for SequenceReplay component key
+  const cacheKey = trace ? traceHash(trace.log) : null;
 
-  const entries         = useMemo(() => trace ? parseEntries(trace.log) : [], [trace]);
-  const traceATR        = useMemo(() => trace ? extractATR(trace.log) : null, [trace]);
-  const exchanges       = useMemo(() => buildExchanges(entries), [entries]);
-  const sessions        = useMemo(() => groupSessions(exchanges), [exchanges]);
-  const integrity       = useMemo(() => analyzeIntegrity(exchanges, sessions), [exchanges, sessions]);
-  const errorProfile    = useMemo(() => classifyErrors(exchanges), [exchanges]);
-  const cardId          = useMemo(() => identifyCard(exchanges, traceATR), [exchanges, traceATR]);
-  const complianceProfile = useMemo(() => computeComplianceProfile(exchanges), [exchanges]);
-  const protocolStates  = useMemo(() => buildProtocolStates(exchanges), [exchanges]);
-  const objectLedger    = useMemo(() => buildObjectLedger(exchanges, protocolStates), [exchanges, protocolStates]);
-  const certProvision   = useMemo(() => checkCertProvisioning(exchanges, objectLedger), [exchanges, objectLedger]);
-  const protocolStatesRef = useRef(protocolStates);
-  useEffect(() => { protocolStatesRef.current = protocolStates; }, [protocolStates]);
-
-  const annotations = useMemo(() => {
-    const out = {};
-    for (const ex of exchanges) { const a = autoAnnotate(ex, protocolStates[ex.id]); if (a) out[ex.id] = a; }
-    return out;
-  }, [exchanges, protocolStates]);
-
-  const securityScore = useMemo(
-    () => computeSecurityScore(keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates),
-    [keyCheck, integrity, errorProfile, certProvision, exchanges, protocolStates]
-  );
-  const activeThreats = useMemo(
-    () => analyzeThreats(exchanges, protocolStates, integrity),
-    [exchanges, protocolStates, integrity]
-  );
-
-  // Reset all derived state when trace changes.
+  // Reset UI state when trace changes (analysis + AI hooks handle their own resets)
   useEffect(() => {
     setSelected(null);
     setCollapsed({});
-    aiCache.current.clear();
-    setAiSessions(null);
-    setAiSessionsWarning(null);
-    setAiTraceMeta(null);
-    setAiSessionsError(null);
-    lazyRef.current.aborted = true;
-    setBatchComplete(false);
     setViewResults(false);
-    setKeyCheck(null);
-    setLazyDone(0);
-
-    if (!trace || !STORAGE_CACHE || !STORAGE_META) return;
-    (async () => {
-      try {
-        const cached = await storage.get(STORAGE_CACHE).catch(() => null);
-        if (cached?.value) {
-          const data = JSON.parse(cached.value);
-          for (const [id, text] of Object.entries(data)) aiCache.current.set(Number(id), text);
-        }
-        const meta = await storage.get(STORAGE_META).catch(() => null);
-        if (meta?.value) {
-          const { sessions: s, traceMeta } = JSON.parse(meta.value);
-          if (s) setAiSessions(s);
-          if (traceMeta) setAiTraceMeta(traceMeta);
-        }
-      } catch (e) { console.debug("Cache restore failed:", e); }
-    })();
   }, [trace]);
 
   // File drop handler.
@@ -154,95 +92,6 @@ export default function APDUViewer() {
     reader.readAsText(file);
     e.target.value = "";
   }, []);
-
-  // Check if AI is available (sandbox with proxy, or standalone with API key)
-  const aiAvailable = isSandbox() || (getApiConfig()?.apiKey?.length > 0);
-
-  // Batch AI analysis loop — runs after trace loads (only if AI is available).
-  useEffect(() => {
-    if (!exchanges.length || !sessions.length) return;
-    lazyRef.current = { running: true, aborted: false };
-    setLazyDone(0); setBatchComplete(false);
-
-    if (!aiAvailable) {
-      // No AI access — skip batch, mark complete immediately
-      setBatchComplete(true);
-      setAiSessionsError(!isSandbox() ? "AI disabled — add an API key on the drop page to enable" : null);
-      return;
-    }
-    const CHUNK = 20;
-    const chunks = sessions.flatMap(session => {
-      const c = [];
-      for (let i = 0; i < session.length; i += CHUNK) c.push(session.slice(i, i + CHUNK));
-      return c;
-    });
-    let chunkIdx = 0;
-    const processNext = async () => {
-      while (chunkIdx < chunks.length) {
-        if (lazyRef.current.aborted) return;
-        const chunk = chunks[chunkIdx++];
-        const uncached = chunk.filter(ex => !aiCache.current.has(ex.id));
-        if (uncached.length) {
-          try {
-            await analyzeBatch(uncached, protocolStatesRef.current, aiCache);
-            if (STORAGE_CACHE) {
-              const snap = Object.fromEntries(aiCache.current);
-              storage.set(STORAGE_CACHE, JSON.stringify(snap)).catch(e => console.debug("Cache write failed:", e));
-            }
-          } catch (err) { console.warn("Batch analysis failed:", err); }
-        }
-        setLazyDone(d => d + chunk.length);
-        if (chunkIdx < chunks.length) await new Promise(res => setTimeout(res, 800));
-      }
-    };
-    Promise.all([processNext()]).then(() => {
-      if (!lazyRef.current.aborted) { setBatchComplete(true); triggerSessionAnalysis(); }
-    });
-  }, [exchanges, sessions]);
-
-  const triggerSessionAnalysis = useCallback(() => {
-    if (!sessions.length || !aiAvailable) return;
-    setAiSessionsLoading(true); setAiSessionsError(null); setAiSessionsWarning(null);
-    const hasCached = (aiSessions?.length ?? 0) > 0;
-    const slowTimer = hasCached ? null : setTimeout(() => setAiSessionsWarning("Taking longer than usual — API may be busy…"), 30000);
-    let prompt;
-    try { prompt = buildSessionPrompt(sessions, exchanges, aiCache, keyCheck); }
-    catch (e) {
-      setAiSessionsError("Failed to build prompt: " + e.message);
-      setAiSessionsLoading(false); if (slowTimer) clearTimeout(slowTimer); return;
-    }
-    callClaude(prompt, null, 4096, SESSION_MODEL, 2)
-      .then(text => {
-        if (!text) { setAiSessionsError("No response from AI"); return; }
-        try {
-          const raw = extractJSON(text);
-          if (!raw) { setAiSessionsError("No JSON in response. Check browser console for raw text."); console.warn("Full AI response (no JSON found):", text); return; }
-          const parsed = JSON.parse(raw);
-          const sessionData = parsed?.sessions && Array.isArray(parsed.sessions) ? parsed.sessions : Array.isArray(parsed) ? parsed : null;
-          if (!sessionData) { setAiSessionsError("Unexpected response format"); return; }
-          setAiSessions(sessionData);
-          const meta = { card: parsed.card ?? null, protocol: parsed.protocol ?? null, finding: parsed.finding ?? null };
-          setAiTraceMeta(meta);
-          if (STORAGE_META)
-            storage.set(STORAGE_META, JSON.stringify({ sessions: sessionData, traceMeta: meta })).catch(e => console.debug("Meta write failed:", e));
-        } catch (e) { setAiSessionsError("Parse error: " + e.message); }
-      })
-      .catch(e => { setAiSessionsError(e.message ?? "Request failed"); })
-      .finally(() => { if (slowTimer) clearTimeout(slowTimer); setAiSessionsWarning(null); setAiSessionsLoading(false); });
-  }, [sessions, exchanges, keyCheck, STORAGE_META]);
-
-  // Trigger initial session analysis when sessions are ready (if no cached content).
-  useEffect(() => {
-    if (!sessions.length || aiSessionsLoading) return;
-    if (aiSessions?.length) return; // Already have cached content — don't re-run.
-    triggerSessionAnalysis();
-  }, [sessions]);
-
-  // Key check — runs once per trace.
-  useEffect(() => {
-    if (!exchanges.length) return;
-    checkKnownKeys(exchanges).then(setKeyCheck).catch(e => console.warn("Key check failed:", e));
-  }, [exchanges]);
 
   const handleSelect   = useCallback((ex) => setSelected(prev => prev?.id === ex.id ? null : ex), []);
   const toggleCollapse = useCallback((si) => {
