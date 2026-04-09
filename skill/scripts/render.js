@@ -5,41 +5,67 @@
  * Two-line exchange rows, annotated hex detail, parsed cert display,
  * phase bar, session filtering, threat cross-referencing.
  */
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const inputIdx = args.indexOf("--input");
 const outputIdx = args.indexOf("--output");
 let json = (inputIdx >= 0 && args[inputIdx + 1]) ? readFileSync(args[inputIdx + 1], "utf-8") : readFileSync("/dev/stdin", "utf-8");
 const data = JSON.parse(json);
 
-// Auto-trim for artifact size limits (~100KB JSX target)
-const MAX_JSON_CHARS = 80000;
-if (JSON.stringify(data).length > MAX_JSON_CHARS) {
-  console.error(`Data is ${Math.round(JSON.stringify(data).length/1024)}KB — trimming for artifact renderer...`);
-  // Strip heavy fields
-  if (data.timeline) data.timeline.forEach(t => { delete t.cmdHex; delete t.rspHex; delete t.ts; delete t.cert; });
+// Auto-trim heavy fields for artifact size limits
+const rawSize = JSON.stringify(data).length;
+if (rawSize > 50000) {
+  console.error(`Data is ${Math.round(rawSize/1024)}KB — stripping hex/timestamps...`);
+  if (data.timeline) data.timeline.forEach(t => { delete t.ts; });
   delete data.all_annotations;
   delete data.object_ledger;
-  if (data.sessions) data.sessions.forEach(s => { if (s.operations?.length > 5) s.operations = s.operations.slice(0, 5); });
-  // If still too large, keep only notable + session boundary exchanges
-  if (JSON.stringify(data).length > MAX_JSON_CHARS && data.timeline?.length > 100) {
-    const notable = new Set((data.notable_annotations || []).map(a => a.exchange));
-    const sessionStarts = new Set((data.sessions || []).map((s, i) => {
-      const first = data.timeline.find(t => t.session === i);
-      return first?.id;
-    }).filter(Boolean));
-    data.timeline = data.timeline.filter(t => notable.has(t.id) || sessionStarts.has(t.id) || t.flag);
-    data._trimmed = { original: data.exchange_count, shown: data.timeline.length };
-    console.error(`  Reduced timeline: ${data.exchange_count} → ${data.timeline.length} exchanges (notable + session starts)`);
+  if (data.sessions) data.sessions.forEach(s => { if (s.operations?.length > 10) s.operations = s.operations.slice(0, 10); });
+  const trimmedSize = JSON.stringify(data).length;
+  console.error(`  After strip: ${Math.round(trimmedSize/1024)}KB (${data.timeline?.length} exchanges)`);
+  // If still large, drop hex data
+  if (trimmedSize > 250000) {
+    console.error(`  Stripping hex data...`);
+    data.timeline.forEach(t => { delete t.cmdHex; delete t.rspHex; });
+    const noHexSize = JSON.stringify(data).length;
+    console.error(`  After hex strip: ${Math.round(noHexSize/1024)}KB`);
+    // Only drop exchanges if still massive
+    if (noHexSize > 250000 && data.timeline?.length > 200) {
+      const notable = new Set((data.notable_annotations || []).map(a => a.exchange));
+      const sessionStarts = new Set((data.sessions || []).map((s, i) => {
+        const first = data.timeline.find(t => t.session === i);
+        return first?.id;
+      }).filter(Boolean));
+      data.timeline = data.timeline.filter(t => notable.has(t.id) || sessionStarts.has(t.id) || t.flag);
+      data._trimmed = { original: data.exchange_count, shown: data.timeline.length };
+      console.error(`  Reduced timeline: ${data.exchange_count} → ${data.timeline.length} exchanges`);
+    }
   }
 }
 
-const out = generateJSX(data);
+// Load vendored PV cert viewer if data has certs
+const hasCerts = data.timeline?.some(t => t.cert);
+let pvB64 = "";
+if (hasCerts) {
+  const pvPath = join(__dirname, "../vendor/pv-cert-viewer.b64");
+  if (existsSync(pvPath)) {
+    pvB64 = readFileSync(pvPath, "utf-8").trim();
+    console.error(`  PV cert viewer: ${Math.round(pvB64.length/1024)}KB (base64)`);
+  } else {
+    console.error(`  Warning: PV cert viewer not found at ${pvPath}`);
+  }
+}
+
+const out = generateJSX(data, pvB64);
 if (outputIdx >= 0 && args[outputIdx + 1]) { writeFileSync(args[outputIdx + 1], out); console.error(`Dashboard written to ${args[outputIdx + 1]}`); } else { console.log(out); }
 
-function generateJSX(data) {
+function generateJSX(data, pvB64) {
+const pvConst = pvB64 ? `\nconst PV_B64="${pvB64}";\nconst PV_VARS=[["--pv-color-black","#c8d3e8"],["--pv-color-white","#0e1218"],["--pv-color-base","#0e1218"],["--pv-color-gray-1","#0e1218"],["--pv-color-gray-2","#111620"],["--pv-color-gray-3","#151b28"],["--pv-color-gray-4","#1e2940"],["--pv-color-gray-5","#2a3654"],["--pv-color-gray-6","#3a4560"],["--pv-color-gray-7","#1e2940"],["--pv-color-gray-8","#4a5568"],["--pv-color-gray-9","#8899bb"],["--pv-color-gray-10","#c8d3e8"],["--pv-color-primary","#5eead4"],["--pv-color-primary-contrast","#0e1218"],["--pv-color-secondary","#a78bfa"],["--pv-color-success","#34d399"],["--pv-color-wrong","#f87171"],["--pv-color-attention","#fbbf24"],["--pv-font-family","'SF Mono',Menlo,Monaco,monospace"],["--pv-size-base","3px"],["--pv-text-b1-size","11px"],["--pv-text-b2-size","10px"],["--pv-text-b3-size","9px"],["--pv-text-h4-size","12px"],["--pv-text-h5-size","11px"],["--pv-text-s1-size","10px"],["--pv-text-s2-size","9px"],["--pv-shadow-dark-hight","none"],["--pv-shadow-dark-medium","none"],["--pv-shadow-light-hight","none"],["--pv-shadow-light-low","none"],["--pv-shadow-light-medium","none"]];
+` : "";
 return `import{useState,useRef,useEffect}from"react";
-const D=${JSON.stringify(data)};
+const D=${JSON.stringify(data)};${pvConst}
 const C={bg:"#0a0d12",surface:"#111720",s2:"#161d28",border:"#1c2536",text:"#c8d0e0",dim:"#4a5570",muted:"#7888a4",teal:"#4ad8c7",green:"#34d399",amber:"#fbbf24",red:"#f87171",blue:"#60a5fa",purple:"#a78bfa",pink:"#f472b6",white:"#fff"};
 const PC={"pre-select probing":"#6366f1","application selection":C.blue,"GP card enumeration":C.purple,"PIV discovery":C.teal,"vendor object inventory":"#8b5cf6",authentication:C.amber,personalization:C.pink,"post-write verification":C.green,"idle / status read":C.dim};
 const PS={"pre-select probing":"PROBE","application selection":"SELECT","GP card enumeration":"GP","PIV discovery":"PIV","vendor object inventory":"VENDOR",authentication:"AUTH",personalization:"WRITE","post-write verification":"VERIFY","idle / status read":"IDLE"};
@@ -113,18 +139,9 @@ function ExDetail({t}){
       {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span>{t.continuations} GET RESPONSE continuations</span></>}
     </div>
 
-    {/* Cert viewer */}
-    {t.cert&&<div style={{padding:"8px 12px",borderTop:\`1px solid \${C.border}\`}}>
-      <div style={{color:C.teal,fontWeight:600,fontSize:11,marginBottom:6}}>X.509 Certificate — {CN[t.cert.slot]||t.cert.slot}</div>
-      <div style={{fontSize:10,display:"grid",gridTemplateColumns:"80px 1fr",gap:"2px 8px",lineHeight:1.7}}>
-        <span style={{color:C.dim}}>Subject</span><span style={{fontFamily:"monospace",fontSize:9,wordBreak:"break-all"}}>{t.cert.subject}</span>
-        <span style={{color:C.dim}}>Issuer</span><span style={{fontFamily:"monospace",fontSize:9,wordBreak:"break-all"}}>{t.cert.issuer}</span>
-        <span style={{color:C.dim}}>Serial</span><span style={{fontFamily:"monospace",fontSize:9}}>{t.cert.serial}</span>
-        <span style={{color:C.dim}}>Valid</span><span>{t.cert.notBefore} → {t.cert.notAfter}</span>
-        <span style={{color:C.dim}}>Key</span><span>{t.cert.keyAlgorithm}{t.cert.keySize?\` \${t.cert.keySize}-bit\`:""}</span>
-        <span style={{color:C.dim}}>Signature</span><span>{t.cert.algorithm}</span>
-      </div>
-    </div>}
+    {/* PV Certificate Viewer */}
+    {t.cert&&t.cert.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={t.cert.b64} slot={CN[t.cert.slot]||t.cert.slot}/>}
+    {t.cert&&(!t.cert.b64||typeof PV_B64==="undefined")&&<div style={{padding:"8px 12px",borderTop:\`1px solid \${C.border}\`,fontSize:10,color:C.muted}}>Certificate data not available for PV viewer</div>}
 
     {/* Hex toggle */}
     <div style={{borderTop:\`1px solid \${C.border}\`}}>
@@ -135,6 +152,41 @@ function ExDetail({t}){
         {t.rspHex&&<><div style={{color:C.green,marginBottom:2}}>RSP</div>
         <div style={{color:C.dim,background:C.bg,padding:"4px 6px",borderRadius:3}}>{t.rspHex}</div></>}
       </div>}
+    </div>
+  </div>;
+}
+
+let pvLoaded=false;
+function loadPV(){
+  if(pvLoaded||typeof PV_B64==="undefined")return Promise.resolve(false);
+  try{
+    const code=atob(PV_B64);
+    new Function(code)();
+    pvLoaded=true;
+    return Promise.resolve(true);
+  }catch(e){console.warn("PV load failed:",e);return Promise.resolve(false);}
+}
+function PVMount({b64,slot}){
+  const ref=useRef(null);
+  const[ready,setReady]=useState(pvLoaded);
+  useEffect(()=>{if(!pvLoaded)loadPV().then(ok=>{if(ok)setReady(true);});},[]);
+  useEffect(()=>{
+    if(!ready||!ref.current||!b64)return;
+    const el=ref.current;
+    el.innerHTML="";
+    const viewer=document.createElement("peculiar-certificate-viewer");
+    if(typeof PV_VARS!=="undefined")PV_VARS.forEach(([k,v])=>viewer.style.setProperty(k,v));
+    viewer.certificate=b64;
+    el.appendChild(viewer);
+    return()=>{el.innerHTML="";};
+  },[ready,b64]);
+  return <div style={{borderTop:\`1px solid \${C.border}\`}}>
+    <div style={{padding:"6px 10px",background:"#0b0f16",display:"flex",alignItems:"center",gap:8,borderBottom:\`1px solid \${C.border}\`}}>
+      <span style={{color:C.teal,fontWeight:700,fontSize:11}}>X.509 Certificate</span>
+      <span style={{fontSize:9,padding:"1px 6px",borderRadius:3,background:C.teal+"18",color:C.teal,border:\`1px solid \${C.teal}44\`}}>{slot}</span>
+    </div>
+    <div ref={ref} style={{overflow:"auto",maxHeight:500,background:"#0b0f16"}}>
+      {!ready&&<div style={{padding:10,fontSize:10,color:C.dim}}>Loading certificate viewer...</div>}
     </div>
   </div>;
 }
@@ -152,23 +204,43 @@ export default function Dashboard(){
   const d=D,card=d.card_identification,token=d.token_identity,chuid=token?.chuid,score=d.security_score,certs=d.cert_provisioning;
   const threats=(d.threats||[]).filter(t=>t.severity!=="pass"),tl=d.timeline||[],sessions=d.sessions||[];
   const[sel,setSel]=useState(null),[as,setAs]=useState(null),[tab,setTab]=useState("replay");
+  const[playing,setPlaying]=useState(false);
+  const playRef=useRef(null);
   const filtered=as!=null?tl.filter(t=>t.session===as):tl;
   const go=id=>{setSel(id);setTab("replay");setTimeout(()=>{const el=document.getElementById(\`ex-\${id}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},30);};
+  // Auto-advance when playing
+  useEffect(()=>{
+    if(playing&&filtered.length){
+      playRef.current=setInterval(()=>{
+        setSel(prev=>{
+          const ids=filtered.map(t=>t.id);
+          const ci=prev!=null?ids.indexOf(prev):-1;
+          const ni=ci<ids.length-1?ci+1:0;
+          const nid=ids[ni];
+          if(ni===0&&ci===ids.length-1){setPlaying(false);clearInterval(playRef.current);}
+          setTimeout(()=>{const el=document.getElementById(\`ex-\${nid}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"nearest"});},20);
+          return nid;
+        });
+      },800);
+    }
+    return()=>{if(playRef.current)clearInterval(playRef.current);};
+  },[playing,filtered]);
   useEffect(()=>{
     const onKey=e=>{
       if(tab!=="replay"||!filtered.length)return;
+      if(e.key===" "){e.preventDefault();setPlaying(p=>!p);return;}
+      if(playing)return;
       const ids=filtered.map(t=>t.id);
       const ci=sel!=null?ids.indexOf(sel):-1;
       let ni=-1;
       if(e.key==="ArrowDown"||e.key==="j"){ni=ci<ids.length-1?ci+1:0;e.preventDefault();}
       else if(e.key==="ArrowUp"||e.key==="k"){ni=ci>0?ci-1:ids.length-1;e.preventDefault();}
-      else if(e.key==="Enter"||e.key===" "){if(sel!=null){setSel(sel);} return;}
       else return;
       if(ni>=0){const nid=ids[ni];setSel(nid);setTimeout(()=>{const el=document.getElementById(\`ex-\${nid}\`);if(el)el.scrollIntoView({behavior:"smooth",block:"nearest"});},20);}
     };
     window.addEventListener("keydown",onKey);
     return()=>window.removeEventListener("keydown",onKey);
-  },[tab,sel,filtered]);
+  },[tab,sel,filtered,playing]);
   const sc=score?.score>=90?C.green:score?.score>=70?C.amber:C.red;
   const phases=[...new Set(tl.map(t=>t.phase).filter(Boolean))];
 
@@ -218,8 +290,14 @@ export default function Dashboard(){
     {/* Content */}
     <div style={{flex:1,overflow:"auto"}} tabIndex={0}>
       {tab==="replay"&&<>
-        {d._trimmed&&<div style={{padding:"6px 14px",fontSize:10,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries). Full trace at CardForensics web app.</div>}
-        <div style={{padding:"3px 14px",fontSize:9,color:C.dim,borderBottom:\`1px solid \${C.border}\`}}>Use arrow keys or j/k to navigate</div>
+        {d._trimmed&&<div style={{padding:"6px 14px",fontSize:10,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries)</div>}
+        <div style={{padding:"4px 14px",fontSize:10,color:C.dim,borderBottom:\`1px solid \${C.border}\`,display:"flex",alignItems:"center",gap:8}}>
+          <button onClick={()=>{if(!playing&&sel==null&&filtered.length){setSel(filtered[0].id);}setPlaying(p=>!p);}} style={{background:playing?C.amber+"22":"transparent",border:\`1px solid \${playing?C.amber:C.teal}66\`,borderRadius:4,padding:"2px 10px",fontSize:10,color:playing?C.amber:C.teal,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+            {playing?"⏸ Pause":"▶ Play"}
+          </button>
+          {sel!=null&&<span style={{color:C.muted,fontSize:9}}>{filtered.findIndex(t=>t.id===sel)+1} / {filtered.length}</span>}
+          <span style={{marginLeft:"auto",fontSize:9}}>↑↓ or j/k navigate · space play/pause</span>
+        </div>
         {filtered.map(t=><div key={t.id} id={\`ex-\${t.id}\`}>
         <ExRow t={t} sel={sel===t.id} onClick={()=>setSel(sel===t.id?null:t.id)}/>
         {sel===t.id&&<ExDetail t={t}/>}
