@@ -98,15 +98,12 @@ function CertViewer({ ex }) {
   }
   if (!parsed.b64) return null;
 
-  const summary = [parsed.subject, parsed.keyAlg + (parsed.keySize ? ` ${parsed.keySize}` : ""), parsed.selfSigned ? "self-signed" : parsed.issuer].filter(Boolean).join(" | ");
-
   return (
     <div style={{ borderTop: `1px solid ${C.border}` }}>
       <div onClick={() => setExpanded(e => !e)} style={{ padding: "4px 10px", background: "#0e1218", fontSize: 11, display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer" }}>
         <span style={{ color: C.teal, fontWeight: 600 }}>{"X.509 Certificate \u2014 " + String(SLOT_NAMES[tagHex] ?? tagHex)}</span>
         <span style={{ color: "#8899bb", fontSize: 11, userSelect: "none" }}>{expanded ? "\u25BC" : "\u25B6"}</span>
       </div>
-      <div style={{ padding: "2px 10px 4px", background: "#0b0f16", fontSize: 10, color: "#8899bb" }}>{String(summary)}</div>
       {expanded && <div ref={slotRef} style={{ overflow: "auto", maxHeight: 500, background: "#0b0f16" }} />}
     </div>
   );
