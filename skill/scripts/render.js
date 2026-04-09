@@ -33,7 +33,7 @@ function ExRow({t,sel,onClick}){
     <div style={{display:"flex",alignItems:"center",gap:6,padding:"4px 10px",fontFamily:"monospace",fontSize:11}}>
       <span style={{color:C.dim,fontSize:9,width:28,textAlign:"right",flexShrink:0}}>{t.id}</span>
       <span style={{color:C.muted,width:68,fontSize:9,flexShrink:0}}>{t.ts?.split(" ")[1]?.substring(0,12)||""}{t.dt!=null?<span style={{color:C.dim,fontSize:8,marginLeft:2}}>{t.dt}ms</span>:null}</span>
-      {t.auth&&<span style={{fontSize:8,color:C.green,flexShrink:0}}>\\u{1F512}</span>}
+      {t.auth&&<span style={{fontSize:8,color:C.green,flexShrink:0}}>🔒</span>}
       <span style={{fontSize:8,color:pc,border:\`1px solid \${C.border}\`,borderRadius:2,padding:"0 3px",flexShrink:0}}>{PS[t.phase]||""}</span>
       <span style={{color:C.blue,fontSize:10,flexShrink:0}}>\\u25B6 CMD</span>
       <span style={{fontSize:8,padding:"1px 4px",borderRadius:2,background:C.purple+"22",color:C.purple,border:\`1px solid \${C.purple}44\`,flexShrink:0}}>{t.claDesc||t.cla}</span>
@@ -68,7 +68,7 @@ function ExDetail({t}){
         <span>{t.ins}</span>
         {t.sw&&<span style={{color:swC(t.swSev)}}>{t.sw} {t.swMsg}</span>}
         {t.dt!=null&&<span>{t.dt}ms</span>}
-        {t.auth&&<span style={{color:C.green}}>\\u{1F512} {t.selected||"SCP"}</span>}
+        {t.auth&&<span style={{color:C.green}}>🔒 {t.selected||"SCP"}</span>}
       </div>
     </div>
 
