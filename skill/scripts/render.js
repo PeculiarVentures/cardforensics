@@ -127,7 +127,7 @@ function ExDetail({t}){
     {/* Two-column: Fields + AI Analysis */}
     <div style={{display:"flex",borderBottom:\`1px solid \${C.border}\`}}>
       {/* Left: decoded fields */}
-      <div style={{flex:"0 0 55%",padding:"10px 14px",fontSize:12,display:"grid",gridTemplateColumns:"90px 1fr",gap:"3px 10px",lineHeight:1.7,borderRight:t.explanation?\`1px solid \${C.border}\`:"none"}}>
+      <div style={{flex:"0 0 55%",padding:"10px 14px",fontSize:12,display:"grid",gridTemplateColumns:"90px 1fr",gap:"3px 10px",lineHeight:1.7,borderRight:\`1px solid \${C.border}\`}}>
         <span style={{color:C.dim}}>Instruction</span><span style={{color:C.text}}>{t.ins}</span>
         <span style={{color:C.dim}}>CLA</span><span style={{fontFamily:"monospace",color:C.text}}>{t.cla} ({t.claDesc})</span>
         <span style={{color:C.dim}}>P1 / P2</span><span style={{fontFamily:"monospace",color:C.text}}>{t.p1} / {t.p2}</span>
@@ -141,14 +141,14 @@ function ExDetail({t}){
         {t.continuations>0&&<><span style={{color:C.dim}}>Chaining</span><span style={{color:C.text}}>{t.continuations} GET RESPONSE continuations</span></>}
       </div>
       {/* Right: AI explanation (pre-computed by Claude during skill run) */}
-      {t.explanation&&<div style={{flex:1,padding:"10px 14px",background:"#0d1117",minHeight:80}}>
-        <div style={{fontSize:10,fontWeight:700,color:C.purple,letterSpacing:.5,marginBottom:8}}>AI ANALYSIS</div>
-        <div style={{fontSize:12,color:"#c4ccdd",lineHeight:1.7}}>{t.explanation}</div>
-      </div>}
+      <div style={{flex:1,padding:"10px 14px",background:"#0d1117",minHeight:80}}>
+        <div style={{fontSize:10,fontWeight:700,color:t.explanation?C.purple:C.dim,letterSpacing:.5,marginBottom:8}}>{t.explanation?"AI ANALYSIS":"ROUTINE"}</div>
+        <div style={{fontSize:12,color:t.explanation?"#c4ccdd":C.dim,lineHeight:1.7}}>{t.explanation||"Standard "+t.ins+" operation. No notable findings."}</div>
+      </div>
     </div>
 
     {/* PV Certificate Viewer */}
-    {t.cert&&t.cert.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={t.cert.b64} slot={CN[t.cert.slot]||t.cert.slot}/>}
+    {t.cert&&t.cert.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={t.cert.b64} slot={CN[t.cert.slot]||t.cert.slot} startOpen/>}
     {t.cert&&(!t.cert.b64||typeof PV_B64==="undefined")&&<div style={{padding:"8px 12px",borderTop:\`1px solid \${C.border}\`,fontSize:10,color:C.muted}}>Certificate data not available for PV viewer</div>}
 
     {/* Hex toggle */}
@@ -166,36 +166,37 @@ function ExDetail({t}){
 
 let pvLoaded=false;
 function loadPV(){
-  if(pvLoaded||typeof PV_B64==="undefined")return Promise.resolve(false);
+  if(pvLoaded||typeof PV_B64==="undefined")return false;
   try{
     const code=atob(PV_B64);
     new Function(code)();
     pvLoaded=true;
-    return Promise.resolve(true);
-  }catch(e){console.warn("PV load failed:",e);return Promise.resolve(false);}
+    return true;
+  }catch(e){console.warn("PV load failed:",e);return false;}
 }
-function PVMount({b64,slot}){
+function PVMount({b64,slot,startOpen}){
   const ref=useRef(null);
-  const[ready,setReady]=useState(pvLoaded);
-  useEffect(()=>{if(!pvLoaded)loadPV().then(ok=>{if(ok)setReady(true);});},[]);
+  const[open,setOpen]=useState(!!startOpen);
+  const mounted=useRef(false);
   useEffect(()=>{
-    if(!ready||!ref.current||!b64)return;
+    if(!open||mounted.current||!ref.current||!b64)return;
+    if(!pvLoaded)loadPV();
+    if(!pvLoaded)return;
     const el=ref.current;
     el.innerHTML="";
     const viewer=document.createElement("peculiar-certificate-viewer");
     if(typeof PV_VARS!=="undefined")PV_VARS.forEach(([k,v])=>viewer.style.setProperty(k,v));
     viewer.certificate=b64;
     el.appendChild(viewer);
-    return()=>{el.innerHTML="";};
-  },[ready,b64]);
+    mounted.current=true;
+  },[open,b64]);
   return <div style={{borderTop:\`1px solid \${C.border}\`}}>
-    <div style={{padding:"6px 10px",background:"#0b0f16",display:"flex",alignItems:"center",gap:8,borderBottom:\`1px solid \${C.border}\`}}>
-      <span style={{color:C.teal,fontWeight:700,fontSize:11}}>X.509 Certificate</span>
-      <span style={{fontSize:9,padding:"1px 6px",borderRadius:3,background:C.teal+"18",color:C.teal,border:\`1px solid \${C.teal}44\`}}>{slot}</span>
+    <div onClick={()=>setOpen(!open)} style={{padding:"6px 10px",background:"#0b0f16",display:"flex",alignItems:"center",gap:8,cursor:"pointer",borderBottom:open?\`1px solid \${C.border}\`:"none"}}>
+      <span style={{color:"#8899bb",fontSize:11}}>{open?"▼":"▶"}</span>
+      <span style={{color:C.teal,fontWeight:700,fontSize:12}}>X.509 Certificate</span>
+      <span style={{fontSize:10,padding:"1px 6px",borderRadius:3,background:C.teal+"18",color:C.teal,border:\`1px solid \${C.teal}44\`}}>{slot}</span>
     </div>
-    <div ref={ref} style={{overflow:"auto",maxHeight:500,background:"#0b0f16"}}>
-      {!ready&&<div style={{padding:10,fontSize:10,color:C.dim}}>Loading certificate viewer...</div>}
-    </div>
+    {open&&<div ref={ref} style={{overflow:"auto",maxHeight:500,background:"#0b0f16"}}/>}
   </div>;
 }
 
