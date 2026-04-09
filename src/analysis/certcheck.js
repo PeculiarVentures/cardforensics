@@ -95,6 +95,8 @@ export function checkCertProvisioning(exchanges, objectLedger) {
     probed, populated, absent, slotDetails: results,
     allEmpty: probed.length > 0 && populated.length === 0,
     partial: populated.length > 0 && absent.length > 0,
-    full: Object.keys(PIV_CERT_SLOT_TAGS).filter(t => PIV_CERT_SLOT_TAGS[t].required).every(t => results[t]?.populated),
+    requiredPopulated: Object.keys(PIV_CERT_SLOT_TAGS).filter(t => PIV_CERT_SLOT_TAGS[t].required).every(t => results[t]?.populated),
+    allPopulated: Object.keys(PIV_CERT_SLOT_TAGS).every(t => results[t]?.populated),
+    full: Object.keys(PIV_CERT_SLOT_TAGS).every(t => results[t]?.populated),
   };
 }
