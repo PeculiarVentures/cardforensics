@@ -318,24 +318,36 @@ export default function Dashboard(){
       </div>)}</>}
 
       {tab==="findings"&&<div style={{padding:14}}>
-        {certs&&<div style={{marginBottom:16}}><div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Certificate Slots</div>
-          <div style={{display:"flex",flexWrap:"wrap"}}>{(certs.probed||[]).map(tag=><div key={tag} style={{display:"inline-flex",alignItems:"center",gap:4,padding:"3px 8px",borderRadius:3,border:\`1px solid \${(certs.populated||[]).includes(tag)?C.green:C.red}33\`,background:\`\${(certs.populated||[]).includes(tag)?C.green:C.red}08\`,marginRight:4,marginBottom:4}}>
-            <span style={{fontSize:10,color:(certs.populated||[]).includes(tag)?C.green:C.red}}>{(certs.populated||[]).includes(tag)?"●":"○"}</span>
-            <span style={{fontSize:10}}>{CN[tag]||tag}</span></div>)}</div>
-          {certs.all_empty&&<div style={{fontSize:10,color:C.amber,marginTop:4}}>All slots empty — unprovisioned</div>}
+        {certs&&<div style={{marginBottom:16}}><div style={{fontWeight:600,fontSize:13,marginBottom:8}}>Certificate Slots</div>
+          <div style={{display:"flex",flexWrap:"wrap"}}>{(certs.probed||[]).map(tag=>{
+            const pop=(certs.populated||[]).includes(tag);
+            const certEx=pop?tl.find(e=>e.cert&&e.cert.slot===tag):null;
+            return <div key={tag} onClick={()=>certEx&&go(certEx.id)} style={{display:"inline-flex",alignItems:"center",gap:4,padding:"4px 10px",borderRadius:3,border:\`1px solid \${pop?C.green:C.red}33\`,background:\`\${pop?C.green:C.red}08\`,marginRight:4,marginBottom:4,cursor:pop?"pointer":"default"}}>
+            <span style={{fontSize:11,color:pop?C.green:C.red}}>{pop?"●":"○"}</span>
+            <span style={{fontSize:11,color:C.text}}>{CN[tag]||tag}</span>
+            {pop&&<span style={{fontSize:9,color:C.teal,marginLeft:4}}>→ #{certEx?.id}</span>}
+          </div>;})}
+          </div>
+          {certs.all_empty&&<div style={{fontSize:11,color:C.amber,marginTop:4}}>All slots empty — unprovisioned</div>}
         </div>}
 
-        <div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Threats ({threats.length})</div>
-        {threats.length===0?<div style={{color:C.green,fontSize:11}}>None</div>:threats.map((t,i)=>{
+        <div style={{fontWeight:600,fontSize:13,marginBottom:8}}>Threats ({threats.length})</div>
+        {threats.length===0?<div style={{color:C.green,fontSize:12}}>None</div>:threats.map((t,i)=>{
           const tc=t.severity==="critical"?C.red:t.severity==="warn"?C.amber:C.blue;
-          return <div key={i} style={{marginBottom:8,padding:"8px 10px",borderRadius:4,border:\`1px solid \${tc}22\`,background:\`\${tc}08\`}}>
-            <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}><Badge color={tc}>{t.severity}</Badge><span style={{fontSize:11,fontWeight:600}}>{t.title}</span></div>
-            <div style={{fontSize:10,color:C.muted,lineHeight:1.5}}>{t.detail}</div>
-            {t.exchange_ids?.length>0&&<div style={{marginTop:4}}>{t.exchange_ids.map(id=><span key={id} onClick={()=>go(id)} style={{fontSize:9,color:C.teal,cursor:"pointer",marginRight:6,textDecoration:"underline"}}>ex:{id}</span>)}</div>}
+          const certMatch=(t.title+" "+t.detail).match(/slot (5FC1[0-9A-Fa-f]+)/i);
+          const certTag=certMatch?certMatch[1].toUpperCase():null;
+          const certEx=certTag?tl.find(e=>e.cert&&e.cert.slot===certTag):null;
+          return <div key={i} style={{marginBottom:10,borderRadius:4,border:\`1px solid \${tc}22\`,background:\`\${tc}08\`,overflow:"hidden"}}>
+            <div style={{padding:"10px 12px"}}>
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}><Badge color={tc}>{t.severity}</Badge><span style={{fontSize:12,fontWeight:600,color:C.text}}>{t.title}</span></div>
+              <div style={{fontSize:11,color:C.muted,lineHeight:1.6}}>{t.detail}</div>
+              {t.exchange_ids?.length>0&&<div style={{marginTop:6}}>{t.exchange_ids.map(id=><span key={id} onClick={()=>go(id)} style={{fontSize:10,color:C.teal,cursor:"pointer",marginRight:8,textDecoration:"underline"}}>Exchange #{id}</span>)}</div>}
+            </div>
+            {certEx&&certEx.cert?.b64&&typeof PV_B64!=="undefined"&&<PVMount b64={certEx.cert.b64} slot={CN[certTag]||certTag}/>}
           </div>;})}
 
-        <div style={{fontWeight:600,fontSize:12,marginTop:16,marginBottom:6}}>Key Check</div>
-        <div style={{fontSize:11,color:C.muted}}>Tested {d.key_check?.keys_tested} known keys across {d.key_check?.pairs_tested} auth pairs</div>
+        <div style={{fontWeight:600,fontSize:13,marginTop:16,marginBottom:8}}>Key Check</div>
+        <div style={{fontSize:12,color:C.muted}}>Tested {d.key_check?.keys_tested} known keys across {d.key_check?.pairs_tested} auth pairs</div>
         {d.key_check?.matches?.length>0?d.key_check.matches.map((m,i)=><div key={i} style={{color:C.red,fontSize:11,fontWeight:600,marginTop:4}}>DEFAULT KEY: {m.name}</div>):<div style={{fontSize:10,color:C.green,marginTop:2}}>No default keys</div>}
 
         {d.compliance&&<div style={{marginTop:16}}><div style={{fontWeight:600,fontSize:12,marginBottom:6}}>Compliance</div>
