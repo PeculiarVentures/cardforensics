@@ -2,7 +2,10 @@
 
 Client-side PIV/GlobalPlatform smart card APDU trace forensic analyzer. Drop a macOS CryptoTokenKit log file and get:
 
-![CardForensics analyzing a YubiKey PIV trace](docs/assets/screenshot.png)
+<p>
+<img src="docs/assets/screenshot-landing.png" width="49%" alt="Landing page with Matrix APDU rain" />
+<img src="docs/assets/screenshot-analysis.png" width="49%" alt="Analyzing a YubiKey PIV trace" />
+</p>
 
 - **Card identification** via ATR database (85 cards) + AID/CLA/tag heuristics
 - **Protocol reconstruction** — session boundaries, auth state machine, 61xx chaining
