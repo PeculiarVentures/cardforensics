@@ -305,18 +305,45 @@ export default function Dashboard(){
     {/* Content */}
     <div style={{flex:1,overflow:"auto"}} tabIndex={0}>
       {tab==="replay"&&<>
-        {d._trimmed&&<div style={{padding:"6px 14px",fontSize:10,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries)</div>}
-        <div style={{padding:"4px 14px",fontSize:10,color:C.dim,borderBottom:\`1px solid \${C.border}\`,display:"flex",alignItems:"center",gap:8}}>
-          <button onClick={()=>{if(!playing&&sel==null&&filtered.length){setSel(filtered[0].id);}setPlaying(p=>!p);}} style={{background:playing?C.amber+"22":"transparent",border:\`1px solid \${playing?C.amber:C.teal}66\`,borderRadius:4,padding:"2px 10px",fontSize:10,color:playing?C.amber:C.teal,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+        {d._trimmed&&<div style={{padding:"6px 14px",fontSize:11,color:C.amber,background:C.amber+"08",borderBottom:\`1px solid \${C.border}\`}}>Showing {d._trimmed.shown} of {d._trimmed.original} exchanges (notable + session boundaries)</div>}
+        <div style={{padding:"4px 14px",fontSize:11,color:C.dim,borderBottom:\`1px solid \${C.border}\`,display:"flex",alignItems:"center",gap:8}}>
+          <button onClick={()=>{if(!playing&&sel==null&&filtered.length){setSel(filtered[0].id);}setPlaying(p=>!p);}} style={{background:playing?C.amber+"22":"transparent",border:\`1px solid \${playing?C.amber:C.teal}66\`,borderRadius:4,padding:"3px 12px",fontSize:11,color:playing?C.amber:C.teal,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
             {playing?"⏸ Pause":"▶ Play"}
           </button>
-          {sel!=null&&<span style={{color:C.muted,fontSize:9}}>{filtered.findIndex(t=>t.id===sel)+1} / {filtered.length}</span>}
-          <span style={{marginLeft:"auto",fontSize:9}}>↑↓ or j/k navigate · space play/pause</span>
+          {sel!=null&&<span style={{color:C.muted,fontSize:10}}>{filtered.findIndex(t=>t.id===sel)+1} / {filtered.length}</span>}
+          <span style={{marginLeft:"auto",fontSize:10}}>↑↓ or j/k navigate · space play/pause</span>
         </div>
-        {filtered.map(t=><div key={t.id} id={\`ex-\${t.id}\`}>
-        <ExRow t={t} sel={sel===t.id} onClick={()=>setSel(sel===t.id?null:t.id)}/>
-        {sel===t.id&&<ExDetail t={t}/>}
-      </div>)}</>}
+        {(()=>{
+          const SC=["#6366f1","#f59e0b","#10b981","#ec4899","#3b82f6"];
+          let lastSession=-1;
+          return filtered.map(t=>{
+            const showHeader=t.session!==lastSession;
+            lastSession=t.session;
+            const si=t.session;
+            const sm=sessions[si];
+            const sc=SC[si%SC.length];
+            return <div key={t.id}>
+              {showHeader&&<div style={{position:"sticky",top:0,zIndex:9,background:"#131a28",borderBottom:\`1px solid \${C.border}\`,borderTop:\`1px solid \${C.border}\`}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px"}}>
+                  <div style={{width:3,alignSelf:"stretch",background:sc,borderRadius:"2px 0 0 2px",flexShrink:0,minHeight:20}}/>
+                  <span style={{color:sc,fontWeight:700,fontSize:13,fontFamily:"monospace"}}>SESSION {si}</span>
+                  {sm&&<span style={{color:C.muted,fontSize:11}}>{sm.start_time?.split(" ")[1]?.substring(0,8)||""} – {sm.end_time?.split(" ")[1]?.substring(0,8)||""}</span>}
+                  <span style={{color:C.muted,fontSize:11}}>{sm?.exchange_count||"?"} exchanges</span>
+                  {sm?.summary&&<span style={{flex:1}}/>}
+                </div>
+                {sm?.summary&&<div style={{padding:"4px 16px 8px",fontSize:11,color:C.muted,lineHeight:1.6,borderTop:\`1px solid \${C.border}44\`}}>{sm.summary}</div>}
+                {sm?.operations?.length>0&&<div style={{padding:"4px 16px 8px",display:"flex",flexWrap:"wrap",gap:4,borderTop:\`1px solid \${C.border}44\`}}>
+                  <span style={{fontSize:9,color:C.muted,fontFamily:"monospace",letterSpacing:.3}}>OPS:</span>
+                  {sm.operations.map((op,i)=><span key={i} style={{fontSize:10,fontFamily:"monospace",color:C.teal,background:C.teal+"11",border:\`1px solid \${C.teal}33\`,borderRadius:3,padding:"1px 6px"}}>{op.label} ({op.detail})</span>)}
+                </div>}
+              </div>}
+              <div id={\`ex-\${t.id}\`} style={{borderLeft:\`3px solid \${sc}22\`}}>
+                <ExRow t={t} sel={sel===t.id} onClick={()=>setSel(sel===t.id?null:t.id)}/>
+                {sel===t.id&&<ExDetail t={t}/>}
+              </div>
+            </div>;
+          });
+        })()}</>}
 
       {tab==="findings"&&<div style={{padding:14}}>
         {certs&&<div style={{marginBottom:16}}><div style={{fontWeight:600,fontSize:13,marginBottom:8}}>Certificate Slots</div>
