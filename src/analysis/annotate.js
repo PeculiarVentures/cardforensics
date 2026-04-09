@@ -12,6 +12,7 @@
  */
 import { h, hexStr, decodeCmd, decodeRsp, INS_MAP, lookupSW } from "../decode.js";
 import { lintTLV } from "../tlv.js";
+import { lookupAID } from "./aid-database.js";
 
 // ── Status Word Context Classifier ───────────────────────────────────────
 
@@ -81,11 +82,18 @@ export function autoAnnotate(ex, protoState) {
   // SELECT (INS 0xA4)
   if (cmd.ins === 0xA4) {
     const aid = hexStr(cmd.data || []);
+    const aidNorm = aid.replace(/ /g, "").toUpperCase();
+    // Check AID database for a known application name
+    const aidInfo = lookupAID(aidNorm);
     if (aid.startsWith("A0 00 00 03 08 00 00 10 00 01")) return { note: "SELECT ISD v1", flag: null };
     if (aid.startsWith("A0 00 00 03 08 00 00 10 00 02")) return { note: "SELECT ISD v2 on ch1", flag: null };
     if (aid.startsWith("A0 00 00 03 08 00 00 10 00"))   return { note: "SELECT PIV applet", flag: null };
     if (aid.startsWith("A0 00 00 00 18")) return { note: `SELECT PKCS#15 → ${swOk ? "found" : "not found"}`, flag: swOk ? null : "warn" };
     if (!cmd.data?.length && swOk) return { note: "SELECT MF (no AID) → GP FCI returned", flag: null };
+    if (aidInfo) {
+      const status = swOk ? "success" : h(sw >> 8) + h(sw & 0xff);
+      return { note: `SELECT ${aidInfo.name} → ${status}`, flag: swOk ? null : "warn" };
+    }
     return { note: `SELECT AID → ${swOk ? "success" : h(sw >> 8) + h(sw & 0xff)}`, flag: swOk ? null : "warn" };
   }
 

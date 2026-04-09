@@ -8,6 +8,7 @@
  */
 import { hexStr, decodeCmd, decodeRsp } from "../decode.js";
 import cardDB from "./card-database.json";
+import { lookupAID, AID_CATEGORIES } from "./aid-database.js";
 
 // ── ATR database lookup (exact + prefix matching) ──
 
@@ -119,6 +120,26 @@ export function identifyCard(exchanges, atr) {
   // Generic PIV fallback
   if (selectedAIDs.some(a => a.startsWith("A000000308000010"))) {
     return { profile: CARD_PROFILES[4], confidence: 0.60, signals: ["PIV AID selected, no ATR available for specific identification"] };
+  }
+
+  // ── AID database fallback ──
+  // Check all selected AIDs against the broad AID database (EMV, eID, FIDO, OpenPGP, etc.)
+  for (const aid of selectedAIDs) {
+    const aidInfo = lookupAID(aid);
+    if (aidInfo) {
+      const categoryLabel = AID_CATEGORIES[aidInfo.category] || aidInfo.category;
+      const synthProfile = {
+        id: `aid-${aidInfo.category}-${aidInfo.name.substring(0, 20).toLowerCase().replace(/\W+/g, "-")}`,
+        name: aidInfo.name, vendor: inferVendor(aidInfo.name), readOnly: true,
+        cardType: aidInfo.category,
+        signals: [{ type: "aid", value: aidInfo.prefix, desc: `${categoryLabel} application` }],
+      };
+      return {
+        profile: synthProfile, confidence: 0.75,
+        signals: [`AID match: ${aidInfo.name} (${categoryLabel})`],
+        atrMatch: atrMatch || undefined,
+      };
+    }
   }
 
   return null;
